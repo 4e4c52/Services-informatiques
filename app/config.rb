@@ -2,8 +2,8 @@
 # activate :code_ray
 
 # Automatic sitemaps (gem install middleman-slickmap)
-# require "middleman-slickmap"
-# activate :slickmap
+#require "middleman-slickmap"
+#activate :slickmap
 
 # Automatic image dimension calculations
 # activate :automatic_image_sizes
@@ -39,7 +39,7 @@ configure :build do
   # activate :minify_javascript
   
   # Enable cache buster
-  # activate :cache_buster
+  activate :cache_buster
   
   # Use relative URLs
   # activate :relative_assets
