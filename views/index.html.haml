@@ -3,12 +3,58 @@
   
 - content_for :feature do
   %h2 Site des services informatiques  
+  %p Retrouvez ci-dessous les tutoriels pour utiliser les services informatiques.
+  %p Ces tutoriels sont fait pour aider à comprendre et utiliser tous les services informatiques proposés par l'école.
   
 - content_for :subcol do
   %dl
-    %dd.warning Certains liens pourraient être rompus et certaines fonctionnalités n'ont pas encore été implémentées.
+    %dd.warning Ce site est issu du projet de fin d'année des CIR 1 et est en constante amélioration.
+    %dd.work-in-progress Les tutoriels marqué de ce signe sont en cours de rédaction. Bien que pouvant vous être utiles, ils peuvent être approximatif et contenir des erreurs. Vous pouvez aider en les lisant et en envoyant vos remarques à #{mail_to "yann.le-ru@isen.fr", "Yann Le Ru"}.
   
 
-%h3 Where do I start?
+%h3 Commencez ici
 
-%p= lorem.paragraphs 7
+%dl
+  %dt= link_to "Acceder au réseau", "network.html"
+  %dd.work-in-progress Tout ce que vous devez savoir pour vous connecter et utiliser le réseau de l'école.
+  %dt= link_to "Salles informatique", "rooms.html"
+  %dd.work-in-progress Emplacement de toutes les salles informatique de l'école
+  %dt= link_to "Bornes WIFI", "wifi.html"
+  %dd.work-in-progress Emplacement des bornes WIFI de l'école.
+  
+%h3 Courrier electronique
+%dl
+  %dt= link_to "Configuration de l'accès aux email", "email.html"
+  %dd.work-in-progress Ce tutoriel couvre la configuration et l'accès à votre boîte mail de l'école.
+  %dt= link_to "Configuration de Thunderbird", "thunderbird.html"
+  %dd.work-in-progress Ce tutoriel couvre la configuration du logiciel Mozilla Thunderbird pour utiliser votre adresse email de l'école.
+  %dt= link_to "Note sur le filtrage et l'annuaire", "email_note.html"
+  %dd.work-in-progress Quelques points à connaître concernant le filtrage et les annuaires LDAP.
+  
+
+%h3 Environnement Numérique de Travail
+%dl
+  %dt= link_to "Configuration du courriel sur l'ENT", "ent_email.html"
+  %dd.work-in-progress Ce tutoriel couvre la configuration de votre boite mail sur l'ENT.
+  %dt= link_to "Configuration de l'agenda sur l'ENT", "ent_calendar.html"
+  %dd.work-in-progress Ce tutoriel couvre la configuration de votre agenda sur l'ENT
+
+%h3 Imprimantes
+%dl
+  %dt= link_to "Utilisation des imprimantes", "printers.html"
+  %dd.work-in-progress Ce tutoriel couvre l'utilisation des imprimantes sur le réseau de l'école.
+
+%h3 VirtualBox
+%dl  
+  %dt= link_to "Configuration et utilisation de VirtualBox", "virtualbox.html"
+  %dd.work-in-progress Ce tutoriel couvre la configuration et l'utilisation des machines virtuelles sous VirtualBox.
+  
+%h3 Subversion
+%dl  
+  %dt= link_to "Configuration et utilisation de SVN", "subversion.html"
+  %dd.work-in-progress Ce tutoriel couvre la configuration et l'utilisation du serveur SVN de l'école.
+
+%h3 Voice Over IP
+%dl
+  %dt= link_to "Note sur la VOIP"
+  %dd.work-in-progress Ce tutoriel couvre l'utilisation de la voix sur IP sur le réseau de l'école.
