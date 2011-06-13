@@ -1,0 +1,55 @@
+- content_for :head do
+  %title Enregistrer mon ordinateur > Services informatiques
+  
+- content_for :subcol do
+  none
+
+- content_for :feature do
+  %h2 Enregistrement de votre ordinateur
+  %p Trouvez ici comment enregistrer votre ordinateur afin de pouvoir vous connecter au réseau de l'école.  
+  %ul
+    %li Récupérer son adresse MAC
+    %li Enregistrer son adresse MAC
+  
+%h3 Récupérer son adresse MAC
+
+%p La procédure nécessaire à la récupération de votre adresse MAC diffère suivant votre système d'exploitation.
+%p 
+  Pour Windows, ouvrez le menu Démarrer puis entrez 
+  %strong cmd.exe 
+  et tapez sur la touche Entrée.
+%p 
+  Pour afficher la liste de toutes les interfaces réseau de votre machine, tapez la commande suivante.
+.code_container C:\> ipconfig /all
+%p Sous UNIX, ouvrez un terminal puis tapez la commande suivante.
+.code_container $ ifconfig
+%p 
+  Que ce soit sous Windows ou UNIX, l'adresse MAC est affichée sous le nom 
+  %i Adresse Physique.
+  
+.warning
+  Attention, il y a de grandes chances pour que votre carte Ethernet et votre carte WIFI aient deux adresses MAC différentes.
+  Pensez donc à enregistrer chacune d'elles.
+  
+%h3 Enregistrer son adresse MAC
+
+- form_tag '/data/data.php', :class => 'registration-form', :method => 'post' do
+  
+  #ajax-response
+
+  - field_set_tag do
+  
+    %p
+      = label_tag "Nom "
+      = text_field_tag :name, :id => :name
+      
+    %p
+      = label_tag "Prénom "
+      = text_field_tag :first_name, :id => :first_name
+      
+    %p
+      = label_tag "Adresse MAC "
+      = text_field_tag :mac_address, :id => :mac_address
+    
+  - field_set_tag(:class => 'buttons') do
+    = button_tag "Envoyer", :id => 'add_mac'

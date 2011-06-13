@@ -62,8 +62,9 @@
     #feature
       .wrapper
         = yield_content :feature
-        #sub-col
-          = yield_content :subcol
+        - unless sub_col_empty?(yield_content :subcol)
+          #sub-col
+            = yield_content :subcol
     
     #container
       .wrapper
@@ -75,4 +76,4 @@
     #footer
       .wrapper
         %p ISEN  - Brest &copy; 2011
-        %p Réalisé par #{link_to "Nathan Le Ray", "http://syrinxoon.net"}
+        %p Réalisé par #{link_to "Nathan Le Ray", "http://syrinxoon.net"}, powered by #{link_to "MongoDB", "http://www.mongodb.org/"}.
