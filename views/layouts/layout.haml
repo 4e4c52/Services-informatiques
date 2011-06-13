@@ -1,0 +1,79 @@
+!!! 5
+%html{ :lang => "fr" }
+  %head
+    %meta{ :charset => "utf-8" }
+
+    = favicon_tag "favicon.ico", :type => "image/ico"
+    = favicon_tag "favicon.png", :type => "image/png"
+    = stylesheet_link_tag "app.css"
+    = javascript_include_tag "jquery.min.js"
+    = javascript_include_tag "app.js"
+
+    = yield_content :head
+    
+  %body{ :class => page_classes }
+  
+    #nav
+      .wrapper
+        %strong Egalement sur #{link_to "isen.fr:", "http://web-brest.isen.fr"}
+        &nbsp;
+        = link_to "ENT", "https://web-brest.isen.fr/"
+        &nbsp;|&nbsp;
+        = link_to "Moodle", "http://web-brest.isen.fr/moodle/"
+        
+    #header
+      .wrapper
+        %h1#logo= link_to "Services informatiques", "index.html"
+        
+        %ul#menu
+          %li= link_to "Accueil", "index.html"
+          %li.expandable
+            = link_to "Tutoriels", "index.html", :id => "tuts-index"
+            #tuts{ :style => "display:none;" }
+              %hr
+              %dl#left
+                %dt Commencez ici
+                %dd= link_to "Acceder au réseau", "network.html"
+                %dd= link_to "Salles informatique", "rooms.html"
+                %dd= link_to "Bornes WIFI", "wifi.html"
+                %dt Courrier electronique
+                %dd= link_to "Configuration de l'accès aux email", "email.html"
+                %dd= link_to "Configuration de Thunderbird", "thunderbird.html"
+                %dd= link_to "Note sur le filtrage et l'annuaire", "email_note.html"
+                %dt ENT
+                %dd= link_to "Configuration du courriel sur l'ENT", "ent_email.html"
+                %dd= link_to "Configuration de l'agenda sur l'ENT", "ent_calendar.html"
+              %dl#right
+                %dt Imprimantes
+                %dd= link_to "Utilisation des imprimantes", "printers.html"
+                %dt VirtualBox
+                %dd= link_to "Configuration et utilisation de VirtualBox", "virtualbox.html"
+                %dt Subversion
+                %dd= link_to "Configuration et utilisation de SVN", "subversion.html"
+                %dt VOIP
+                %dd= link_to "Note sur la VOIP"
+          %li= link_to "Enregistrement", "registration.html"
+          %li= link_to "Admin", "admin/"
+        
+        .clearfix
+        
+    %hr.hide
+    
+    #feature
+      .wrapper
+        = yield_content :feature
+        - unless sub_col_empty?(yield_content :subcol)
+          #sub-col
+            = yield_content :subcol
+    
+    #container
+      .wrapper
+        #main-col
+          = yield
+    
+    %hr.hide
+    
+    #footer
+      .wrapper
+        %p ISEN  - Brest &copy; 2011
+        %p Réalisé par #{link_to "Nathan Le Ray", "http://syrinxoon.net"}, powered by #{link_to "MongoDB", "http://www.mongodb.org/"}.

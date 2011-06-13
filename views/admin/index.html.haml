@@ -1,0 +1,22 @@
+- content_for :head do
+  %title Administration > Services informatiques
+  
+- content_for :feature do
+  %h2 Administration
+  %p Retrouvez ici toutes les demandes d'enregistrement d'ordinateurs.
+  %p Ainsi que les signatures des différentes chartes.
+  
+- content_for :subcol do
+  none
+  
+%h3 Enregistrements
+%ul#registrations
+  %li
+    = image_tag "loader.gif" 
+    &nbsp;Chargement des données...
+  
+%h3 Signatures
+%ul#signatures
+  %li
+    = image_tag "loader.gif" 
+    &nbsp;Chargement des données...

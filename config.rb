@@ -14,6 +14,12 @@
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout
 
+with_layout :admin_layout do
+  page "/admin/"
+  page "/admin/index.html"
+  page "/admin/registrations.html"
+end
+
 # Helpers
 helpers do
   def sub_col_empty?(sub_col)

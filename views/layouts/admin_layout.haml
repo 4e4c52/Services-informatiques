@@ -1,0 +1,55 @@
+!!! 5
+%html{ :lang => "fr" }
+  %head
+    %meta{ :charset => "utf-8" }
+
+    = favicon_tag "favicon.ico", :type => "image/ico"
+    = favicon_tag "favicon.png", :type => "image/png"
+    = stylesheet_link_tag "app.css"
+    = javascript_include_tag "jquery.min.js"
+    = javascript_include_tag "admin.js"
+
+    = yield_content :head
+    
+  %body{ :class => page_classes }
+  
+    #nav
+      .wrapper
+        %strong Egalement sur #{link_to "isen.fr:", "http://web-brest.isen.fr"}
+        &nbsp;
+        = link_to "ENT", "https://web-brest.isen.fr/"
+        &nbsp;|&nbsp;
+        = link_to "Moodle", "http://web-brest.isen.fr/moodle/"
+        
+    #header
+      .wrapper
+        %h1#logo= link_to "Services informatiques", "../index.html"
+        
+        %ul#menu
+          %li= link_to "Accueil", "index.html"
+          %li= link_to "Enregistrements", "registrations.html"
+          %li= link_to "Charte Info", "computer_convention.html"
+          %li= link_to "Charte Protel", "protel_convention.html"
+        
+        .clearfix
+        
+    %hr.hide
+    
+    #feature
+      .wrapper
+        = yield_content :feature
+        - unless sub_col_empty?(yield_content :subcol)
+          #sub-col
+            = yield_content :subcol
+    
+    #container
+      .wrapper
+        #main-col
+          = yield
+    
+    %hr.hide
+    
+    #footer
+      .wrapper
+        %p ISEN  - Brest &copy; 2011
+        %p Réalisé par #{link_to "Nathan Le Ray", "http://syrinxoon.net"}, powered by #{link_to "MongoDB", "http://www.mongodb.org/"}.

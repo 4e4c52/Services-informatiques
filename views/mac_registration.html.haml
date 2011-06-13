@@ -8,8 +8,8 @@
   %h2 Enregistrement de votre ordinateur
   %p Trouvez ici comment enregistrer votre ordinateur afin de pouvoir vous connecter au réseau de l'école.  
   %ul
-    %li Récupérer son adresse MAC
-    %li Enregistrer son adresse MAC
+    %li Récupérer votre adresse MAC
+    %li Enregistrer votre adresse MAC
   
 %h3 Récupérer son adresse MAC
 
@@ -40,12 +40,16 @@
   - field_set_tag do
   
     %p
+      = label_tag "Prénom "
+      = text_field_tag :first_name, :id => :first_name
+  
+    %p
       = label_tag "Nom "
       = text_field_tag :name, :id => :name
       
     %p
-      = label_tag "Prénom "
-      = text_field_tag :first_name, :id => :first_name
+      = label_tag "Adresse email "
+      = text_field_tag :email, :id => :email
       
     %p
       = label_tag "Adresse MAC "

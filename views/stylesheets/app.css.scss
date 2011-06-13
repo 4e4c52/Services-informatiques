@@ -114,6 +114,10 @@ ol {
   list-style-type: decimal;
 }
 
+ul {
+  list-style-type: square;
+}
+
 ul, ol {
   margin: 0 1.5em 1.5em;
 }
@@ -137,6 +141,15 @@ i {
 
 .hide {
   display: none;
+}
+
+.fr {
+  float: right;
+}
+
+.deleted {
+  text-decoration: line-through;
+  font-size: 0.8em;
 }
 
 .warning {
@@ -387,5 +400,35 @@ i {
   
   #footer-right {
     float: left;
+  }
+}
+
+/* Admin stuff */
+.admin_registrations ul#registrations {
+  list-style-type: none;
+  margin-left: 0;
+  
+  li {
+    span {
+      background: #FFFFCC;
+    }
+    
+    .identity {
+      padding: 1.5px 9px;
+      @include border-radius(0.9em);
+      background: #efefef;
+      color: #666666;
+      font-size: 0.9em;
+      
+      a {
+        color: #666666;
+        text-decoration: none;
+      }
+      
+      &:hover {
+        background: #a0a0a0;
+        cursor: pointer;
+      }
+    }
   }
 }

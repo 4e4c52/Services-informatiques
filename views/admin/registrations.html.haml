@@ -1,0 +1,37 @@
+- content_for :head do
+  %title Enregistrements > Services informatiques
+  
+- content_for :feature do
+  %h2 Enregistrements
+  %p Retrouvez ici toutes les demandes d'enregistrement d'ordinateurs.
+  %p 
+    Cliquez sur le lien 
+    %i switch 
+    pour voir les enregistrements validés.
+  
+- content_for :subcol do
+  none
+
+.fr
+  = link_to "switch", "#", :class => "waiting"
+
+%h3 Enregistrements en attente
+%ul#registrations
+  %li
+    = image_tag "loader.gif" 
+    &nbsp;Chargement des données...
+  %li.waiting
+    = check_box_tag "00-24-D7-40-26-90", :id => "00-24-D7-40-26-90"
+    %span 00-24-D7-40-26-90
+    &nbsp;
+    %span.identity= mail_to "Nathan Le Ray", "oyokoon@gmail.com"
+    &nbsp;
+    = link_to image_tag("bin.png"), "#", :class => "delete", :style => "display:none;"
+  %li.waiting
+    = check_box_tag "24-24-D7-40-26-90", :id => "24-24-D7-40-26-90"
+    %span 24-24-D7-40-26-90
+    &nbsp;
+    %span.identity= mail_to "Nathan Le Ray", "oyokoon@gmail.com"
+    &nbsp;
+    = link_to image_tag("bin.png"), "#", :class => "delete", :style => "display:none;"
+  
