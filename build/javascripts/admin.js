@@ -58,7 +58,7 @@
     $('.waiting').live('mouseleave', function() {
       return $(this).find('.delete').hide();
     });
-    return $('.delete').live('click', function() {
+    $('.delete').live('click', function() {
       var li, mac_address;
       li = $(this).parent();
       mac_address = $(this).parent().find('input[type=checkbox]').attr('id');
@@ -74,6 +74,60 @@
           data = jQuery.parseJSON(result);
           if (data.status === 200) {
             return li.remove();
+          } else if (data.status === 400) {
+            return alert('Une erreur est survenue lors de la communication avec le serveur.');
+          }
+        },
+        error: function(a, b, c) {
+          return alert('Impossible de contacter le serveur.');
+        }
+      });
+      return false;
+    });
+    $('input[type=checkbox]').live('click', function() {
+      var li, mac_address;
+      li = $(this).parent();
+      mac_address = $(this).attr('id');
+      $.ajax({
+        type: 'post',
+        url: '../data/receiver.php',
+        data: {
+          action: 'validate_registration',
+          mac_address: mac_address
+        },
+        success: function(result) {
+          var data;
+          data = jQuery.parseJSON(result);
+          if (data.status === 200) {
+            li.find('input[type=checkbox]').attr("checked", "checked");
+            return li.addClass('validated');
+          } else if (data.status === 400) {
+            return alert('Une erreur est survenue lors de la communication avec le serveur.');
+          }
+        },
+        error: function(a, b, c) {
+          return alert('Impossible de contacter le serveur.');
+        }
+      });
+      return true;
+    });
+    return $('.validated input[type=checkbox]').live('click', function() {
+      var li, mac_address;
+      li = $(this).parent();
+      mac_address = $(this).attr('id');
+      $.ajax({
+        type: 'post',
+        url: '../data/receiver.php',
+        data: {
+          action: 'unvalidate_registration',
+          mac_address: mac_address
+        },
+        success: function(result) {
+          var data;
+          data = jQuery.parseJSON(result);
+          if (data.status === 200) {
+            li.removeClass('validated');
+            return li.find('input[type=checkbox]').removeAttr("checked");
           } else if (data.status === 400) {
             return alert('Une erreur est survenue lors de la communication avec le serveur.');
           }

@@ -18,7 +18,7 @@ class Data {
   function save_mac_address($data) {
     
     $this->collection = $this->db->mac_addresses;
-    $options = array('fsync' => true);
+    $options = array('fsync' => false);
     
     if ( ! empty($data) && ! empty($data['name']) && ! empty($data['first_name']) && ! empty($data['mac_address']) && ! empty($data['is_validated'])) {
       $this->collection->insert($data);
@@ -55,10 +55,25 @@ class Data {
     $query = array('mac_address' => $mac);
     
     $result = $this->collection->findOne($query);
-    $result['is_validated'] = 1;
     
-    $options = array('upsert' => false, 'multiple' => false, 'fsync' => true);
-    $this->collection->update($query, $result, $options);
+    $result['is_validated'] = "true";
+    
+    $options = array('upsert' => false, 'multiple' => false, 'fsync' => false);
+    return $this->collection->update($query, $result, $options);
+    
+  }
+  
+  function unmark_mac_address_as_validated($mac) {
+    
+    $this->collection = $this->db->mac_addresses;
+    $query = array('mac_address' => $mac);
+    
+    $result = $this->collection->findOne($query);
+    
+    $result['is_validated'] = "false";
+    
+    $options = array('upsert' => false, 'multiple' => false, 'fsync' => false);
+    return $this->collection->update($query, $result, $options);
     
   }
   
@@ -67,7 +82,7 @@ class Data {
     $this->collection = $this->db->mac_addresses;
     $query = array('mac_address' => $mac);
     
-    $options = array('justOne' => true, 'fsync' => true);
+    $options = array('justOne' => true, 'fsync' => false);
     $result = $this->collection->remove($query, $options);
     
     return $result['ok'];

@@ -30,6 +30,14 @@ switch ($safe_data['action']) {
     delete_registration($safe_data);
     break;
     
+  case 'validate_registration':
+  	validate_registration($safe_data);
+  	break;
+  	
+  case 'unvalidate_registration':
+  	unvalidate_registration($safe_data);
+  	break;
+    
   default:
     exit('What do you do there?!');
   
@@ -106,7 +114,7 @@ function get_waiting() {
   
   foreach ($cursor as $data) {
     
-    $registrations .= '<li class="waiting"><input type="checkbox" id="' . $data['mac_address'] . '" />&nbsp;';
+    $registrations .= '<li class="waiting"><input type="checkbox" id="' . $data['mac_address'] . '" name="' . $data['mac_address'] . '" />&nbsp;';
     $registrations .= '<span>' . $data['mac_address'] . '</span>&nbsp;';
     $registrations .= ' <span class="identity"><a href="mailto:' . $data['email'] . '">' . $data['first_name'] . ' ' . $data['name'] . '</a></span>';
     $registrations .= '&nbsp;<a href="#" class="delete" style="display:none;"><img src="../images/bin.png" alt="supprimer" /></a></li>';
@@ -130,6 +138,44 @@ function delete_registration($data) {
   }
   else {
     $message = array('status' => 500, 'message' => 'Erreur lors de la suppresion de l\'enregistrement.');
+    exit(json_encode($message));  
+  }
+  
+}
+
+function validate_registration($data) {
+  
+  $d = new Data(DB);
+  
+  unset($data['action']);
+  
+  $result = $d->mark_mac_address_as_validated($data['mac_address']);
+  
+  if ($result) {
+    $message = array('status' => 200, 'message' => 'Enregistrement validé.');
+    exit(json_encode($message));  
+  }
+  else {
+    $message = array('status' => 500, 'message' => 'Erreur lors de la validation de l\'enregistrement.');
+    exit(json_encode($message));  
+  }
+  
+}
+
+function unvalidate_registration($data) {
+  
+  $d = new Data(DB);
+  
+  unset($data['action']);
+  
+  $result = $d->unmark_mac_address_as_validated($data['mac_address']);
+  
+  if ($result) {
+    $message = array('status' => 200, 'message' => 'Enregistrement invalidé.');
+    exit(json_encode($message));  
+  }
+  else {
+    $message = array('status' => 500, 'message' => 'Erreur lors de l\'invalidation de l\'enregistrement.');
     exit(json_encode($message));  
   }
   
