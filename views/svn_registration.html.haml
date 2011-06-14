@@ -1,0 +1,65 @@
+- content_for :head do
+  %title Demande répertoire SVN > Services informatiques
+  
+- content_for :subcol do
+  none
+
+- content_for :feature do
+  %h2 Demander un répertoire SVN
+  %p Complétez le formulaire pour demander votre répertoire SVN afin de pouvoir travailler avec vos collègues.  
+  %ul
+    %li Nommer le répertoire
+    %li Ajouter des utilisateurs en lecture/écriture
+    %li Ajouter des utilisateurs en lecture seule
+  
+
+- form_tag '/data/data.php', :class => 'registration-form', :method => 'post' do
+
+  #ajax-response
+
+  %h3 Informations
+
+  - field_set_tag do
+  
+    %p
+      = label_tag "Nom du répertoire "
+      = text_field_tag :repository, :id => :repository
+
+  %h3 Utilisateurs Lecture/Ecriture
+  
+  - field_set_tag do
+  
+    %p
+      = hidden_field_tag :users_rw_count, :id => :users_rw_count, :value => 0
+      
+    %p= link_to "Ajouter", "#", :id => :add_rw_user, :class => "button"
+    
+  #add_user_rw_box
+    - field_set_tag do
+      = label_tag :login
+      = text_field_tag :user_rw_login
+      %br
+      %br
+      = button_tag "Sauvegarder", :id => 'add_rw_user_button'
+    #add_user_rw_box_arrow
+      
+  %h3 Utilisateurs Lecture seule
+  
+  - field_set_tag do
+  
+    %p
+      = hidden_field_tag :users_r_count, :id => :users_r_count, :value => 0
+      
+    %p= link_to "Ajouter", "#", :id => :add_r_user, :class => "button"
+    
+  #add_user_r_box
+    - field_set_tag do
+      = label_tag :login
+      = text_field_tag :user_r_login
+      %br
+      %br
+      = button_tag "Sauvegarder", :id => 'add_r_user_button'
+    #add_user_r_box_arrow
+    
+  - field_set_tag(:class => 'buttons') do
+    = button_tag "Envoyer", :id => 'add_svn'

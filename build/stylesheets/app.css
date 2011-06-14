@@ -430,32 +430,87 @@ i {
       margin-left: 0;
       margin-top: 0.25em;
       padding: 1.25em 1em 1.25em 48px; }
+    /* line 387, ../../views/stylesheets/app.css.scss */
+    #container #main-col .button {
+      padding: 4px;
+      color: #FFFFFF;
+      background: #980905;
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: bold; }
+      /* line 395, ../../views/stylesheets/app.css.scss */
+      #container #main-col .button:hover {
+        background: #ee3f3f; }
+    /* line 400, ../../views/stylesheets/app.css.scss */
+    #container #main-col #add_user_rw_box, #container #main-col #add_user_r_box {
+      width: 120px;
+      height: 120px;
+      padding: 5px;
+      position: absolute;
+      left: -10000px;
+      background: #f3f3f3;
+      border: 1px solid #bbbbbb;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      -o-border-radius: 4px;
+      -ms-border-radius: 4px;
+      -khtml-border-radius: 4px;
+      border-radius: 4px;
+      z-index: 1002; }
+      /* line 411, ../../views/stylesheets/app.css.scss */
+      #container #main-col #add_user_rw_box label, #container #main-col #add_user_r_box label {
+        color: #222222;
+        font-size: 12px;
+        margin: 0 0 3px; }
+      /* line 417, ../../views/stylesheets/app.css.scss */
+      #container #main-col #add_user_rw_box input[type=text], #container #main-col #add_user_r_box input[type=text] {
+        font-size: 14px;
+        padding: 3px;
+        height: 20px;
+        width: 110px;
+        background: #f7f7f7;
+        border: 1px solid #C8C8C8; }
+      /* line 426, ../../views/stylesheets/app.css.scss */
+      #container #main-col #add_user_rw_box input[type=button], #container #main-col #add_user_r_box input[type=button] {
+        width: auto;
+        height: auto;
+        margin: 2px auto;
+        font-size: 0.9em;
+        padding: 1.5px; }
+      /* line 434, ../../views/stylesheets/app.css.scss */
+      #container #main-col #add_user_rw_box #add_user_rw_box_arrow, #container #main-col #add_user_rw_box #add_user_r_box_arrow, #container #main-col #add_user_r_box #add_user_rw_box_arrow, #container #main-col #add_user_r_box #add_user_r_box_arrow {
+        position: absolute;
+        left: 54.5px;
+        bottom: -24px;
+        width: 21px;
+        height: 24px;
+        background: url("../images/arrow.png") no-repeat; }
 
-/* line 389, ../../views/stylesheets/app.css.scss */
+/* line 446, ../../views/stylesheets/app.css.scss */
 #footer {
   padding: 2em 0;
   background: #222222;
   color: #999999; }
-  /* line 394, ../../views/stylesheets/app.css.scss */
+  /* line 451, ../../views/stylesheets/app.css.scss */
   #footer a {
     color: #ee3f3f; }
-  /* line 398, ../../views/stylesheets/app.css.scss */
+  /* line 455, ../../views/stylesheets/app.css.scss */
   #footer #footer-left {
     float: left; }
-  /* line 402, ../../views/stylesheets/app.css.scss */
+  /* line 459, ../../views/stylesheets/app.css.scss */
   #footer #footer-right {
     float: left; }
 
 /* Admin stuff */
-/* line 408, ../../views/stylesheets/app.css.scss */
-.admin_registrations ul#registrations {
+/* line 465, ../../views/stylesheets/app.css.scss */
+ul#registrations, ul#signatures {
   list-style-type: none;
   margin-left: 0; }
-  /* line 413, ../../views/stylesheets/app.css.scss */
-  .admin_registrations ul#registrations li span {
+  /* line 470, ../../views/stylesheets/app.css.scss */
+  ul#registrations li span, ul#signatures li span {
     background: #FFFFCC; }
-  /* line 417, ../../views/stylesheets/app.css.scss */
-  .admin_registrations ul#registrations li .identity {
+  /* line 474, ../../views/stylesheets/app.css.scss */
+  ul#registrations li .identity, ul#signatures li .identity {
     padding: 1.5px 9px;
     -moz-border-radius: 0.9em;
     -webkit-border-radius: 0.9em;
@@ -466,11 +521,11 @@ i {
     background: #efefef;
     color: #666666;
     font-size: 0.9em; }
-    /* line 424, ../../views/stylesheets/app.css.scss */
-    .admin_registrations ul#registrations li .identity a {
+    /* line 481, ../../views/stylesheets/app.css.scss */
+    ul#registrations li .identity a, ul#signatures li .identity a {
       color: #666666;
       text-decoration: none; }
-    /* line 429, ../../views/stylesheets/app.css.scss */
-    .admin_registrations ul#registrations li .identity:hover {
+    /* line 486, ../../views/stylesheets/app.css.scss */
+    ul#registrations li .identity:hover, ul#signatures li .identity:hover {
       background: #a0a0a0;
       cursor: pointer; }

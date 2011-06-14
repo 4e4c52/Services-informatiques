@@ -383,6 +383,63 @@ i {
       margin-top: 0.25em;
       padding: 1.25em 1em 1.25em 48px;
     }
+    
+    .button {
+      padding: 4px;
+      color: #FFFFFF;
+      background: $link-color-col;
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: bold;
+      
+      &:hover {
+        background: $link-color-dark;
+      }
+    }
+    
+    #add_user_rw_box, #add_user_r_box {
+      width: 120px;
+      height: 120px;
+      padding: 5px;
+      position: absolute;
+      left: -10000px;
+      background: #f3f3f3;
+      border: 1px solid #bbbbbb;
+      @include border-radius(4px);
+      z-index: 1002;
+
+      label {
+        color: #222222;
+        font-size: 12px;
+        margin: 0 0 3px;
+      }
+
+      input[type=text] {
+        font-size: 14px;
+        padding: 3px;
+        height: 20px;
+        width: 110px;
+        background: #f7f7f7;
+        border: 1px solid #C8C8C8;
+      }
+      
+      input[type=button] {
+        width: auto;
+        height: auto;
+        margin: 2px auto;
+        font-size: 0.9em;
+        padding: 1.5px;
+      }
+      
+      #add_user_rw_box_arrow, #add_user_r_box_arrow {
+        position: absolute;
+        left: 54.5px;
+        bottom: -24px;
+        width: 21px;
+        height: 24px;
+        background: url("../images/arrow.png") no-repeat;
+      }
+    }
   }
 }
 
@@ -405,7 +462,7 @@ i {
 }
 
 /* Admin stuff */
-.admin_registrations ul#registrations {
+ul#registrations, ul#signatures {
   list-style-type: none;
   margin-left: 0;
   

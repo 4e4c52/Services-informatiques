@@ -7,8 +7,9 @@
     Chapitres
   %ol.chapters
     %li= link_to "Charte informatique", "#computer-convention"
-    %li= link_to "Charte Protel", "#protel-convention"
+    %li= link_to "Charte PROTEL", "#protel-convention"
     %li= link_to "Enregistrez votre ordinateur", "#computer-registration"
+    %li= link_to "Demandez votre répertoire SVN", "#svn-registration"
   
 - content_for :feature do
   %h2 Enregistrement
@@ -16,18 +17,24 @@
   %ul
     %li Signez les chartes
     %li Accédez au réseau
+    %li Partagez sur SVN
     
 %h3#computer-convention Charte informatique
 
-.warning La signature de la convention est obligatoire pour pouvoir accéder au réseau ainsi qu'aux salles informatique.
-%p Pour lire et signer la convention, rendez-vous sur #{link_to "cette page", "sign_computer_convention.html"}.
+.warning La signature de la charte informatique est obligatoire pour pouvoir accéder au réseau ainsi qu'aux salles informatique.
+%p Pour lire et signer la charte, rendez-vous sur #{link_to "cette page", "sign_computer_convention.html"}.
 
-%h3#protel-convention Charte Protel
+%h3#protel-convention Charte PROTEL
 
-.warning La signature de la convention Protel est obligatoire pour l'utilisation du logiciel X.
-%p Pour lire et signer la convention, rendez-vous sur #{link_to "cette page", "sign_protel_convention.html"}.
+.warning La signature de la charte PROTEL est obligatoire pour l'utilisation du logiciel PROTEL DXP.
+%p Pour lire et signer la charte, rendez-vous sur #{link_to "cette page", "sign_protel_convention.html"}.
 
 %h3#computer-registration Enregistrez votre ordinateur
 
 %p Avant de vous connecter au réseau, vous devez, si ce n'est déjà fait, nous communiquer l'adresse MAC de votre carte WIFI.
-%p Pour nous communiquez votre adresse MAC, suivez les intructions et remplissez le formulaire sur #{link_to "la page suivante", "mac_registration.html"}.
+%p Pour nous communiquer votre adresse MAC, suivez les intructions et remplissez le formulaire sur #{link_to "la page suivante", "mac_registration.html"}.
+
+%h3#svn-registration Demandez votre répertoire SVN
+
+.warning Avant de faire une demande de répertoire SVN, vous devez avoir signé la charte informatique.
+%p Pour faire votre demande de répertoire Subversion, rendez-vous sur #{link_to "cette page", "svn_registration.html"}.
