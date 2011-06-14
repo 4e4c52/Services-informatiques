@@ -32,10 +32,10 @@ class Data {
   function get_all_mac_addresses($show_validated = false) {
     
     $this->collection = $this->db->mac_addresses;
-    $query = array('is_validated' => 'false');
+    if ($show_validated) $query = array('is_validated' => "true");
+    else $query = array('is_validated' => "false");
     
-    if ($show_validated) return $this->collection->find()->sort(array('name' => 1, 'first_name' => 1));
-    else return $this->collection->find($query)->sort(array('name' => 1, 'first_name' => 1));
+    return $this->collection->find($query)->sort(array('name' => 1, 'first_name' => 1));
     
   }
   
@@ -85,7 +85,37 @@ class Data {
     $options = array('justOne' => true, 'fsync' => false);
     $result = $this->collection->remove($query, $options);
     
-    return $result['ok'];
+    return $result;
+    
+  }
+  
+  /* Signatures stuff */
+  
+  function save_cc_signature($data) {
+    
+    $this->collection = $this->db->mac_addresses;
+    $options = array('fsync' => false);
+    
+    if ( ! empty($data) && ! empty($data['name']) && ! empty($data['first_name']) && ! empty($data['email'])) {
+      $this->collection->insert($data);
+      return true;
+    }
+    
+    return false;
+    
+  }
+  
+  function save_pc_signature($data) {
+    
+    $this->collection = $this->db->mac_addresses;
+    $options = array('fsync' => false);
+    
+    if ( ! empty($data) && ! empty($data['name']) && ! empty($data['first_name']) && ! empty($data['mac_address']) && ! empty($data['is_validated'])) {
+      $this->collection->insert($data);
+      return true;
+    }
+    
+    return false;
     
   }
   
@@ -105,6 +135,13 @@ class Data {
     $query = array('mac_address' => $mac);
     
     if ($this->collection->findOne($query)) return true;
+    return false;
+    
+  }
+  
+  function is_email_address($email) {
+    
+    if (preg_match('/^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/', $email)) return true;
     return false;
     
   }

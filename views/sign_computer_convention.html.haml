@@ -1,0 +1,42 @@
+- content_for :head do
+  %title Charte informatique > Services informatiques
+  
+- content_for :subcol do
+  none
+
+- content_for :feature do
+  %h2 Charte informatique
+  %p Signer la charte informatique vous donne accès aux salles informatique de l'école.  
+  %ul
+    %li Lisez le charte
+    %li Signez la charte
+  
+%h3 Charte
+
+%p.info 
+  Vous pouvez lire la charte au format PDF en 
+  = link_to "cliquant ici", "documents/computer_charter.pdf"
+  pour la télécharger.
+  
+%h3 Signature
+
+- form_tag '/data/data.php', :class => 'registration-form', :method => 'post' do
+  
+  #ajax-response
+
+  - field_set_tag do
+  
+    %p
+      = label_tag "Prénom "
+      = text_field_tag :first_name, :id => :first_name
+  
+    %p
+      = label_tag "Nom "
+      = text_field_tag :name, :id => :name
+      
+    %p
+      = label_tag "Adresse email ISEN "
+      = text_field_tag :email, :id => :email, :value => "@isen.fr"
+    
+  - field_set_tag(:class => 'buttons') do
+    = button_tag "Signer", :id => 'sign_cc'

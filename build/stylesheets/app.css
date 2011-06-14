@@ -168,8 +168,8 @@ i {
 
 /* line 150, ../../views/stylesheets/app.css.scss */
 .validated {
-  text-decoration: line-through;
-  font-size: 0.8em; }
+  font-size: 0.8em;
+  font-style: italic; }
 
 /* line 155, ../../views/stylesheets/app.css.scss */
 .warning {
@@ -401,7 +401,8 @@ i {
   #container #main-col {
     margin-left: 2em;
     margin-bottom: 2em;
-    width: 45em; }
+    width: 45em;
+    min-height: 400px; }
     /* line 26, ../../views/stylesheets/app.css.scss */
     #container #main-col dt {
       margin-bottom: 0;
@@ -417,43 +418,43 @@ i {
     /* line 40, ../../views/stylesheets/app.css.scss */
     #container #main-col a {
       color: #980905; }
-    /* line 373, ../../views/stylesheets/app.css.scss */
+    /* line 374, ../../views/stylesheets/app.css.scss */
     #container #main-col dd {
       border-bottom: 1px solid #CCCCCC;
       margin-bottom: 1em;
       margin-left: 0;
       padding: 0.25em 0 1em; }
-    /* line 379, ../../views/stylesheets/app.css.scss */
+    /* line 380, ../../views/stylesheets/app.css.scss */
     #container #main-col .work-in-progress, #container #main-col .warning, #container #main-col .note, #container #main-col .code_container {
       border: medium none;
       margin-left: 0;
       margin-top: 0.25em;
       padding: 1.25em 1em 1.25em 48px; }
 
-/* line 388, ../../views/stylesheets/app.css.scss */
+/* line 389, ../../views/stylesheets/app.css.scss */
 #footer {
   padding: 2em 0;
   background: #222222;
   color: #999999; }
-  /* line 393, ../../views/stylesheets/app.css.scss */
+  /* line 394, ../../views/stylesheets/app.css.scss */
   #footer a {
     color: #ee3f3f; }
-  /* line 397, ../../views/stylesheets/app.css.scss */
+  /* line 398, ../../views/stylesheets/app.css.scss */
   #footer #footer-left {
     float: left; }
-  /* line 401, ../../views/stylesheets/app.css.scss */
+  /* line 402, ../../views/stylesheets/app.css.scss */
   #footer #footer-right {
     float: left; }
 
 /* Admin stuff */
-/* line 407, ../../views/stylesheets/app.css.scss */
+/* line 408, ../../views/stylesheets/app.css.scss */
 .admin_registrations ul#registrations {
   list-style-type: none;
   margin-left: 0; }
-  /* line 412, ../../views/stylesheets/app.css.scss */
+  /* line 413, ../../views/stylesheets/app.css.scss */
   .admin_registrations ul#registrations li span {
     background: #FFFFCC; }
-  /* line 416, ../../views/stylesheets/app.css.scss */
+  /* line 417, ../../views/stylesheets/app.css.scss */
   .admin_registrations ul#registrations li .identity {
     padding: 1.5px 9px;
     -moz-border-radius: 0.9em;
@@ -465,11 +466,11 @@ i {
     background: #efefef;
     color: #666666;
     font-size: 0.9em; }
-    /* line 423, ../../views/stylesheets/app.css.scss */
+    /* line 424, ../../views/stylesheets/app.css.scss */
     .admin_registrations ul#registrations li .identity a {
       color: #666666;
       text-decoration: none; }
-    /* line 428, ../../views/stylesheets/app.css.scss */
+    /* line 429, ../../views/stylesheets/app.css.scss */
     .admin_registrations ul#registrations li .identity:hover {
       background: #a0a0a0;
       cursor: pointer; }

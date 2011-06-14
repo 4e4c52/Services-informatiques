@@ -148,8 +148,8 @@ i {
 }
 
 .validated {
-  text-decoration: line-through;
   font-size: 0.8em;
+  font-style: italic;
 }
 
 .warning {
@@ -368,6 +368,7 @@ i {
     margin-left: 2em;
     margin-bottom: 2em;
     width: 45em;
+    min-height: 400px;
     @include cols;
     
     dd {

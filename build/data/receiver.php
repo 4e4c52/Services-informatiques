@@ -4,11 +4,11 @@ define('DB', 'isen');
 
 // Securing the input data
 $safe_data = array();
-while ($data = current($_POST)) { 
+while ($data = current($_REQUEST)) { 
   $data = htmlentities($data, ENT_COMPAT, 'UTF-8');
   $data = trim($data);
-  $safe_data[key($_POST)] = $data;
-  next($_POST);
+  $safe_data[key($_REQUEST)] = $data;
+  next($_REQUEST);
 }
 
 // What do we do?
@@ -18,12 +18,20 @@ switch ($safe_data['action']) {
     add_mac($safe_data);
     break;
     
+  case 'sign_cc':
+    add_cc_signature($safe_data);
+    break;
+    
   case 'get_data':
     get_data();
     break;
     
   case 'get_waiting':
     get_waiting();
+    break;
+    
+  case 'get_validated':
+    get_validated();
     break;
     
   case 'delete_registration':
@@ -51,23 +59,23 @@ function add_mac($data) {
     $message = array('status' => 400, 'message' => 'Veuillez remplir tous les champs.');
     exit(json_encode($message));
   }
-  else if (isset($data['mac_address']) && ! $d->is_mac_address($data['mac_address'])) {
+  else if ( ! $d->is_mac_address($data['mac_address'])) {
     $message = array('status' => 400, 'message' => 'Veuillez entrer une adresse MAC valide.');
     exit(json_encode($message));    
   }
-  else if (isset($data['mac_address']) && $d->mac_address_exists($data['mac_address'])) {
+  else if ($d->mac_address_exists($data['mac_address'])) {
     $message = array('status' => 400, 'message' => 'Cette addresse MAC a déjà été enregistrée.');
     exit(json_encode($message));   
   }
-  else if (isset($data['name']) && strlen($data['name']) < 3) {
+  else if (strlen($data['name']) < 3) {
     $message = array('status' => 400, 'message' => 'Veuillez entrer un nom d\'au moins 3 caractères.');
     exit(json_encode($message));   
   }
-  else if (isset($data['first_name']) && strlen($data['first_name']) < 3) {
+  else if (strlen($data['first_name']) < 3) {
     $message = array('status' => 400, 'message' => 'Veuillez entrer un prénom d\'au moins 3 caractères.');
     exit(json_encode($message));   
   }
-  else if (isset($data['email']) && ! preg_match('/^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/', $data['email'])) {
+  else if ( ! $d->is_email_address($data['email'])) {
     $message = array('status' => 400, 'message' => 'Veuillez entrer un adresse email valide.');
     exit(json_encode($message));   
   }
@@ -114,7 +122,30 @@ function get_waiting() {
   
   foreach ($cursor as $data) {
     
-    $registrations .= '<li class="waiting"><input type="checkbox" id="' . $data['mac_address'] . '" name="' . $data['mac_address'] . '" />&nbsp;';
+    $registrations .= '<li class="waiting"><span style="display:none;" id="loading-' . $data['mac_address'] . '"><img src="../images/loader.gif" alt="#" /></span>';
+    $registrations .= '<input type="checkbox" id="' . $data['mac_address'] . '" name="' . $data['mac_address'] . '" />&nbsp;';
+    $registrations .= '<span>' . $data['mac_address'] . '</span>&nbsp;';
+    $registrations .= ' <span class="identity"><a href="mailto:' . $data['email'] . '">' . $data['first_name'] . ' ' . $data['name'] . '</a></span>';
+    $registrations .= '&nbsp;<a href="#" class="delete" style="display:none;"><img src="../images/bin.png" alt="supprimer" /></a></li>';
+    
+  }
+  
+  $message = array('status' => 200, 'registrations' => $registrations);
+  exit(json_encode($message));  
+  
+}
+
+function get_validated() {
+  
+  $d = new Data(DB);
+  
+  $cursor = $d->get_all_mac_addresses(true);
+  $registrations = '';
+  
+  foreach ($cursor as $data) {
+    
+    $registrations .= '<li class="waiting validated"><span style="display:none;" id="loading-' . $data['mac_address'] . '"><img src="../images/loader.gif" alt="#" /></span>';
+    $registrations .= '<input type="checkbox" id="' . $data['mac_address'] . '" name="' . $data['mac_address'] . '" checked="checked" />&nbsp;';
     $registrations .= '<span>' . $data['mac_address'] . '</span>&nbsp;';
     $registrations .= ' <span class="identity"><a href="mailto:' . $data['email'] . '">' . $data['first_name'] . ' ' . $data['name'] . '</a></span>';
     $registrations .= '&nbsp;<a href="#" class="delete" style="display:none;"><img src="../images/bin.png" alt="supprimer" /></a></li>';
@@ -137,7 +168,7 @@ function delete_registration($data) {
     exit(json_encode($message));  
   }
   else {
-    $message = array('status' => 500, 'message' => 'Erreur lors de la suppresion de l\'enregistrement.');
+    $message = array('status' => 500, 'message' => 'Erreur lors de la suppression de l\'enregistrement.');
     exit(json_encode($message));  
   }
   
@@ -177,6 +208,46 @@ function unvalidate_registration($data) {
   else {
     $message = array('status' => 500, 'message' => 'Erreur lors de l\'invalidation de l\'enregistrement.');
     exit(json_encode($message));  
+  }
+  
+}
+
+function add_cc_signature($data) {
+  
+  $d = new Data(DB);
+  if ( ! isset($data['name']) OR ! isset($data['first_name']) OR ! isset($data['email'])) {
+    $message = array('status' => 400, 'message' => 'Veuillez remplir tous les champs.');
+    exit(json_encode($message));
+  }
+  else if ($d->cc_signature_exists($data['name'], $data['first_name'])) {
+    $message = array('status' => 400, 'message' => 'Vous avez déjà signé la convention.');
+    exit(json_encode($message));   
+  }
+  else if (strlen($data['name']) < 3) {
+    $message = array('status' => 400, 'message' => 'Veuillez entrer un nom d\'au moins 3 caractères.');
+    exit(json_encode($message));   
+  }
+  else if (strlen($data['first_name']) < 3) {
+    $message = array('status' => 400, 'message' => 'Veuillez entrer un prénom d\'au moins 3 caractères.');
+    exit(json_encode($message));   
+  }
+  else if (! $d->is_email_address($data['email'])) {
+    $message = array('status' => 400, 'message' => 'Veuillez entrer un adresse email valide.');
+    exit(json_encode($message));   
+  }
+  else {
+    
+    unset($data['action']);
+    
+    if ($d->save_cc_address($data)) {
+      $message = array('status' => 200, 'message' => 'Votre signature a été enregistrée avec succès.');
+      exit(json_encode($message));  
+    }
+    else {
+      $message = array('status' => 500, 'message' => 'Erreur lors de la sauvegarde des données.');
+      exit(json_encode($message));  
+    }
+    
   }
   
 }

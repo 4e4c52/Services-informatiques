@@ -7,9 +7,9 @@
     <link href="stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" />
     <script src="javascripts/jquery.min.js" type="text/javascript"></script>
     <script src="javascripts/app.js" type="text/javascript"></script>
-    <title>Enregistrement > Services informatiques</title>
+    <title>Charte informatique > Services informatiques</title>
   </head>
-  <body class='registration'>
+  <body class='sign_computer_convention'>
     <div id='nav'>
       <div class='wrapper'>
         <strong>Egalement sur <a href="http://www.isen.fr/brest.asp">isen.fr:</a></strong>
@@ -62,37 +62,41 @@
     <hr class='hide' />
     <div id='feature'>
       <div class='wrapper'>
-        <h2>Enregistrement</h2>
-        <p>Enregistrez vous pour accéder au réseau et signez les différentes chartes pour pouvoir utiliser les ordinateurs et logiciels de l'école.</p>
+        <h2>Charte informatique</h2>
+        <p>Signer la charte informatique vous donne accès aux salles informatique de l'école.</p>
         <ul>
-          <li>Signez les chartes</li>
-          <li>Accédez au réseau</li>
+          <li>Lisez le charte</li>
+          <li>Signez la charte</li>
         </ul>
-        <div id='sub-col'>
-          <h3 class='chapters'>
-            <img src="images/chapters.gif" />
-            Chapitres
-          </h3>
-          <ol class='chapters'>
-            <li><a href="#computer-convention">Charte informatique</a></li>
-            <li><a href="#protel-convention">Charte Protel</a></li>
-            <li><a href="#computer-registration">Enregistrez votre ordinateur</a></li>
-          </ol>
-        </div>
       </div>
     </div>
     <div id='container'>
       <div class='wrapper'>
         <div id='main-col'>
-          <h3 id='computer-convention'>Charte informatique</h3>
-          <div class='warning'>La signature de la convention est obligatoire pour pouvoir accéder au réseau ainsi qu'aux salles informatique.</div>
-          <p>Pour lire et signer la convention, rendez-vous sur <a href="sign_computer_convention.html">cette page</a>.</p>
-          <h3 id='protel-convention'>Charte Protel</h3>
-          <div class='warning'>La signature de la convention Protel est obligatoire pour l'utilisation du logiciel X.</div>
-          <p>Pour lire et signer la convention, rendez-vous sur <a href="sign_protel_convention.html">cette page</a>.</p>
-          <h3 id='computer-registration'>Enregistrez votre ordinateur</h3>
-          <p>Avant de vous connecter au réseau, vous devez, si ce n'est déjà fait, nous communiquer l'adresse MAC de votre carte WIFI.</p>
-          <p>Pour nous communiquez votre adresse MAC, suivez les intructions et remplissez le formulaire sur <a href="mac_registration.html">la page suivante</a>.</p>
+          <h3>Charte</h3>
+          <p class='info'>
+            Vous pouvez lire la charte au format PDF en
+            <a href="documents/computer_charter.pdf">cliquant ici</a>
+            pour la télécharger.
+          </p>
+          <h3>Signature</h3>
+          <form class="registration-form" method="post" action="/data/data.php" accept-charset="UTF-8"><div id='ajax-response'></div>
+          <fieldset><p>
+            <label for="Prénom ">Prénom : </label>
+            <input id="first_name" name="first_name" type="text" />
+          </p>
+          <p>
+            <label for="Nom ">Nom : </label>
+            <input id="name" name="name" type="text" />
+          </p>
+          <p>
+            <label for="Adresse email ISEN ">Adresse email isen : </label>
+            <input id="email" value="@isen.fr" name="email" type="text" />
+          </p>
+          </fieldset>
+          <fieldset class="buttons"><input id="sign_cc" value="Signer" type="button" />
+          </fieldset>
+          </form>
         </div>
       </div>
     </div>
