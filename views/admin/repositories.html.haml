@@ -1,0 +1,23 @@
+- content_for :head do
+  %title Répertoires > Services informatiques
+  
+- content_for :feature do
+  %h2 Enregistrements
+  %p Retrouvez ici toutes les demandes de création de répertoire Subversion.
+  %p 
+    Cliquez sur le lien 
+    %i switch 
+    pour voir les demandes validées.
+  
+- content_for :subcol do
+  none
+
+.fr
+  = link_to "switch", "#", :id => "switch"
+
+%h3.content-title.waiting-title Demandes en attente
+%ul#repositories
+  %li
+    = image_tag "loader.gif" 
+    &nbsp;Chargement des données...
+  

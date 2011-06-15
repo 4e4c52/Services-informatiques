@@ -73,27 +73,18 @@ label {
 
 input[type=text] {
   width: 100%;
-  height: 2em;
   padding: 3px;
-  border: 1px solid #5a5b5e;
-  @include border-radius(3px);
 }
 
 input[type=button] {
-  background: #50A75C;
-  border: 1px solid #50A75C;
-  color: white;
   display: block;
   margin: 3px auto;
   width: 50%;
   height: 30px;
   padding: 3px;
   font-weight: bold;
-  @include border-radius(4px);
   
   &:hover {
-    background: #333333;
-    border-color: #333333;
     cursor: pointer;
   }
 }
@@ -150,6 +141,10 @@ i {
 .validated {
   font-size: 0.8em;
   font-style: italic;
+  
+  ul {
+    display: none;
+  }
 }
 
 .warning {
@@ -397,7 +392,11 @@ i {
       }
     }
     
-    #add_user_rw_box, #add_user_r_box {
+    #rw_users, #r_users {
+      margin-bottom: 10px;
+    }
+    
+    #add_rw_user_box, #add_r_user_box {
       width: 120px;
       height: 120px;
       padding: 5px;
@@ -431,12 +430,12 @@ i {
         padding: 1.5px;
       }
       
-      #add_user_rw_box_arrow, #add_user_r_box_arrow {
+      #add_rw_user_box_arrow, #add_r_user_box_arrow {
         position: absolute;
-        left: 54.5px;
-        bottom: -24px;
-        width: 21px;
-        height: 24px;
+        left: 130px;
+        top: 54px;
+        width: 24px;
+        height: 21px;
         background: url("../images/arrow.png") no-repeat;
       }
     }
@@ -462,7 +461,7 @@ i {
 }
 
 /* Admin stuff */
-ul#registrations, ul#signatures {
+ul#registrations, ul#repositories, ul#signatures {
   list-style-type: none;
   margin-left: 0;
   
@@ -487,6 +486,10 @@ ul#registrations, ul#signatures {
         background: #a0a0a0;
         cursor: pointer;
       }
+    }
+    
+    ul {
+      margin-left: 3em;
     }
   }
 }

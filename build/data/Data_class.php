@@ -91,6 +91,82 @@ class Data {
     
   }
   
+  /* SVN stuff */
+  
+  function save_repository($data) {
+    
+    $this->collection = $this->db->repositories;
+    $options = array('fsync' => false);
+    
+    if ( ! empty($data) && ! empty($data['repository']) && ! empty($data['email']) && ! empty($data['is_validated'])) {
+      $this->collection->insert($data);
+      return true;
+    }
+    
+    return false;
+    
+  }
+  
+  function get_all_repositories($show_validated = false) {
+    
+    $this->collection = $this->db->repositories;
+    if ($show_validated) $query = array('is_validated' => "true");
+    else $query = array('is_validated' => "false");
+    
+    return $this->collection->find($query)->sort(array('repository' => 1, 'email' => 1));
+    
+  }
+  
+  function count_all_repositories($show_validated = false) {
+    
+    $this->collection = $this->db->repositories;
+    if ($show_validated) $query = array('is_validated' => 'true');
+    else $query = array('is_validated' => 'false');
+    
+    return $this->collection->count($query);
+    
+  }
+  
+  function mark_repository_as_validated($repository) {
+    
+    $this->collection = $this->db->repositories;
+    $query = array('repository' => $repository);
+    
+    $result = $this->collection->findOne($query);
+    
+    $result['is_validated'] = "true";
+    
+    $options = array('upsert' => false, 'multiple' => false, 'fsync' => false);
+    return $this->collection->update($query, $result, $options);
+    
+  }
+  
+  function unmark_repository_as_validated($repository) {
+    
+    $this->collection = $this->db->repositories;
+    $query = array('repository' => $repository);
+    
+    $result = $this->collection->findOne($query);
+    
+    $result['is_validated'] = "false";
+    
+    $options = array('upsert' => false, 'multiple' => false, 'fsync' => false);
+    return $this->collection->update($query, $result, $options);
+    
+  }
+  
+  function delete_repository($repository) {
+    
+    $this->collection = $this->db->repositories;
+    $query = array('repository' => $repository);
+    
+    $options = array('justOne' => true, 'fsync' => false);
+    $result = $this->collection->remove($query, $options);
+    
+    return $result;
+    
+  }
+  
   /* Signatures stuff */
   
   function save_cc_signature($data) {
@@ -171,6 +247,16 @@ class Data {
     
     $this->collection = $this->db->mac_addresses;
     $query = array('mac_address' => $mac);
+    
+    if ($this->collection->findOne($query)) return true;
+    return false;
+    
+  }
+  
+  function repository_exists($repository) {
+    
+    $this->collection = $this->db->repositories;
+    $query = array('repository' => $repository);
     
     if ($this->collection->findOne($query)) return true;
     return false;

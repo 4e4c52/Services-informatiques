@@ -7,9 +7,9 @@
     <link href="../stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" />
     <script src="../javascripts/jquery.min.js" type="text/javascript"></script>
     <script src="../javascripts/admin.js" type="text/javascript"></script>
-    <title>Signatures de la charte PROTEL > Services informatiques</title>
+    <title>Répertoires > Services informatiques</title>
   </head>
-  <body class='admin admin_protel_convention'>
+  <body class='admin admin_repositories'>
     <div id='nav'>
       <div class='wrapper'>
         <strong>Egalement sur <a href="http://web-brest.isen.fr">isen.fr:</a></strong>
@@ -35,15 +35,23 @@
     <hr class='hide' />
     <div id='feature'>
       <div class='wrapper'>
-        <h2>Signatures PROTEL</h2>
-        <p>Retrouvez ici toutes les personnes ayant signé la charte PROTEL.</p>
+        <h2>Enregistrements</h2>
+        <p>Retrouvez ici toutes les demandes de création de répertoire Subversion.</p>
+        <p>
+          Cliquez sur le lien
+          <i>switch</i>
+          pour voir les demandes validées.
+        </p>
       </div>
     </div>
     <div id='container'>
       <div class='wrapper'>
         <div id='main-col'>
-          <h3 class='content-title waiting-title'>Signataires</h3>
-          <ul id='signatures'>
+          <div class='fr'>
+            <a id="switch" href="#">switch</a>
+          </div>
+          <h3 class='content-title waiting-title'>Demandes en attente</h3>
+          <ul id='repositories'>
             <li>
               <img src="../images/loader.gif" />
               &nbsp;Chargement des données...

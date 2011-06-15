@@ -26,6 +26,10 @@ switch ($safe_data['action']) {
     add_cp_signature($safe_data);
     break;
     
+  case 'add_repository':
+    add_repository($safe_data);
+    break;
+    
   default:
     exit('What do you do there?!');
   
@@ -145,6 +149,53 @@ function add_cp_signature($data) {
     
     if ($d->save_cp_signature($data)) {
       $message = array('status' => 200, 'message' => 'Votre signature a été enregistrée avec succès.');
+      exit(json_encode($message));  
+    }
+    else {
+      $message = array('status' => 500, 'message' => 'Erreur lors de la sauvegarde des données.');
+      exit(json_encode($message));  
+    }
+    
+  }
+  
+}
+
+function add_repository($data) {
+  
+  if ( ! isset($data['rw_users_count'])) $data['rw_users_count'] = 0;
+  if ( ! isset($data['rw_users_logins'])) $data['rw_users_logins'] = "";
+  if ( ! isset($data['r_users_count'])) $data['r_users_count'] = 0;
+  if ( ! isset($data['r_users_logins'])) $data['r_users_logins'] = "";
+  
+  $d = new Data(DB);
+  if ( ! isset($data['repository']) OR ! isset($data['email'])) {
+    $message = array('status' => 400, 'message' => 'Veuillez remplir tous les champs.');
+    exit(json_encode($message));
+  }
+  else if ($d->repository_exists($data['repository'])) {
+    $message = array('status' => 400, 'message' => 'Ce nom de répertoire est déjà utilisé.');
+    exit(json_encode($message));   
+  }
+  else if (strlen($data['repository']) < 3) {
+    $message = array('status' => 400, 'message' => 'Veuillez entrer un nom de répertoire d\'au moins 3 caractères.');
+    exit(json_encode($message));   
+  }
+  else if (! $d->is_email_address($data['email'])) {
+    $message = array('status' => 400, 'message' => 'Veuillez entrer un adresse email valide.');
+    exit(json_encode($message));   
+  }
+  else if ($data['rw_users_count'] < 1) {
+    $message = array('status' => 400, 'message' => 'Le répertoire doit disposer d\'au moins un utilisateur en lecture/écriture.');
+    exit(json_encode($message));   
+  }
+  else {
+    
+    unset($data['action']);
+    
+    $data['repository'] = str_replace(' ', '-', $data['repository']);
+    
+    if ($d->save_repository($data)) {
+      $message = array('status' => 200, 'message' => 'Votre demande a été enregistrée avec succès.<br />Vous recevrez un email de confirmation à l\'adresse indiquée lors de la création du répertoire.');
       exit(json_encode($message));  
     }
     else {

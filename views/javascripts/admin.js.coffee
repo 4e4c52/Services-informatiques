@@ -9,6 +9,7 @@ jQuery ->
     when "admin admin_registrations" then load = 'waiting'
     when "admin admin_computer_convention" then load = 'cc_signatures'
     when "admin admin_protel_convention" then load = 'cp_signatures'
+    when "admin admin_repositories" then load = 'waiting_repositories'
   
   ## Functions
     
@@ -46,6 +47,42 @@ jQuery ->
           alert 'Une erreur est survenue lors de la communication avec le serveur.'
       error: (a, b, c) ->
         $('#registrations').html('').html '<li><span style="color:#980905;">Impossible de contacter le serveur.</span></li>'
+    })
+    
+  get_waiting_repositories = ->
+    $('#repositories').html('').html loader
+    $.ajax({
+      type: 'get'
+      url: '../data/receiver_admin.php'
+      data: {
+        action: 'get_waiting_repositories'
+      }
+      success: (result) ->
+        data = jQuery.parseJSON result
+        if data.status is 200
+          $('#repositories').html('').html data.repositories
+        else if data.status is 400 or data.status is 500
+          alert 'Une erreur est survenue lors de la communication avec le serveur.'
+      error: (a, b, c) ->
+        $('#repositories').html('').html '<li><span style="color:#980905;">Impossible de contacter le serveur.</span></li>'
+    })
+    
+  get_validated_repositories = ->
+    $('#repositories').html('').html loader
+    $.ajax({
+      type: 'get'
+      url: '../data/receiver_admin.php'
+      data: {
+        action: 'get_validated_repositories'
+      }
+      success: (result) ->
+        data = jQuery.parseJSON result
+        if data.status is 200
+          $('#repositories').html('').html data.repositories
+        else if data.status is 400 or data.status is 500
+          alert 'Une erreur est survenue lors de la communication avec le serveur.'
+      error: (a, b, c) ->
+        $('#repositories').html('').html '<li><span style="color:#980905;">Impossible de contacter le serveur.</span></li>'
     })
     
   get_cc_signatures = ->
@@ -97,11 +134,15 @@ jQuery ->
   # Get waiting registrations
   if load is 'waiting'
     get_waiting_registrations()
+    
+  # Get waiting repositories
+  if load is 'waiting_repositories'
+    get_waiting_repositories()
   
   # Get data from the server
   if load is 'data'
     $.ajax({
-      type: 'post'
+      type: 'get'
       url: '../data/receiver_admin.php'
       data: {
         action: 'get_data'
@@ -110,18 +151,20 @@ jQuery ->
         data = jQuery.parseJSON result
         if data.status is 200
           $('#registrations').html('').html data.registrations
+          $('#repositories').html('').html data.repositories
           $('#signatures').html('').html data.signatures
-        else if data.status is 400
+        else if data.status is 400 or data.status is 500
           alert 'Une erreur est survenue lors de la communication avec le serveur.'
       error: (a, b, c) ->
         $('#registrations').html('').html '<li><span style="color:#980905;">Impossible de contacter le serveur.</span></li>'
+        $('#repositories').html('').html '<li><span style="color:#980905;">Impossible de contacter le serveur.</span></li>'
         $('#signatures').html('').html '<li><span style="color:#980905;">Impossible de contacter le serveur.</span></li>'
     })
     
   ## Events then loading
     
   # Delete a registration
-  $('.delete').live 'click', ->
+  $('.admin_registrations .delete').live 'click', ->
     li = $(@).parent()
     mac_address = $(@).parent().find('input[type=checkbox]').attr 'id'
     $('#loading-' + mac_address).show();
@@ -136,7 +179,7 @@ jQuery ->
         data = jQuery.parseJSON result
         if data.status is 200
           li.remove()
-        else if data.status is 400
+        else if data.status is 400 or data.status is 500
           alert 'Une erreur est survenue lors de la communication avec le serveur.'
       error: (a, b, c) ->
         alert 'Impossible de contacter le serveur.'
@@ -144,7 +187,7 @@ jQuery ->
     false
     
   # Mark a registration as validated
-  $('input[type=checkbox]').live 'click', ->
+  $('.admin_registrations #registrations input[type=checkbox]').live 'click', ->
     li = $(@).parent()
     mac_address = $(@).attr 'id'
     li.find('input[type=checkbox]').hide();
@@ -161,7 +204,7 @@ jQuery ->
         if data.status is 200
           li.find('input[type=checkbox]').attr("checked", "checked")
           li.addClass 'validated'
-        else if data.status is 400
+        else if data.status is 400 or data.status is 500
           alert 'Une erreur est survenue lors de la communication avec le serveur.'
       error: (a, b, c) ->
         alert 'Impossible de contacter le serveur.'
@@ -171,9 +214,8 @@ jQuery ->
     true
     
   # Unmark a registration as validated
-  $('.validated input[type=checkbox]').live 'click', ->
+  $('.admin_registrations #registrations .validated input[type=checkbox]').live 'click', ->
     li = $(@).parent()
-    li.append
     mac_address = $(@).attr 'id'
     li.find('input[type=checkbox]').hide();
     $('#loading-' + mac_address).show();
@@ -186,7 +228,7 @@ jQuery ->
       }
       success: (result) ->
         data = jQuery.parseJSON result
-        if data.status is 200
+        if data.status is 200 or data.status is 500
         	li.removeClass 'validated'
         	li.find('input[type=checkbox]').removeAttr("checked")      
         else if data.status is 400
@@ -198,6 +240,83 @@ jQuery ->
     $('#loading-' + mac_address).hide();
     false
   
+  # Delete a repository
+  $('.admin_repositories .delete').live 'click', ->
+    li = $(@).parent()
+    repository = $(@).parent().find('input[type=checkbox]').attr 'id'
+    $('#loading-' + repository).show();
+    $.ajax({
+      type: 'post'
+      url: '../data/receiver_admin.php'
+      data: {
+        action: 'delete_repository'
+        repository: repository
+      }
+      success: (result) ->
+        data = jQuery.parseJSON result
+        if data.status is 200
+          li.remove()
+        else if data.status is 400 or data.status is 500
+          alert 'Une erreur est survenue lors de la communication avec le serveur.'
+      error: (a, b, c) ->
+        alert 'Impossible de contacter le serveur.'
+    })
+    false
+    
+  # Mark a repository as validated
+  $('.admin_repositories #repositories input[type=checkbox]').live 'click', ->
+    li = $(@).parent()
+    repository = $(@).attr 'id'
+    li.find('input[type=checkbox]').hide();
+    $('#loading-' + repository).show();
+    $.ajax({
+      type: 'post'
+      url: '../data/receiver_admin.php'
+      data: {
+        action: 'validate_repository'
+        repository: repository
+      }
+      success: (result) ->
+        data = jQuery.parseJSON result
+        if data.status is 200
+          li.find('input[type=checkbox]').attr("checked", "checked")
+          li.addClass 'validated'
+        else if data.status is 400 or data.status is 500
+          alert 'Une erreur est survenue lors de la communication avec le serveur.'
+      error: (a, b, c) ->
+        alert 'Impossible de contacter le serveur.'
+    })
+    li.find('input[type=checkbox]').show();
+    $('#loading-' + repository).hide();
+    true
+    
+  # Unmark a registration as validated
+  $('.admin_repositories #repositories .validated input[type=checkbox]').live 'click', ->
+    li = $(@).parent()
+    repository = $(@).attr 'id'
+    li.find('input[type=checkbox]').hide();
+    $('#loading-' + repository).show();
+    $.ajax({
+      type: 'post'
+      url: '../data/receiver_admin.php'
+      data: {
+        action: 'unvalidate_repository'
+        repository: repository
+      }
+      success: (result) ->
+        data = jQuery.parseJSON result
+        if data.status is 200
+        	li.removeClass 'validated'
+        	li.find('input[type=checkbox]').removeAttr("checked")      
+        else if data.status is 400 or data.status is 500
+          alert 'Une erreur est survenue lors de la communication avec le serveur.'
+      error: (a, b, c) ->
+        alert 'Impossible de contacter le serveur.'
+    })
+    li.find('input[type=checkbox]').show();
+    $('#loading-' + repository).hide();
+    false  
+  
   ## Events
     
   # Show the bin to delete a registration
@@ -208,7 +327,7 @@ jQuery ->
     $(@).find('.delete').hide()
   
   # Switch from waiting to validated registration
-  $('#switch').click ->
+  $('.admin_registrations #switch').click ->
     if $('.content-title').hasClass 'waiting-title'
       $('.content-title').html('').html 'Enregistrements valid&eacute;s'
       $('.content-title').removeClass('waiting-title').addClass 'validated-title'
@@ -217,4 +336,16 @@ jQuery ->
       $('.content-title').html('').html 'Enregistrements en attente'
       $('.content-title').removeClass('validated-title').addClass 'waiting-title'
       get_waiting_registrations()
+    false
+    
+   # Switch from waiting to validated repositories
+  $('.admin_repositories #switch').click ->
+    if $('.content-title').hasClass 'waiting-title'
+      $('.content-title').html('').html 'Demandes valid&eacute;es'
+      $('.content-title').removeClass('waiting-title').addClass 'validated-title'
+      get_validated_repositories()
+    else
+      $('.content-title').html('').html 'Demandes en attente'
+      $('.content-title').removeClass('validated-title').addClass 'waiting-title'
+      get_waiting_repositories()
     false

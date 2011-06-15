@@ -20,7 +20,7 @@ with_layout :admin_layout do
   page "/admin/registrations.html"
   page "/admin/computer_convention.html"
   page "/admin/protel_convention.html"
-  page "/admin/subversion.html"
+  page "/admin/repositories.html"
 end
 
 # Helpers

@@ -1,5 +1,5 @@
 - content_for :head do
-  %title Demande répertoire SVN > Services informatiques
+  %title Demander un répertoire SVN > Services informatiques
   
 - content_for :subcol do
   none
@@ -8,13 +8,15 @@
   %h2 Demander un répertoire SVN
   %p Complétez le formulaire pour demander votre répertoire SVN afin de pouvoir travailler avec vos collègues.  
   %ul
-    %li Nommer le répertoire
+    %li Compléter les informations
     %li Ajouter des utilisateurs en lecture/écriture
     %li Ajouter des utilisateurs en lecture seule
   
 
 - form_tag '/data/data.php', :class => 'registration-form', :method => 'post' do
 
+  %br
+  %br
   #ajax-response
 
   %h3 Informations
@@ -24,42 +26,50 @@
     %p
       = label_tag "Nom du répertoire "
       = text_field_tag :repository, :id => :repository
+      
+    %p
+      = label_tag "Addresse email (pour notification lors de la création) "
+      = text_field_tag :email, :id => :email
 
   %h3 Utilisateurs Lecture/Ecriture
   
   - field_set_tag do
   
-    %p
-      = hidden_field_tag :users_rw_count, :id => :users_rw_count, :value => 0
+    = hidden_field_tag :rw_users_count, :id => :rw_users_count, :value => 0
+    = hidden_field_tag :rw_users_logins, :id => :rw_users_logins
+    
+    %ul#rw_users
       
     %p= link_to "Ajouter", "#", :id => :add_rw_user, :class => "button"
     
-  #add_user_rw_box
+  #add_rw_user_box
     - field_set_tag do
-      = label_tag :login
-      = text_field_tag :user_rw_login
+      = label_tag "Login read/write "
+      = text_field_tag :rw_user_login, :id => :rw_user_login
       %br
       %br
       = button_tag "Sauvegarder", :id => 'add_rw_user_button'
-    #add_user_rw_box_arrow
+    #add_rw_user_box_arrow
       
   %h3 Utilisateurs Lecture seule
   
   - field_set_tag do
   
-    %p
-      = hidden_field_tag :users_r_count, :id => :users_r_count, :value => 0
+    = hidden_field_tag :r_users_count, :id => :r_users_count, :value => 0
+    = hidden_field_tag :r_users_logins, :id => :r_users_logins
+    
+    %ul#r_users
       
     %p= link_to "Ajouter", "#", :id => :add_r_user, :class => "button"
     
-  #add_user_r_box
+  #add_r_user_box
     - field_set_tag do
-      = label_tag :login
-      = text_field_tag :user_r_login
+      = label_tag "Login read only "
+      = text_field_tag :r_user_login, :id => :r_user_login
       %br
       %br
       = button_tag "Sauvegarder", :id => 'add_r_user_button'
-    #add_user_r_box_arrow
+    #add_r_user_box_arrow
     
   - field_set_tag(:class => 'buttons') do
     = button_tag "Envoyer", :id => 'add_svn'
