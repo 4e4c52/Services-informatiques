@@ -2,23 +2,28 @@
   %title Charte informatique > Services informatiques
   
 - content_for :subcol do
-  none
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Contenu
+  %ol.chapters
+    %li= link_to "Lire la charte", "#read-convention"
+    %li= link_to "Signer la charte", "#sign-convention"
 
 - content_for :feature do
-  %h2 Charte informatique
+  %h2 Charte Informatique
   %p Signer la charte informatique vous donne accès aux salles informatique de l'école.  
   %ul
     %li Lisez le charte
     %li Signez la charte
   
-%h3 Charte
+%h3#read-convention 1 Lire la Charte
 
 %p.info 
   Vous pouvez lire la charte au format PDF en 
   = link_to "cliquant ici", "documents/computer_charter.pdf"
   pour la télécharger.
   
-%h3 Signature
+%h3#sign-convention 2 Signer la Charte
 
 - form_tag '/data/data.php', :class => 'registration-form', :method => 'post' do
   

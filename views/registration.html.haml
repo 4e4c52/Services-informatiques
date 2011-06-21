@@ -2,14 +2,14 @@
   %title Enregistrement > Services informatiques
   
 - content_for :subcol do
-  %h3.chapters 
-    = image_tag "chapters.gif"
-    Chapitres
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Contenu
   %ol.chapters
     %li= link_to "Charte informatique", "#computer-convention"
     %li= link_to "Charte PROTEL", "#protel-convention"
-    %li= link_to "Enregistrez votre ordinateur", "#computer-registration"
-    %li= link_to "Demandez votre répertoire SVN", "#svn-registration"
+    %li= link_to "Enregistrer votre ordinateur", "#computer-registration"
+    %li= link_to "Demander votre répertoire SVN", "#svn-registration"
   
 - content_for :feature do
   %h2 Enregistrement
@@ -19,22 +19,22 @@
     %li Accédez au réseau
     %li Partagez sur SVN
     
-%h3#computer-convention Charte informatique
+%h3#computer-convention 1 Charte Informatique
 
 .warning La signature de la charte informatique est obligatoire pour pouvoir accéder au réseau ainsi qu'aux salles informatique.
 %p Pour lire et signer la charte, rendez-vous sur #{link_to "cette page", "sign_computer_convention.html"}.
 
-%h3#protel-convention Charte PROTEL
+%h3#protel-convention 2 Charte PROTEL
 
 .warning La signature de la charte PROTEL est obligatoire pour l'utilisation du logiciel PROTEL DXP.
 %p Pour lire et signer la charte, rendez-vous sur #{link_to "cette page", "sign_protel_convention.html"}.
 
-%h3#computer-registration Enregistrez votre ordinateur
+%h3#computer-registration 3 Enregistrer votre Ordinateur
 
 %p Avant de vous connecter au réseau, vous devez, si ce n'est déjà fait, nous communiquer l'adresse MAC de votre carte WIFI.
 %p Pour nous communiquer votre adresse MAC, suivez les intructions et remplissez le formulaire sur #{link_to "la page suivante", "mac_registration.html"}.
 
-%h3#svn-registration Demandez votre répertoire SVN
+%h3#svn-registration 4 Demander votre Répertoire SVN
 
 .warning Avant de faire une demande de répertoire SVN, vous devez avoir signé la charte informatique.
 %p Pour faire votre demande de répertoire Subversion, rendez-vous sur #{link_to "cette page", "svn_registration.html"}.

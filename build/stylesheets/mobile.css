@@ -1,0 +1,46 @@
+/* line 1, ../../views/stylesheets/mobile.css.scss */
+#body {
+  width: 100%;
+  font-size: 5em; }
+
+/* line 6, ../../views/stylesheets/mobile.css.scss */
+#nav .wrapper #design-box {
+  display: none; }
+
+/* line 10, ../../views/stylesheets/mobile.css.scss */
+#header .wrapper #logo {
+  display: none; }
+
+/* line 14, ../../views/stylesheets/mobile.css.scss */
+#header #menu {
+  float: none;
+  padding-top: 0; }
+
+/* line 19, ../../views/stylesheets/mobile.css.scss */
+#left, #right {
+  display: block;
+  float: none; }
+
+/* line 24, ../../views/stylesheets/mobile.css.scss */
+#feature .wrapper #sub-col {
+  display: none; }
+
+/* line 28, ../../views/stylesheets/mobile.css.scss */
+#nav .wrapper, #header .wrapper, #feature .wrapper, #mobile-tuts .wrapper, #container .wrapper, #footer .wrapper {
+  width: 95%;
+  margin: 2px auto;
+  padding: 0; }
+
+/* line 34, ../../views/stylesheets/mobile.css.scss */
+#container .wrapper #main-col {
+  width: 95%;
+  margin: 5px auto; }
+
+/* line 39, ../../views/stylesheets/mobile.css.scss */
+#container .wrapper #main-col img {
+  width: 95%;
+  margin: 2px auto; }
+
+/* line 44, ../../views/stylesheets/mobile.css.scss */
+#main-col #loader img {
+  width: 16px; }

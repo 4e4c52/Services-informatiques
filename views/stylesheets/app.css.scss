@@ -27,7 +27,6 @@ $font-color-clear: #333333;
     margin-bottom: 0;
     padding: 0.125em 0 0.25em;
     font-size: 1.2857em;
-    text-transform: capitalize;
   }
   
   dd {
@@ -63,7 +62,41 @@ h3 {
   font-weight: bold;
   line-height: 1.286em;
   margin: 0.875em 0 0.2916em;
-  text-transform: capitalize;
+}
+
+h4 {
+  font-size: 1.2857em;
+  font-weight: bold;
+  line-height: 1.2em;
+  margin: 1.6667em 0 0.3887em;
+}
+
+h5 {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.5em;
+  margin: 1em 0 0.5em;
+}
+
+table {
+  width: 100%;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 2px solid #CCCCCC;
+  border-collapse: collapse;
+  margin: 0 0 1.5em;
+  
+  th, td {
+    border: 1px solid #CCCCCC;
+    border-collapse: collapse;
+    padding: 0.25em 1em;
+  }
+  
+  th {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-bottom: 2px solid #CCCCCC;
+    font-weight: bold;
+    padding: 0.5em 1em;
+  }
 }
 
 label {
@@ -121,6 +154,13 @@ i {
   font-style: italic;
 }
 
+pre,code { margin: 1.5em 0; overflow: auto; color: #222;}
+pre,code,tt {
+    font-size: 1em;
+    font-family: "Anonymous Pro", "Inconsolata", "Menlo", "Consolas", "Bitstream Vera Sans Mono", "Courier New", monospace;
+    line-height: 1.5;
+}
+
 .wrapper {
   width: 69em;
   margin: 0 auto;
@@ -144,6 +184,14 @@ i {
   
   ul {
     display: none;
+  }
+}
+
+.gallery {
+  text-align: center;
+  
+  img {
+    width: 40em;
   }
 }
 
@@ -181,6 +229,12 @@ i {
   strong a {
     color: $link-color;
   }
+  
+  #design-box {
+    display: block;
+    float: right;
+  }
+  
 }
 
 #menu {
@@ -271,7 +325,6 @@ i {
         font-weight: normal;
         margin: 0.5em 0 0;
         padding: 0;
-        text-transform: capitalize;
       }
       
       dd {
@@ -279,7 +332,6 @@ i {
         font-weight: normal;
         margin: 0;
         padding: 0;
-        text-transform: capitalize;
         
         a {
           color: $link-color;
@@ -332,7 +384,6 @@ i {
   
   #sub-col {
     background: $clear-background;
-    border: 1px dashed $blue-background;
     font-size: 0.9285em;
     line-height: 1.3846em;
     padding: 1em 1.5em 1em 1.25em;
@@ -342,21 +393,42 @@ i {
     width: 17em;
     @include cols;
     
-    h3.chapters {
+    h3.chapter {
       margin-top: 0.25em;
+      color: #333333;
+      line-height: 1.286em;
+      
+      img {
+        vertical-align: text-bottom;
+      }
     }
     
     .chapters {
       color: $red-background-darker;
+      font-weight: bold;
       
       li {
         margin-bottom: 0.75em;
+      }
+      
+      ul {
+        margin-left: 0;
+        margin-top: 0.5em;
+        
+        li {
+          background: url("../images/bullet.gif") no-repeat scroll left 0.45em transparent;
+          font-size: 1em;
+          font-weight: normal;
+          list-style: none outside none;
+          margin-left: 0;
+          padding: 0 0 0 1em;
+        }
       }
     }
   }
 }
 
-#container {
+#container, #mobile-tuts {
   color: $font-color-clear;
   
   #main-col {
@@ -372,6 +444,16 @@ i {
       margin-left: 0;
       padding: 0.25em 0 1em;
     }
+    
+    ul {
+      li {
+        background: url("../images/grey_bullet.gif") no-repeat scroll left 0.5em transparent;
+        list-style: none outside none;
+        margin-left: 0;
+        padding-left: 1em;
+      }
+    }
+    
     .work-in-progress, .warning, .note, .code_container {
       border: medium none;
       margin-left: 0;
@@ -411,6 +493,13 @@ i {
         color: #222222;
         font-size: 12px;
         margin: 0 0 3px;
+      }
+      
+      #rw_user_format, #r_user_format {
+        color: #222222;
+        font-size: 12px;
+        font-weight: bold;
+        color: orange;
       }
 
       input[type=text] {

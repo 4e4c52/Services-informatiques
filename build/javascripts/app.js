@@ -1,11 +1,49 @@
 (function() {
   jQuery(function() {
-    var loader, save_r_user, save_rw_user;
-    loader = '<img src="images/loader.gif" alt="#" />&nbsp;<strong>Veuillez patienter...</strong>';
-    $('#tuts-index').click(function() {
-      $('#tuts').toggle();
-      return false;
-    });
+    var design, device_width, getCookie, loader, reg_tuts, save_r_user, save_rw_user, setCookie, setDesign;
+    loader = '<span id="loader"><img src="images/loader.gif" alt="#" />&nbsp;<strong>Veuillez patienter...</strong></span>';
+    if (jQuery.browser.mobile) {
+      $('head').append('<link rel="stylesheet" href="stylesheets/mobile.css" id="mobile" media="screen" type="text/css" />');
+      device_width = $(window).width();
+      $('body').css('width', device_width + 'px');
+      $('#isen-title').show();
+      $('#mobile-sub-col').html('').html($('#sub-col').html());
+    }
+    if (!jQuery.browser.mobile) {
+      $('#tuts-index').click(function() {
+        $('#tuts').toggle();
+        return false;
+      });
+    } else {
+      $('#tuts-index').click(function() {
+        var tuts;
+        tuts = $('#tuts').html();
+        $('#mobile-tuts .wrapper').html('').html(tuts);
+        $('#mobile-tuts .wrapper').find('hr').remove();
+        $('#mobile-tuts').toggle('normal');
+        return false;
+      });
+    }
+    reg_tuts = /^tuts\//;
+    if ($('body').hasClass('tuts')) {
+      $('#mobile').attr('href', '../' + $('#mobile').attr('href'));
+      $('#isen-title').attr('href', '../' + $('#isen-title').attr('href'));
+      $('#logo-home').attr('href', '../' + $('#logo-home').attr('href'));
+      $('#home').attr('href', '../' + $('#home').attr('href'));
+      $('#offers').attr('href', '../' + $('#offers').attr('href'));
+      $('#registration').attr('href', '../' + $('#registration').attr('href'));
+      $('#tuts a').each(function() {
+        var link;
+        link = $(this).attr('href');
+        link = link.replace(reg_tuts, "");
+        return $(this).attr('href', link);
+      });
+    }
+    if (!jQuery.browser.mobile) {
+      $('a[rel="fancybox"]').fancybox({
+        hideOnContentClick: true
+      });
+    }
     $('#add_mac').click(function() {
       var email, first_name, mac_address, name;
       $('#ajax-response').html('').html(loader);
@@ -126,12 +164,18 @@
       return false;
     });
     save_rw_user = function() {
-      var entry, logins, total, user;
+      var entry, logins, regex, total, user;
       total = $('#rw_users_count').val();
       total++;
       $('#rw_users_count').val(total);
       user = $('#rw_user_login').val();
+      regex = /^[a-z]{6}[0-9]{2}$/;
+      if (!regex.exec(user)) {
+        $('#rw_user_format').html('Ex: jsmith18');
+        return false;
+      }
       $('#rw_user_login').val('');
+      $('#rw_user_format').html('');
       logins = $('#rw_users_logins').val();
       logins += user + ';';
       $('#rw_users_logins').val(logins);
@@ -149,12 +193,18 @@
       }
     });
     save_r_user = function() {
-      var entry, logins, total, user;
+      var entry, logins, regex, total, user;
       total = $('#r_users_count').val();
       total++;
       $('#r_users_count').val(total);
       user = $('#r_user_login').val();
+      regex = /^[a-z]{6}[0-9]{2}$/;
+      if (!regex.exec(user)) {
+        $('#r_user_format').html('Ex: jsmith18');
+        return false;
+      }
       $('#r_user_login').val('');
+      $('#r_user_format').html('');
       logins = $('#r_users_logins').val();
       logins += user + ';';
       $('#r_users_logins').val(logins);
@@ -211,7 +261,7 @@
       $('#r_users_logins').val(logins);
       return false;
     });
-    return $('#add_svn').click(function() {
+    $('#add_svn').click(function() {
       var email, r_users_count, r_users_logins, repository, rw_users_count, rw_users_logins;
       $('#ajax-response').html('').html(loader);
       repository = $('#repository').val();
@@ -255,5 +305,49 @@
         }
       });
     });
+    setCookie = function(name, value) {
+      var expires, today;
+      today = new Date();
+      expires = new Date();
+      expires.setTime(today.getTime() + (365 * 24 * 60 * 60 * 1000));
+      return document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + expires.toGMTString();
+    };
+    getCookie = function(name) {
+      var regex;
+      regex = new RegExp("(?:; )?" + name + "=([^;]*);?");
+      if (regex.test(document.cookie)) {
+        return decodeURIComponent(RegExp["$1"]);
+      } else {
+        return false;
+      }
+    };
+    setDesign = function() {
+      var link, stylesheet;
+      link = $('#app-stylesheet').clone();
+      stylesheet = link.attr('href');
+      stylesheet = stylesheet.replace("app", "isen");
+      link.attr('href', stylesheet);
+      link.attr('id', 'isen');
+      $('head').append(link);
+      return setCookie('design', 'isen');
+    };
+    $('#design').change(function() {
+      var design;
+      design = $(this).val();
+      if (design === 'isen') {
+        console.log('from there');
+        return setDesign();
+      } else {
+        $('#isen').remove();
+        return setCookie('design', 'default');
+      }
+    });
+    if (design = getCookie('design')) {
+      if (design === 'isen') {
+        console.log('from here');
+        setDesign();
+        return $('#design option[value="isen"]').attr('selected', 'selected');
+      }
+    }
   });
 }).call(this);

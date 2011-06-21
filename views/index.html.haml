@@ -2,59 +2,55 @@
   %title Services informatiques
   
 - content_for :feature do
-  %h2 Site des services informatiques  
-  %p Retrouvez ci-dessous les tutoriels pour utiliser les services informatiques.
-  %p Ces tutoriels sont fait pour aider à comprendre et utiliser tous les services informatiques proposés par l'école.
+  %h2 Services Informatiques  
+  %p Retrouvez ci-dessous l'emplacement des salles informatiques et des bornes WIFI ainsi qu'une brève présentation de nos services.
   
 - content_for :subcol do
   %dl
-    %dd.warning Ce site est issu du projet de fin d'année des CIR 1 et est en constante amélioration.
-    %dd.work-in-progress Les tutoriels marqué de ce signe sont en cours de rédaction. Bien que pouvant vous être utiles, ils peuvent être approximatif et contenir des erreurs. Vous pouvez aider en les lisant et en envoyant vos remarques à #{mail_to "yann.le-ru@isen.fr", "Yann Le Ru"}.
-  
+    %dd.work-in-progress Les pages marquées de ce signe sont en cours de rédaction. Bien que pouvant vous être utiles, elles peuvent être approximatives et contenir des erreurs. Vous pouvez nous aider en les lisant et en envoyant vos remarques à #{mail_to "yann.le-ru@isen.fr", "Yann Le Ru"}.
 
-%h3 Commencez ici
+%h3 Services
 
-%dl
-  %dt= link_to "Acceder au réseau", "network.html"
-  %dd.work-in-progress Tout ce que vous devez savoir pour vous connecter et utiliser le réseau de l'école.
-  %dt= link_to "Salles informatique", "rooms.html"
-  %dd.work-in-progress Emplacement de toutes les salles informatique de l'école
-  %dt= link_to "Bornes WIFI", "wifi.html"
-  %dd.work-in-progress Emplacement des bornes WIFI de l'école.
-  
-%h3 Courrier electronique
-%dl
-  %dt= link_to "Configuration de l'accès aux email", "email.html"
-  %dd.work-in-progress Ce tutoriel couvre la configuration et l'accès à votre boîte mail de l'école.
-  %dt= link_to "Configuration de Thunderbird", "thunderbird.html"
-  %dd.work-in-progress Ce tutoriel couvre la configuration du logiciel Mozilla Thunderbird pour utiliser votre adresse email de l'école.
-  %dt= link_to "Note sur le filtrage et l'annuaire", "email_note.html"
-  %dd.work-in-progress Quelques points à connaître concernant le filtrage et les annuaires LDAP.
-  
+%p L'école met à votre dispositions plusieurs services accessibles depuis l'école ou l'extérieur dont voici un bref résumé.
 
-%h3 Environnement Numérique de Travail
-%dl
-  %dt= link_to "Configuration du courriel sur l'ENT", "ent_email.html"
-  %dd.work-in-progress Ce tutoriel couvre la configuration de votre boite mail sur l'ENT.
-  %dt= link_to "Configuration de l'agenda sur l'ENT", "ent_calendar.html"
-  %dd.work-in-progress Ce tutoriel couvre la configuration de votre agenda sur l'ENT
-
-%h3 Imprimantes
-%dl
-  %dt= link_to "Utilisation des imprimantes", "printers.html"
-  %dd.work-in-progress Ce tutoriel couvre l'utilisation des imprimantes sur le réseau de l'école.
-
-%h3 VirtualBox
 %dl  
-  %dt= link_to "Configuration et utilisation de VirtualBox", "virtualbox.html"
-  %dd.work-in-progress Ce tutoriel couvre la configuration et l'utilisation des machines virtuelles sous VirtualBox.
+  %dt Courrier électronique
+  %dd Gérez tous les communications internes à l'école.
   
-%h3 Subversion
-%dl  
-  %dt= link_to "Configuration et utilisation de SVN", "subversion.html"
-  %dd.work-in-progress Ce tutoriel couvre la configuration et l'utilisation du serveur SVN de l'école.
+  %dt Annuaire électronique
+  %dd Retrouvez l'adresse email d'un élève de l'école facilement ou envoyez un email à toute une promotion.
+  
+  %dt Environnement Numérique de Travail
+  %dd L'ENT vous propose de gérer vos emails, votre agenda et bien d'autres choses encore depuis un site centralisé.
+  
+  %dt Imprimantes
+  %dd Imprimez vos documents sur les imprimantes réseaux où que vous soyez dans l'école.
+  
+  %dt Système de gestion de verions
+  %dd Gérez les sources de votre projet sans perde un seul fichier et de manière centralisée.
+  
+  %dt Voix sur IP
+  %dd Communiquez facilement avec n'importe qui sur le réseau. 
 
-%h3 Voice Over IP
-%dl
-  %dt= link_to "Note sur la VOIP"
-  %dd.work-in-progress Ce tutoriel couvre l'utilisation de la voix sur IP sur le réseau de l'école.
+%h3 Salles informatique & bornes WIFI
+
+%p 
+  L'école déploie de 26 bornes WIFI disposées à tous les étages. 
+  Vous pouvez trouver leurs positions sur les plans ci-dessous.
+  %br
+  Les salles informatiques sont, quant à elles, situés au troisième étage. 
+  Notez que votre badge est requis pour accéder à ces salles.
+  
+.info Afin de pouvoir utiliser le réseau WIFI, pensez à faire #{link_to "enregistrer votre ordinateur", "mac_registration.html"} grâce au formulaire prévu à cet effet.
+
+%p Rez-de-chaussée
+= gallery("plans/ground.png")
+
+%p Premier étage
+= gallery("plans/first-floor.png")
+
+%p Deuxième étage
+= gallery("plans/second-floor.png")
+
+%p Troisième étage
+= gallery("plans/third-floor.png")

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang='fr'>
+  <head>
+    <meta charset='utf-8' />
+    <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0' />
+    <link type="image/ico" href="../images/favicon.ico" rel="icon" />
+    <link type="image/png" href="../images/favicon.png" rel="icon" />
+    <link href="../stylesheets/app.css" id="app-stylesheet" media="screen" rel="stylesheet" type="text/css" />
+    <link href="../stylesheets/fancybox.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="../javascripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../javascripts/mobile.min.js" type="text/javascript"></script>
+    <script src="../javascripts/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="../javascripts/app.js" type="text/javascript"></script>
+    <title>Développer avec The Middleman > Tutoriels > Services informatiques</title>
+  </head>
+  <body class='tuts tuts_middleman'>
+    <div id='nav'>
+      <div class='wrapper'>
+        <strong>Egalement sur <a href="http://www.isen.fr/brest.asp">isen.fr:</a></strong>
+        &nbsp;
+        <a href="https://web-brest.isen.fr/">ENT</a>
+        &nbsp;|&nbsp;
+        <a href="http://web-brest.isen.fr/moodle/">Moodle</a>
+        &nbsp;|&nbsp;
+        <a href="admin/">Admin</a>
+        <span id='design-box'>
+          Interface&nbsp;
+          <select id="design" name="design">
+          <option value="default">par défault</option>
+          <option value="isen">ISEN</option></select>
+        </span>
+      </div>
+    </div>
+    <div id='header'>
+      <div class='wrapper'>
+        <h1 id='logo'><a id="logo-home" href="index.html">Services informatiques</a></h1>
+        <ul id='menu'>
+          <li>
+            <strong>
+              <a style="display:none;" id="isen-title" href="index.html">ISEN Brest</a>
+            </strong>
+          </li>
+          <li><a id="home" href="index.html">Accueil</a></li>
+          <li class='expandable'>
+            <a id="tuts-index" href="index.html">Tutoriels</a>
+            <div id='tuts' style='display:none;'>
+              <hr />
+              <dl id='left'>
+                <dt>Commencez Ici</dt>
+                <dd><a href="tuts/network.html">Accéder au Réseau</a></dd>
+                <dt>Courrier Electronique</dt>
+                <dd><a href="tuts/email.html">Accéder à la Messagerie</a></dd>
+                <dd><a href="tuts/thunderbird.html">Configuration de Thunderbird</a></dd>
+                <dd><a href="tuts/email_note.html">Note sur le Filtrage et l'Annuaire</a></dd>
+                <dt>ENT</dt>
+                <dd><a href="tuts/ent_email.html">Configuration du Courriel sur l'ENT</a></dd>
+                <dd><a href="tuts/ent_calendar.html">Configuration de l'Agenda sur l'ENT</a></dd>
+              </dl>
+              <dl id='right'>
+                <dt>Imprimantes</dt>
+                <dd><a href="tuts/printers.html">Utilisation des Imprimantes</a></dd>
+                <dt>VirtualBox</dt>
+                <dd><a href="tuts/virtualbox.html">Configuration et Utilisation de VirtualBox</a></dd>
+                <dt>Subversion</dt>
+                <dd><a href="tuts/subversion.html">Configuration et Utilisation de SVN</a></dd>
+                <dt>VOIP</dt>
+                <dd><a href="tuts/voip.html">Note sur la VOIP</a></dd>
+                <dt>Développement Web</dt>
+                <dd><a href="tuts/middleman.html">Développer avec The Middleman</a></dd>
+              </dl>
+            </div>
+          </li>
+          <li><a id="offers" href="offers.html">Offres</a></li>
+          <li><a id="registration" href="registration.html">Enregistrement</a></li>
+        </ul>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <hr class='hide' />
+    <div id='mobile-tuts' style='display:none'>
+      <div class='wrapper'></div>
+    </div>
+    <div id='feature'>
+      <div class='wrapper'>
+        <h2>Développer avec The Middleman</h2>
+        <p></p>
+        Ce tutoriel couvre l'installation de Middleman et l'initiation au développement à l'aide de cet outil.
+        Après l'avoir lu, vous devriez être familier avec :
+        <ul>
+          <li>L'installation de The Middleman</li>
+          <li>La création d'une application avec The Middleman</li>
+          <li>La structure d'une application The Middleman</li>
+          <li>Les différents générateurs de The Middleman</li>
+          <li>La configuration avancée de The Middleman</li>
+        </ul>
+        <div id='sub-col'>
+          <h3 class='chapter'>
+            <img alt="#" src="../images/chapters.gif" />
+            Chapitres
+          </h3>
+          <ol class='chapters'>
+            <li><a href="#prerequisites">Prérequis</a></li>
+            <li><a href="#what-is-Middleman">Qu'est-ce que The Middleman ?</a></li>
+            <li>
+              <a href="#create-app">Création d'une Nouvelle Application</a>
+              <ul>
+                <li><a href="#install-Middleman">Installer The Middleman</a></li>
+                <li><a href="#creating-app">Création de l'application</a></li>
+                <li><a href="#app-architecture">Architecture de l'application</a></li>
+                <li><a href="#running-server">Lancement du serveur de développement</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#generators">Les Générateurs</a>
+              <ul>
+                <li><a href="#html-generator">HTML & Haml</a></li>
+                <li><a href="#css-generator">CSS & Sass</a></li>
+                <li><a href="#js-generator">Javascript & CoffeeScript</a></li>
+              </ul>
+            </li>
+            <li><a href="#compile">Compilation</a></li>
+            <li>
+              <a href="#config">Configuration Avancée</a>
+              <ul>
+                <li><a href="#layouts">Layouts</a></li>
+                <li><a href="#helpers">Helpers</a></li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div id='container'>
+      <div class='wrapper'>
+        <div id='mobile-sub-col'></div>
+        <div id='main-col'>
+          <br />
+          <div class='warning'>Ce guide est basé sur Middleman 1.2.8. Certains codes présentés ici pourraient ne pas être compatibles avec des versions précédentes ou futures.</div>
+          <h3 id='prerequisites'>1 Prérequis</h3>
+          <p>
+            Ce tutoriel est fait pour les débutants souhaitant développer un site avec The Middleman pour la première fois.
+            Aucune expérience avec The Middleman n'est requise pour le suivre.
+            Cependant, pour en profiter au maximum, vous devez avoir installé les programmes suivants :
+          </p>
+          <ul>
+            <li>Le langage <a href="http://www.ruby-lang.org/fr/downloads/">Ruby</a> en version 1.8.7 ou plus</li>
+            <li>Le système de paquets <a href="http://rubyforge.org/frs/?group_id=126">RubyGems</a> (préinstallé avec Ruby > 1.9.1)</li>
+          </ul>
+          <p>
+            The Middleman est un programme écrit en Ruby et qui peut nécessiter la connaissance de ce langage pour les tâches de configuration avancées.
+            Vous pouvez trouver des <a href="http://www.ruby-lang.org/fr/documentation/">ressources en ligne</a> pour apprendre à programmer en Ruby (qui soit dit en passant est un magnifique langage !).
+          </p>
+          <h3 id='what-is-Middleman'>2 Qu'est-ce que The Middleman ?</h3>
+          <p>
+            The Middleman est un programme écrit en Ruby permettant de créer des sites web statiques de façon simple, élégante et facile à maintenir.
+            The Middleman met à votre disposition plusieurs générateurs (voir plus loin) et fonctions appellées
+            <i>helpers</i>
+            permettants d'accélerer considérablement le nombre de ligne de code à écrire tout en minimisant le temps nécessaire au développement du site.
+          </p>
+          <p>
+            The Middleman repose sur le DSL <a href="http://www.sinatrarb.com/">Sinatra</a> pour la partie serveur et sur <a href="http://www.padrinorb.com/">Padrino</a> pour les helpers.
+            Il inclut également un grand nombres de générateurs HTML, CSS et Javascript.
+          </p>
+          <h3 id='create-app'>3 Création d'une Nouvelle Application</h3>
+          <p>
+            Avant de continuer, vous devez installer The Middleman.
+          </p>
+          <h4 id='install-Middleman'>3.1 Installer The Middleman</h4>
+          <p>
+            The Middleman s'installe très facilement grâve au gestionnaire de paquets RubyGems qui gère l'installation des dépendances pour nous.
+            Il est assez similaire à APT pour Ubuntu ou YUM pour CentOS.
+            Pour installer The Middleman, tapez la commande suivante depuis un terminal.
+            Vous devrez peut être avoir les droits d'administrateur (root) pour lancer l'installation. Auquel cas, RubyGems vous préviendra.
+          </p>
+          <div class='code_container'>
+            $ gem install Middleman
+          </div>
+          <h4 id='creating-app'>3.2 Création de l'application</h4>
+          <p>
+            Une fois The Middleman installé, il faut créer notre application.
+            Une fois encore, rien de bien compliqué. Tapez la commande suivante depuis un terminal, pas besoin d'avoir les droits d'administrateur cette fois.
+            Dans la commande ci-dessous,
+            <i>myapp</i>
+            est le nom de notre application.
+            Vous pouvez remplacer myapp par ce que bon vous semble, du moment qu'il n'y a pas d'espace ni de caractères spéciaux dans le nom.
+          </p>
+          <div class='code_container'>
+            $ mm-init myapp
+            <br />
+            <br>
+              create  myapp
+              <br />
+              create  myapp/config.rb
+              <br />
+              create  myapp/config.ru
+              <br />
+              create  myapp/views
+              <br />
+              create  myapp/views/index.html.haml
+              <br />
+              create  myapp/views/layout.haml
+              <br />
+              create  myapp/views/stylesheets/site.css.sass
+              <br />
+              create  myapp/public/stylesheets
+              <br />
+              create  myapp/public/javascripts
+              <br />
+              create  myapp/public/images
+            </br>
+          </div>
+          <h4 id='app-architecture'>3.3 Architecture de l'application</h4>
+          <p>
+            Avant d'aller plus loin, arrêtons nous une minute sur l'architecture de l'application qu'il est essentiel de comprendre pour la suite de ce tutoriel.
+            Lors de l'éxecution de la commande précedente, The Middleman a créé 7 répertoires ainsi que 5 fichiers.
+          </p>
+          <table>
+            <tr>
+              <th>Fichier/Dossier</th>
+              <th>Utilité</th>
+            </tr>
+            <tr>
+              <td>config.rb</td>
+              <td>Fichier de configuration de The Middleman.</td>
+            </tr>
+            <tr>
+              <td>config.ru</td>
+              <td>Fichier de configuration Rack (ne nous intéresse pas ici).</td>
+            </tr>
+            <tr>
+              <td>views/</td>
+              <td>Contient tous les fichiers qui seront générés par les différents générateurs.</td>
+            </tr>
+            <tr>
+              <td>index.html.haml</td>
+              <td>Fichier index écrit en Haml et qui sera complilé en HTML.</td>
+            </tr>
+            <tr>
+              <td>layout.haml</td>
+              <td>Ce fichier comporte le code HTML commun à toutes les pages tel que le doctype.</td>
+            </tr>
+            <tr>
+              <td>views/stylesheets/</td>
+              <td>Contient tous les fichiers CSS de l'application qui seront générés en CSS.</td>
+            </tr>
+            <tr>
+              <td>public/</td>
+              <td>Contient tous les fichiers qui seront laissés tels quels par The Middleman. Il seront simplement copiés dans le répertoire contenant l'application une fois générée.</td>
+            </tr>
+          </table>
+          <h4 id='running-server'>3.4 Lancement du serveur de développement</h4>
+          <p>
+            Maintenant que nous avons généré les fichiers nécessaires à notre application, nous allons pouvoir lancer le serveur de développement.
+            Pour cela, déplacez vous dans le répertoire de votre application,
+            <i>myapp</i>
+            dans mon exemple, et tapez la commande suivante.
+          </p>
+          <div class='code_container'>
+            $ mm-server
+            <br />
+            <br />
+            == The Middleman is standing watch on port 4567
+            <br />
+            >> Thin web server (v1.2.11 codename Bat-Shit Crazy)
+            <br />
+            >> Maximum connections set to 1024
+            <br />
+            >> Listening on 0.0.0.0:4567, CTRL+C to stop
+          </div>
+          <p>
+            Cette commande a pour effet de lancer un petit serveur sur le port 4567.
+            Pour accéder à ce serveur, ouvrez votre navigateur et tapez l'adresse
+            <strong>http://localhost:4567/</strong>
+            Vous pourrez alors voir la page
+            <i>index.html.haml</i>
+            créé par The Middleman lors de l'initialisation de l'application.
+          </p>
+          <p>
+            Le serveur de développement est très utile car il recompile tous les fichiers nécessaires à chaque requête.
+            Ainsi, vous pouvez effectuer une modification à l'un de vos fichiers, sauvegarder,
+            recharger la page dans votre navigateur et voir les modifications que vous avez apporté.
+          </p>
+          <h3 id='generators'>4 Les Générateurs</h3>
+          <p>
+            The Middleman supporte de nombreux générateurs tous aussi différents les uns que les autres.
+            Je vais donc vous présenter mes préférés et sans doute les plus communs puisque également présent au coeur de Rails 3.1.
+          </p>
+          <h4 id='html-generator'>4.1 HTML & Haml</h4>
+          <p>
+            Avec The Middleman, terminé le HTML, utilisez Haml pour générer vos pages toutes vos pages web.
+          </p>
+          <p>
+            Haml pour
+            <i>HTML Abstraction Markup Language</i>
+            est un langage permettant de générer du code HTML simplement et d'une manière élégante.
+            Ainsi, avec Haml, terminé les balises fermantes, les attributs à écrire, etc.
+            Haml utilise une technique dite de
+            <i>nesting</i>
+            permettant d'inclure les éléments les uns dans les autres grâce à de simples tabulations.
+          </p>
+          <p>
+            Pour apprendre à utiliser Haml, rendez vous sur le <a href="http://haml-lang.com/tutorial.html">tutoriel officiel</a>, ça ne vous prendra pas plus de 5 minutes
+            et vous ne pourrez plus vous en passer.
+          </p>
+          <h4 id='css-generator'>4.2 CSS & Sass</h4>
+          <p>
+            De même que pour Haml, Sass pour
+            <i>Syntactically Awesome Stylesheets</i>
+            est un générateur permettant de généré du CSS.
+            Lors de la création de l'application, The Middleman a créé un fichier nommé
+            <i>site.css.sass</i>
+            dans le dossier /views/stylesheets/
+          </p>
+          <p>
+            L'extension utilisé est ici
+            <i>.sass</i>
+            mais nous allons la remplacer par
+            <i>.scss</i>
+            . Pourquoi ? Parce que Sass supporte deux syntaxes différentes, .sass et .scss.
+            Sass est l'ancienne extension que nous pouvons toujours utiliser mais Scss est à préférer car il reprend la syntaxe CSS normale.
+            Ainsi, tout document CSS est un document Scss valide.
+          </p>
+          <p>
+            Pour apprendre à utiliser Sass, rendez vous sur le <a href="http://sass-lang.com/tutorial.html">tutoriel officiel</a>,
+            ça ne vous prendra une fois encore pas plus de 5 minutes et vous ne pourrez plus vous en passer non plus.
+          </p>
+          <h4 id='js-generator'>4.3 Javascript & CoffeeScript</h4>
+          <p>
+            Enfin, pour le Javascript, nous allons utiliser CoffeeScript.
+            Ce générateur permet de se débarasser de toute la syntaxe lourde de Javascript comme les accolades, les points-virugles et les parenthèses.
+            L'étude de CoffeeScript est un peu plus longue que pour les deux générateurs précédents mais vous fera gagner énormement de temps par la suite.
+            Pour apprendre la syntaxe de CoffeeScript, rendez- vous sur le <a href="http://jashkenas.github.com/coffee-script/">site officiel</a>.
+          </p>
+          <h3 id='compile'>5 Compilation</h3>
+          <p>
+            Une fois votre site terminé, il faut le compiler pour générer le HTML, le CSS et le Javascript.
+            Pour cela, une seule commande.
+          </p>
+          <div class='code_container'>
+            $ mm-build
+          </div>
+          <p>
+            Cette commande va créer un répertoire nommé
+            <strong>build</strong>
+            à la racine de votre application et y déplacer tous les fichiers et dossiers présents dans le répertoire public ainsi que les tous les fichiers générés.
+          </p>
+          <h3 id='config'>6 Configuration Avancée</h3>
+          <p>
+            Vous pouvez configurer The Middleman afin qu'il ait un comportement différent de celui configuré par défaut.
+            Vous pouvez aussi écrire des fonctiones nommés
+            <i>helpers</i>
+            pour vous faciliter certaines opérations.
+            Pour avoir une idée de ce que vous pouvez configurer, rendez vous sur le <a href="https://github.com/tdreyno/middleman/wiki">wiki du programme</a>.
+          </p>
+          <h4 id='layout'>6.1 Layouts</h4>
+          <p>
+            Si vous souhaitez attribuer un layout différent pour certaines pages, c'est tout à fait possible.
+            Par exemple, si vous voulez utiliser le layout nommé
+            <i>admin_layout.haml</i>
+            à toutes les pages présentes dans le dossier view/admin, ajouter ceci à votre fichier de configuration.
+          </p>
+          <div class='code_container'>
+            with_layout :admin_layout do
+            <br />
+            &nbsp;&nbsp;page "/admin/*"
+            <br />
+            end
+          </div>
+          <h4 id='helpers'>6.2 Helpers</h4>
+          <p>
+            Enfin, vous pouvez écrire vos propres helpers pour faciliter certaines tâches redondantes.
+            Ainsi, le helper suivant permet d'afficher un lien autour d'une image.
+          </p>
+          <div class='code_container'>
+            def gallery(image)
+            <br />
+            &nbsp;&nbsp;content_tag(:p, link_to(image_tag(image, :alt => "#"), "images/" + image, :rel => :fancybox), :class => :gallery)
+            <br />
+            end
+          </div>
+          <p>
+            Et c'est tout pour The Middleman.
+            J'espère qu'il vous sera utile.
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr class='hide' />
+    <div id='footer'>
+      <div class='wrapper'>
+        <p>ISEN - Brest &copy; 2011</p>
+        <p>Réalisé par <a href="http://syrinxoon.net">Nathan Le Ray</a>, powered by <a href="http://www.mongodb.org/">MongoDB</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>

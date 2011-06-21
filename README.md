@@ -1,1 +1,1 @@
-## Web project for my engineering school
+A web project for my engineering school.

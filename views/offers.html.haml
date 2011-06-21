@@ -1,0 +1,25 @@
+- content_for :head do
+  %title Offres portables
+  
+- content_for :feature do
+  %h2 Offres Portables
+  %p Besoin d'un nouvel ordinateur portable ?
+  %p Découvrez ci-dessous les offres que nous vous proposons.
+  
+- content_for :subcol do
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Contenu
+  %ol.chapters
+    %li= link_to "Offre N3", "#n3-offer"
+    %li= link_to "Offre CIR", "#cir-offer"
+
+%h3#n3-offer 1 Offre N3
+
+%p
+  Pour découvrir l'offre réservée aux N3, rendez vous sur la #{link_to "page suivante", "offer_n3.html"}.
+
+%h3#cir-offer 2 Offre CIR
+
+%p
+  Pour découvrir l'offre réservée auxCIR, rendez vous sur la #{link_to "page suivante", "offer_cir.html"}.

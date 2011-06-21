@@ -2,10 +2,14 @@
 <html lang='fr'>
   <head>
     <meta charset='utf-8' />
+    <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0' />
     <link type="image/ico" href="images/favicon.ico" rel="icon" />
     <link type="image/png" href="images/favicon.png" rel="icon" />
-    <link href="stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/app.css" id="app-stylesheet" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/fancybox.css" media="screen" rel="stylesheet" type="text/css" />
     <script src="javascripts/jquery.min.js" type="text/javascript"></script>
+    <script src="javascripts/mobile.min.js" type="text/javascript"></script>
+    <script src="javascripts/jquery.fancybox.pack.js" type="text/javascript"></script>
     <script src="javascripts/app.js" type="text/javascript"></script>
     <title>Services informatiques</title>
   </head>
@@ -17,117 +21,120 @@
         <a href="https://web-brest.isen.fr/">ENT</a>
         &nbsp;|&nbsp;
         <a href="http://web-brest.isen.fr/moodle/">Moodle</a>
+        &nbsp;|&nbsp;
+        <a href="admin/">Admin</a>
+        <span id='design-box'>
+          Interface&nbsp;
+          <select id="design" name="design">
+          <option value="default">par défault</option>
+          <option value="isen">ISEN</option></select>
+        </span>
       </div>
     </div>
     <div id='header'>
       <div class='wrapper'>
-        <h1 id='logo'><a href="index.html">Services informatiques</a></h1>
+        <h1 id='logo'><a id="logo-home" href="index.html">Services informatiques</a></h1>
         <ul id='menu'>
-          <li><a href="index.html">Accueil</a></li>
+          <li>
+            <strong>
+              <a style="display:none;" id="isen-title" href="index.html">ISEN Brest</a>
+            </strong>
+          </li>
+          <li><a id="home" href="index.html">Accueil</a></li>
           <li class='expandable'>
             <a id="tuts-index" href="index.html">Tutoriels</a>
             <div id='tuts' style='display:none;'>
               <hr />
               <dl id='left'>
-                <dt>Commencez ici</dt>
-                <dd><a href="network.html">Acceder au réseau</a></dd>
-                <dd><a href="rooms.html">Salles informatique</a></dd>
-                <dd><a href="wifi.html">Bornes WIFI</a></dd>
-                <dt>Courrier electronique</dt>
-                <dd><a href="email.html">Configuration de l'accès aux email</a></dd>
-                <dd><a href="thunderbird.html">Configuration de Thunderbird</a></dd>
-                <dd><a href="email_note.html">Note sur le filtrage et l'annuaire</a></dd>
+                <dt>Commencez Ici</dt>
+                <dd><a href="tuts/network.html">Accéder au Réseau</a></dd>
+                <dt>Courrier Electronique</dt>
+                <dd><a href="tuts/email.html">Accéder à la Messagerie</a></dd>
+                <dd><a href="tuts/thunderbird.html">Configuration de Thunderbird</a></dd>
+                <dd><a href="tuts/email_note.html">Note sur le Filtrage et l'Annuaire</a></dd>
                 <dt>ENT</dt>
-                <dd><a href="ent_email.html">Configuration du courriel sur l'ENT</a></dd>
-                <dd><a href="ent_calendar.html">Configuration de l'agenda sur l'ENT</a></dd>
+                <dd><a href="tuts/ent_email.html">Configuration du Courriel sur l'ENT</a></dd>
+                <dd><a href="tuts/ent_calendar.html">Configuration de l'Agenda sur l'ENT</a></dd>
               </dl>
               <dl id='right'>
                 <dt>Imprimantes</dt>
-                <dd><a href="printers.html">Utilisation des imprimantes</a></dd>
+                <dd><a href="tuts/printers.html">Utilisation des Imprimantes</a></dd>
                 <dt>VirtualBox</dt>
-                <dd><a href="virtualbox.html">Configuration et utilisation de VirtualBox</a></dd>
+                <dd><a href="tuts/virtualbox.html">Configuration et Utilisation de VirtualBox</a></dd>
                 <dt>Subversion</dt>
-                <dd><a href="subversion.html">Configuration et utilisation de SVN</a></dd>
+                <dd><a href="tuts/subversion.html">Configuration et Utilisation de SVN</a></dd>
                 <dt>VOIP</dt>
-                <dd><a href="javascript:void(0);">Note sur la VOIP</a></dd>
+                <dd><a href="tuts/voip.html">Note sur la VOIP</a></dd>
+                <dt>Développement Web</dt>
+                <dd><a href="tuts/middleman.html">Développer avec The Middleman</a></dd>
               </dl>
             </div>
           </li>
-          <li><a href="registration.html">Enregistrement</a></li>
-          <li><a href="admin/">Admin</a></li>
+          <li><a id="offers" href="offers.html">Offres</a></li>
+          <li><a id="registration" href="registration.html">Enregistrement</a></li>
         </ul>
         <div class='clearfix'></div>
       </div>
     </div>
     <hr class='hide' />
+    <div id='mobile-tuts' style='display:none'>
+      <div class='wrapper'></div>
+    </div>
     <div id='feature'>
       <div class='wrapper'>
-        <h2>Site des services informatiques</h2>
-        <p>Retrouvez ci-dessous les tutoriels pour utiliser les services informatiques.</p>
-        <p>Ces tutoriels sont fait pour aider à comprendre et utiliser tous les services informatiques proposés par l'école.</p>
+        <h2>Services Informatiques</h2>
+        <p>Retrouvez ci-dessous l'emplacement des salles informatiques et des bornes WIFI ainsi qu'une brève présentation de nos services.</p>
         <div id='sub-col'>
           <dl>
-            <dd class='warning'>Ce site est issu du projet de fin d'année des CIR 1 et est en constante amélioration.</dd>
-            <dd class='work-in-progress'>Les tutoriels marqué de ce signe sont en cours de rédaction. Bien que pouvant vous être utiles, ils peuvent être approximatif et contenir des erreurs. Vous pouvez aider en les lisant et en envoyant vos remarques à <a href="mailto:yann.le-ru@isen.fr">Yann Le Ru</a>.</dd>
+            <dd class='work-in-progress'>Les pages marquées de ce signe sont en cours de rédaction. Bien que pouvant vous être utiles, elles peuvent être approximatives et contenir des erreurs. Vous pouvez nous aider en les lisant et en envoyant vos remarques à <a href="mailto:yann.le-ru@isen.fr">Yann Le Ru</a>.</dd>
           </dl>
         </div>
       </div>
     </div>
     <div id='container'>
       <div class='wrapper'>
+        <div id='mobile-sub-col'></div>
         <div id='main-col'>
-          <h3>Commencez ici</h3>
+          <h3>Services</h3>
+          <p>L'école met à votre dispositions plusieurs services accessibles depuis l'école ou l'extérieur dont voici un bref résumé.</p>
           <dl>
-            <dt><a href="network.html">Acceder au réseau</a></dt>
-            <dd class='work-in-progress'>Tout ce que vous devez savoir pour vous connecter et utiliser le réseau de l'école.</dd>
-            <dt><a href="rooms.html">Salles informatique</a></dt>
-            <dd class='work-in-progress'>Emplacement de toutes les salles informatique de l'école</dd>
-            <dt><a href="wifi.html">Bornes WIFI</a></dt>
-            <dd class='work-in-progress'>Emplacement des bornes WIFI de l'école.</dd>
+            <dt>Courrier électronique</dt>
+            <dd>Gérez tous les communications internes à l'école.</dd>
+            <dt>Annuaire électronique</dt>
+            <dd>Retrouvez l'adresse email d'un élève de l'école facilement ou envoyez un email à toute une promotion.</dd>
+            <dt>Environnement Numérique de Travail</dt>
+            <dd>L'ENT vous propose de gérer vos emails, votre agenda et bien d'autres choses encore depuis un site centralisé.</dd>
+            <dt>Imprimantes</dt>
+            <dd>Imprimez vos documents sur les imprimantes réseaux où que vous soyez dans l'école.</dd>
+            <dt>Système de gestion de verions</dt>
+            <dd>Gérez les sources de votre projet sans perde un seul fichier et de manière centralisée.</dd>
+            <dt>Voix sur IP</dt>
+            <dd>Communiquez facilement avec n'importe qui sur le réseau.</dd>
           </dl>
-          <h3>Courrier electronique</h3>
-          <dl>
-            <dt><a href="email.html">Configuration de l'accès aux email</a></dt>
-            <dd class='work-in-progress'>Ce tutoriel couvre la configuration et l'accès à votre boîte mail de l'école.</dd>
-            <dt><a href="thunderbird.html">Configuration de Thunderbird</a></dt>
-            <dd class='work-in-progress'>Ce tutoriel couvre la configuration du logiciel Mozilla Thunderbird pour utiliser votre adresse email de l'école.</dd>
-            <dt><a href="email_note.html">Note sur le filtrage et l'annuaire</a></dt>
-            <dd class='work-in-progress'>Quelques points à connaître concernant le filtrage et les annuaires LDAP.</dd>
-          </dl>
-          <h3>Environnement Numérique de Travail</h3>
-          <dl>
-            <dt><a href="ent_email.html">Configuration du courriel sur l'ENT</a></dt>
-            <dd class='work-in-progress'>Ce tutoriel couvre la configuration de votre boite mail sur l'ENT.</dd>
-            <dt><a href="ent_calendar.html">Configuration de l'agenda sur l'ENT</a></dt>
-            <dd class='work-in-progress'>Ce tutoriel couvre la configuration de votre agenda sur l'ENT</dd>
-          </dl>
-          <h3>Imprimantes</h3>
-          <dl>
-            <dt><a href="printers.html">Utilisation des imprimantes</a></dt>
-            <dd class='work-in-progress'>Ce tutoriel couvre l'utilisation des imprimantes sur le réseau de l'école.</dd>
-          </dl>
-          <h3>VirtualBox</h3>
-          <dl>
-            <dt><a href="virtualbox.html">Configuration et utilisation de VirtualBox</a></dt>
-            <dd class='work-in-progress'>Ce tutoriel couvre la configuration et l'utilisation des machines virtuelles sous VirtualBox.</dd>
-          </dl>
-          <h3>Subversion</h3>
-          <dl>
-            <dt><a href="subversion.html">Configuration et utilisation de SVN</a></dt>
-            <dd class='work-in-progress'>Ce tutoriel couvre la configuration et l'utilisation du serveur SVN de l'école.</dd>
-          </dl>
-          <h3>Voice Over IP</h3>
-          <dl>
-            <dt><a href="javascript:void(0);">Note sur la VOIP</a></dt>
-            <dd class='work-in-progress'>Ce tutoriel couvre l'utilisation de la voix sur IP sur le réseau de l'école.</dd>
-          </dl>
+          <h3>Salles informatique & bornes WIFI</h3>
+          <p>
+            L'école déploie de 26 bornes WIFI disposées à tous les étages.
+            Vous pouvez trouver leurs positions sur les plans ci-dessous.
+            <br />
+            Les salles informatiques sont, quant à elles, situés au troisième étage.
+            Notez que votre badge est requis pour accéder à ces salles.
+          </p>
+          <div class='info'>Afin de pouvoir utiliser le réseau WIFI, pensez à faire <a href="mac_registration.html">enregistrer votre ordinateur</a> grâce au formulaire prévu à cet effet.</div>
+          <p>Rez-de-chaussée</p>
+          <p class="gallery"><a rel="fancybox" href="images/plans/ground.png"><img alt="#" src="images/plans/ground.png" /></a></p>
+          <p>Premier étage</p>
+          <p class="gallery"><a rel="fancybox" href="images/plans/first-floor.png"><img alt="#" src="images/plans/first-floor.png" /></a></p>
+          <p>Deuxième étage</p>
+          <p class="gallery"><a rel="fancybox" href="images/plans/second-floor.png"><img alt="#" src="images/plans/second-floor.png" /></a></p>
+          <p>Troisième étage</p>
+          <p class="gallery"><a rel="fancybox" href="images/plans/third-floor.png"><img alt="#" src="images/plans/third-floor.png" /></a></p>
         </div>
       </div>
     </div>
     <hr class='hide' />
     <div id='footer'>
       <div class='wrapper'>
-        <p>ISEN  - Brest &copy; 2011</p>
+        <p>ISEN - Brest &copy; 2011</p>
         <p>Réalisé par <a href="http://syrinxoon.net">Nathan Le Ray</a>, powered by <a href="http://www.mongodb.org/">MongoDB</a>.</p>
       </div>
     </div>

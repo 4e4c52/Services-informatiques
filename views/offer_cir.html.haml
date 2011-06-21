@@ -1,0 +1,103 @@
+- content_for :head do
+  %title Offre portable CIR
+  
+- content_for :feature do
+  %h2 Offre Portable CIR
+  %p L'ISEN vous prête une machine pour les 3 années du Cycle Informatique et Réseaux.
+  %p Découvrez l'offre ISEN ci-dessous.
+  
+- content_for :subcol do
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Contenu
+  %ol.chapters
+    %li= link_to "Description de l'offre", "#description"
+    %li= link_to "Conditions de l'offre", "#conditions"
+    %li= link_to "Spécifications de la machine", "#specs"
+    
+%h3#description 1 Description de l'offre
+
+%p Cette offre destinée aux CIR1 permet d'obtenir gratuitement un ordinateur portable pour le Cycle Informatique et Réseaux.
+
+%h3#conditions 2 Conditions de l'offre
+
+.work-in-progress Définir les conditions de l'offre.
+
+%h3#specs Spécifications de la machine
+
+%p
+  Caractéristiques de la machine au mois de 
+  %strong septembre 2010.
+  
+%table
+  %tbody
+    %tr
+      %th Equipement
+      %th Description
+    %tr
+      %td Processeur
+      %td 2,53 Ghz Intel Centrino Core2 Duo i5 540M
+    %tr
+      %td Mémoire
+      %td 2 barrettes de 2 Go DDR3 SDRAM à 1333 MHz
+    %tr
+      %td Disque dur
+      %td Serial ATA 500 Go dispositif détection de choc, 7200 rpm
+    %tr
+      %td Ecran
+      %td 15,6" LED-backlit FHD anti-glare, résolution 1920×1080
+    %tr
+      %td Carte graphique
+      %td Vidéo 3D NVIDIA Quadro FX880M 1Go dédiés
+    %tr
+      %td Pointeurs
+      %td Track point + Touchpad
+    %tr
+      %td Lecteur
+      %td CD DVD RW +/- Double couche LightScribe
+    %tr
+      %td Carte modem
+      %td Modem 56k
+    %tr
+      %td Réseau
+      %td Carte Ethernet 10/100/1000
+    %tr
+      %td Carte WIFI
+      %td Intel PRO/Wireless 802.11a/b/g/n (draft) 
+    %tr
+      %td Carte son standard
+      %td Oui ; Micro & 2 hauts parleurs intégrés
+    %tr
+      %td Ports
+      %td 3 USB (2.0), 2 USB (3.0), 1 FireWire 1394, 1 E-SATA
+    %tr
+      %td Sortie vidéo
+      %td Display Port HDMI – Sortie vidéo 15 broches VGA
+    %tr
+      %td Blutooth
+      %td Oui
+    %tr
+      %td Finger print reader
+      %td Oui
+    %tr
+      %td Webcam
+      %td 2 Megapixels
+    %tr 
+      %td Ports PCMCIA
+      %td 1 CardBus - type I/II et 1 Carte mémoire SD / Smart Card
+    %tr
+      %td OS
+      %td Windows 7 64 bits
+    %tr
+      %td Garantie de base
+      %td Portable : garantie internationale 3 ans, sur site J+1 et batterie : garantie 3 ans
+    %tr
+      %td Batterie fournie
+      %td 1 batterie capacité normale
+    %tr
+      %td Chargeur batterie
+      %td 1 chargeur 90W
+    %tr
+      %td Câble réseau
+      %td 1 câble réseau Ethernet 5 mètres
+  

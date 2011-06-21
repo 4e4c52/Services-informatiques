@@ -2,11 +2,15 @@
 %html{ :lang => "fr" }
   %head
     %meta{ :charset => "utf-8" }
+    %meta{ :content => "width=device-width, initial-scale=1.0, minimum-scale=1.0" }
 
     = favicon_tag "favicon.ico", :type => "image/ico"
     = favicon_tag "favicon.png", :type => "image/png"
-    = stylesheet_link_tag "app.css"
+    = stylesheet_link_tag "app.css", :id => "app-stylesheet"
+    = stylesheet_link_tag "fancybox.css"
     = javascript_include_tag "jquery.min.js"
+    = javascript_include_tag "mobile.min.js"
+    = javascript_include_tag "jquery.fancybox.pack.js"
     = javascript_include_tag "app.js"
 
     = yield_content :head
@@ -20,44 +24,55 @@
         = link_to "ENT", "https://web-brest.isen.fr/"
         &nbsp;|&nbsp;
         = link_to "Moodle", "http://web-brest.isen.fr/moodle/"
-        
+        &nbsp;|&nbsp;
+        = link_to "Admin", "admin/"
+        %span#design-box
+          Interface&nbsp;
+          = select_tag(:design, :options => [['par défault', 'default'], ['ISEN', 'isen']], :id => :design)
+             
     #header
       .wrapper
-        %h1#logo= link_to "Services informatiques", "index.html"
+        %h1#logo= link_to "Services informatiques", "index.html", :id => "logo-home"
         
         %ul#menu
-          %li= link_to "Accueil", "index.html"
+          %li
+            %strong
+              = link_to "ISEN Brest", "index.html", :style => "display:none;", :id =>"isen-title"
+          %li= link_to "Accueil", "index.html", :id => "home"
           %li.expandable
             = link_to "Tutoriels", "index.html", :id => "tuts-index"
             #tuts{ :style => "display:none;" }
               %hr
               %dl#left
-                %dt Commencez ici
-                %dd= link_to "Acceder au réseau", "network.html"
-                %dd= link_to "Salles informatique", "rooms.html"
-                %dd= link_to "Bornes WIFI", "wifi.html"
-                %dt Courrier electronique
-                %dd= link_to "Configuration de l'accès aux email", "email.html"
-                %dd= link_to "Configuration de Thunderbird", "thunderbird.html"
-                %dd= link_to "Note sur le filtrage et l'annuaire", "email_note.html"
+                %dt Commencez Ici
+                %dd= link_to "Accéder au Réseau", "tuts/network.html"
+                %dt Courrier Electronique
+                %dd= link_to "Accéder à la Messagerie", "tuts/email.html"
+                %dd= link_to "Configuration de Thunderbird", "tuts/thunderbird.html"
+                %dd= link_to "Note sur le Filtrage et l'Annuaire", "tuts/email_note.html"
                 %dt ENT
-                %dd= link_to "Configuration du courriel sur l'ENT", "ent_email.html"
-                %dd= link_to "Configuration de l'agenda sur l'ENT", "ent_calendar.html"
+                %dd= link_to "Configuration du Courriel sur l'ENT", "tuts/ent_email.html"
+                %dd= link_to "Configuration de l'Agenda sur l'ENT", "tuts/ent_calendar.html"
               %dl#right
                 %dt Imprimantes
-                %dd= link_to "Utilisation des imprimantes", "printers.html"
+                %dd= link_to "Utilisation des Imprimantes", "tuts/printers.html"
                 %dt VirtualBox
-                %dd= link_to "Configuration et utilisation de VirtualBox", "virtualbox.html"
+                %dd= link_to "Configuration et Utilisation de VirtualBox", "tuts/virtualbox.html"
                 %dt Subversion
-                %dd= link_to "Configuration et utilisation de SVN", "subversion.html"
+                %dd= link_to "Configuration et Utilisation de SVN", "tuts/subversion.html"
                 %dt VOIP
-                %dd= link_to "Note sur la VOIP"
-          %li= link_to "Enregistrement", "registration.html"
-          %li= link_to "Admin", "admin/"
+                %dd= link_to "Note sur la VOIP", "tuts/voip.html"
+                %dt Développement Web
+                %dd= link_to "Développer avec The Middleman", "tuts/middleman.html"
+          %li= link_to "Offres", "offers.html", :id => "offers"
+          %li= link_to "Enregistrement", "registration.html", :id => "registration"
         
         .clearfix
         
     %hr.hide
+    
+    #mobile-tuts{ :style => "display:none" }
+      .wrapper
     
     #feature
       .wrapper
@@ -68,6 +83,7 @@
     
     #container
       .wrapper
+        #mobile-sub-col
         #main-col
           = yield
     
@@ -75,5 +91,5 @@
     
     #footer
       .wrapper
-        %p ISEN  - Brest &copy; 2011
+        %p ISEN - Brest &copy; 2011
         %p Réalisé par #{link_to "Nathan Le Ray", "http://syrinxoon.net"}, powered by #{link_to "MongoDB", "http://www.mongodb.org/"}.

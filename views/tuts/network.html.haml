@@ -1,0 +1,58 @@
+- content_for :head do
+  %title Accéder au réseau > Tutoriels > Services informatiques
+  
+- content_for :feature do
+  %h2 Accéder au Réseau
+  %p Découvrez comment vous connecter au réseau de l'école.
+  %ul
+    %li Signez la charte informatique
+    %li Enregistrez votre ordinateur
+    %li Entrez la clé WIFI
+  
+- content_for :subcol do
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Chapitres
+  %ol.chapters
+    %li= link_to "Signer la charte informatique", "#sign-convention"
+    %li= link_to "Enregistrer votre ordinateur", "#register-computer"
+    %li= link_to "Entrer la clé WIFI", "#wifi-key"
+
+%h3#sign-convention 1 Signer la Charte Informatique
+
+%p
+  Avant d'utiliser les infrastructures informatiques et le réseau de l'école, vous devez signer la charte informatique de l'école.
+  La signature de cette charte est 
+  %strong obligatoire 
+  et de part votre signature, vous vous engagez à la respecter sans condition. 
+  Vous pouvez signer numériquement la charte informatique depuis le #{link_to "formulaire suivant", "../sign_computer_convention.html"}.
+
+%h3#register-computer 2 Enregistrer votre Ordinateur
+
+%p
+  Afin de pouvoir accéder à Internet depuis le réseau de l'école, vous devez nous communiquer 
+  %i l'adresse MAC 
+  de votre machine. Cette adresse est en quelque sorte le numéro de série de votre carte réseau ou WIFI 
+  et a pour rôle de vous attribuer une adresse IP unique sur un réseau. 
+  Pour enregistrer votre adresse MAC, #{ link_to "suivez les intructions", "../mac_registration.html"} sur la page dédiée.
+  
+%h3#wifi-key 3 Entrer la Clé WIFI
+
+%p
+  Un fois les étapes précedentes accomplient, vous pouvez ajouter la clé WIFI du réseau à votre ordinateur.
+  Pour ce faire, entrez les paramètres suivants :
+  %ul
+    %li
+      %strong SSID : 
+      WIFISEN
+    %li
+      %strong Type de réseau : 
+      Infrastructure (point à point)
+    %li
+      %strong Type de sécurité : 
+      WEP
+    %li
+      %strong Clé de sécurité : 
+      25dec3c1415926dec2c7182818
+      
+%p Vous êtes maintenant connecté au réseau de l'école et libre d'accéder à tous les services de l'école ainsi qu'à Internet.

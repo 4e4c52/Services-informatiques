@@ -1,11 +1,49 @@
 jQuery ->
   
-  loader = '<img src="images/loader.gif" alt="#" />&nbsp;<strong>Veuillez patienter...</strong>'
+  loader = '<span id="loader"><img src="images/loader.gif" alt="#" />&nbsp;<strong>Veuillez patienter...</strong></span>'
+  
+  # TODO: Switch the not from de conditions
+  
+  # Mobile detection support
+  if jQuery.browser.mobile
+    $('head').append('<link rel="stylesheet" href="stylesheets/mobile.css" id="mobile" media="screen" type="text/css" />')
+    device_width = $(window).width()
+    $('body').css('width', device_width + 'px')
+    $('#isen-title').show()
+    $('#mobile-sub-col').html('').html($('#sub-col').html())
   
   # Toggle the tuts menu
-  $('#tuts-index').click ->
-    $('#tuts').toggle()
-    false
+  if not jQuery.browser.mobile
+    $('#tuts-index').click ->
+      $('#tuts').toggle()
+      false
+  else
+    $('#tuts-index').click ->
+      tuts = $('#tuts').html()
+      $('#mobile-tuts .wrapper').html('').html(tuts)
+      $('#mobile-tuts .wrapper').find('hr').remove()
+      $('#mobile-tuts').toggle('normal')
+      false
+    
+  # Replace links url in the header when in tuts/ directory
+  reg_tuts = /^tuts\//
+  if $('body').hasClass('tuts')
+    $('#mobile').attr('href', '../' + $('#mobile').attr('href'))
+    $('#isen-title').attr('href', '../' + $('#isen-title').attr('href'))
+    $('#logo-home').attr('href', '../' + $('#logo-home').attr('href'))
+    $('#home').attr('href', '../' + $('#home').attr('href'))
+    $('#offers').attr('href', '../' + $('#offers').attr('href'))
+    $('#registration').attr('href', '../' + $('#registration').attr('href'))
+    $('#tuts a').each ->
+      link = $(@).attr('href')
+      link = link.replace(reg_tuts, "")
+      $(@).attr('href', link)  
+    
+  # Fancybox
+  if not jQuery.browser.mobile
+    $('a[rel="fancybox"]').fancybox({
+      hideOnContentClick: true
+    })
     
   # Save a mac address
   $('#add_mac').click ->
@@ -125,7 +163,12 @@ jQuery ->
     $('#rw_users_count').val(total)
     
     user = $('#rw_user_login').val()
+    regex = /^[a-z]{6}[0-9]{2}$/
+    if not regex.exec(user) 
+      $('#rw_user_format').html('Ex: jsmith18')
+      return false
     $('#rw_user_login').val('')
+    $('#rw_user_format').html('')
     
     logins = $('#rw_users_logins').val()
     logins += user + ';'
@@ -150,7 +193,12 @@ jQuery ->
     $('#r_users_count').val(total)
     
     user = $('#r_user_login').val()
+    regex = /^[a-z]{6}[0-9]{2}$/
+    if not regex.exec(user) 
+      $('#r_user_format').html('Ex: jsmith18')
+      return false
     $('#r_user_login').val('')
+    $('#r_user_format').html('')
     
     logins = $('#r_users_logins').val()
     logins += user + ';'
@@ -251,3 +299,43 @@ jQuery ->
       error: (a, b, c) ->
         $('#ajax-response').html('').html '<div class="warning">Impossible de contacter le serveur.</div>'
     })
+    
+  # Design management
+  
+  setCookie = (name, value) ->
+    today = new Date()
+    expires = new Date()
+    expires.setTime(today.getTime() + (365*24*60*60*1000))
+    document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + expires.toGMTString()
+    
+  getCookie = (name) ->
+    regex = new RegExp("(?:; )?" + name + "=([^;]*);?")
+    if regex.test(document.cookie)
+      decodeURIComponent(RegExp["$1"])
+    else
+      false;
+      
+  setDesign = ->
+    link = $('#app-stylesheet').clone()
+    stylesheet = link.attr('href')
+    stylesheet = stylesheet.replace("app", "isen")
+    link.attr('href', stylesheet)
+    link.attr('id', 'isen')
+    $('head').append(link)
+    setCookie 'design', 'isen'
+      
+  $('#design').change ->
+    design = $(@).val()
+    if design is 'isen'
+      console.log 'from there'
+      setDesign()
+    else
+      $('#isen').remove()
+      setCookie 'design', 'default'
+      
+  if design = getCookie('design')
+    if design is 'isen'
+      console.log 'from here'
+      setDesign()
+      $('#design option[value="isen"]').attr('selected', 'selected')
+  

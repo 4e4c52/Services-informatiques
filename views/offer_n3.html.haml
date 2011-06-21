@@ -1,0 +1,67 @@
+- content_for :head do
+  %title Offre portable N3
+  
+- content_for :feature do
+  %h2 Offre Portable N3
+  %p Besoin d'un nouvel ordinateur portable pour le cyclé ingénieur ?
+  %p Découvrez ci-dessous l'offre ISEN.
+  
+- content_for :subcol do
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Contenu
+  %ol.chapters
+    %li= link_to "Description de l'offre", "#description"
+    %li= link_to "Conditions de l'offre", "#conditions"
+    %li= link_to "Spécifications de la machine", "#specs"
+
+%h3#description 1 Description de l'offre
+
+%p
+  Cette offre vous propose d'acheter un ordinateur portable à moindre prix pour votre cycle ingénieur.
+
+%h3#conditions 2 Conditions de l'offre
+
+.work-in-progress Définir les conditions de l'offre.
+
+%h3#specs 3 Spécifications de la machine
+
+%p 
+  Caractéristiques de la machine en 
+  %strong septembre 2010.
+
+%table
+  %tbody
+    %tr
+      %th Equipement
+      %th Description
+    %tr
+      %td Processeur
+      %td Intel Core i5 2520M ou i7-2630QM
+    %tr
+      %td Mémoire
+      %td 1*4 Go 1333 DDR3
+    %tr
+      %td Disque dur
+      %td 750 Go 7200 rpm
+    %tr
+      %td Ecran
+      %td 15,6" LED-backlit FHD avec résolution 1920×1080
+    %tr
+      %td Carte graphique
+      %td NVIDIA Quadro 1000M
+    %tr
+      %td Lecteurs
+      %td DVD RW LS UB, USB2 et USB3
+    %tr
+      %td Réseau
+      %td Ethernet 10/100/1000 Mb/s, WiFi Intel 802.11 a/g/n
+    %tr
+      %td Autres
+      %td Bluetooth, Modem 56k, Webcam, Finger print
+    %tr
+      %td Batterie
+      %td 8 Cell 65Whr Long Life (3 ans de garantie)
+    %tr
+      %td OS
+      %td Windows 7 64 bits, Linux

@@ -2,15 +2,21 @@
   %title Demander un répertoire SVN > Services informatiques
   
 - content_for :subcol do
-  none
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Contenu
+  %ol.chapters
+    %li= link_to "Compléter les informations requises", "#infos"
+    %li= link_to "Ajouter des utilisateurs R/W", "#add-rw-users"
+    %li= link_to "Ajouter des utilisateurs R", "#add-r-users"
 
 - content_for :feature do
-  %h2 Demander un répertoire SVN
+  %h2 Demander un Répertoire SVN
   %p Complétez le formulaire pour demander votre répertoire SVN afin de pouvoir travailler avec vos collègues.  
   %ul
-    %li Compléter les informations
-    %li Ajouter des utilisateurs en lecture/écriture
-    %li Ajouter des utilisateurs en lecture seule
+    %li Complétez les informations requises
+    %li Ajoutez des utilisateurs en lecture/écriture
+    %li Ajoutez des utilisateurs en lecture seule
   
 
 - form_tag '/data/data.php', :class => 'registration-form', :method => 'post' do
@@ -19,7 +25,7 @@
   %br
   #ajax-response
 
-  %h3 Informations
+  %h3#infos 1 Compléter les Informations Requises
 
   - field_set_tag do
   
@@ -31,7 +37,7 @@
       = label_tag "Addresse email (pour notification lors de la création) "
       = text_field_tag :email, :id => :email
 
-  %h3 Utilisateurs Lecture/Ecriture
+  %h3#add-rw-users 2 Ajouter des Utilisateurs R/W
   
   - field_set_tag do
   
@@ -45,13 +51,14 @@
   #add_rw_user_box
     - field_set_tag do
       = label_tag "Login read/write "
+      %span#rw_user_format
       = text_field_tag :rw_user_login, :id => :rw_user_login
       %br
       %br
       = button_tag "Sauvegarder", :id => 'add_rw_user_button'
     #add_rw_user_box_arrow
       
-  %h3 Utilisateurs Lecture seule
+  %h3#add-r-users 3  Ajouter des Utilisateurs R
   
   - field_set_tag do
   
@@ -65,6 +72,7 @@
   #add_r_user_box
     - field_set_tag do
       = label_tag "Login read only "
+      %span#r_user_format
       = text_field_tag :r_user_login, :id => :r_user_login
       %br
       %br

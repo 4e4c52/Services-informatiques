@@ -55,39 +55,71 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block; }
 
-/* line 47, ../../views/stylesheets/app.css.scss */
+/* line 46, ../../views/stylesheets/app.css.scss */
 body {
   color: #FFFFFF;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 87.5%;
   line-height: 1.5em; }
 
-/* line 54, ../../views/stylesheets/app.css.scss */
+/* line 53, ../../views/stylesheets/app.css.scss */
 h2 {
   font-size: 2.1428em;
   font-weight: bold;
   line-height: 1em;
   margin: 0.7em 0 0.2333em; }
 
-/* line 61, ../../views/stylesheets/app.css.scss */
+/* line 60, ../../views/stylesheets/app.css.scss */
 h3 {
   font-size: 1.7142em;
   font-weight: bold;
   line-height: 1.286em;
-  margin: 0.875em 0 0.2916em;
-  text-transform: capitalize; }
+  margin: 0.875em 0 0.2916em; }
 
-/* line 69, ../../views/stylesheets/app.css.scss */
+/* line 67, ../../views/stylesheets/app.css.scss */
+h4 {
+  font-size: 1.2857em;
+  font-weight: bold;
+  line-height: 1.2em;
+  margin: 1.6667em 0 0.3887em; }
+
+/* line 74, ../../views/stylesheets/app.css.scss */
+h5 {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.5em;
+  margin: 1em 0 0.5em; }
+
+/* line 81, ../../views/stylesheets/app.css.scss */
+table {
+  width: 100%;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 2px solid #CCCCCC;
+  border-collapse: collapse;
+  margin: 0 0 1.5em; }
+  /* line 88, ../../views/stylesheets/app.css.scss */
+  table th, table td {
+    border: 1px solid #CCCCCC;
+    border-collapse: collapse;
+    padding: 0.25em 1em; }
+  /* line 94, ../../views/stylesheets/app.css.scss */
+  table th {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-bottom: 2px solid #CCCCCC;
+    font-weight: bold;
+    padding: 0.5em 1em; }
+
+/* line 102, ../../views/stylesheets/app.css.scss */
 label {
   display: block;
   font-weight: bold; }
 
-/* line 74, ../../views/stylesheets/app.css.scss */
+/* line 107, ../../views/stylesheets/app.css.scss */
 input[type=text] {
   width: 100%;
   padding: 3px; }
 
-/* line 79, ../../views/stylesheets/app.css.scss */
+/* line 112, ../../views/stylesheets/app.css.scss */
 input[type=button] {
   display: block;
   margin: 3px auto;
@@ -95,67 +127,86 @@ input[type=button] {
   height: 30px;
   padding: 3px;
   font-weight: bold; }
-  /* line 87, ../../views/stylesheets/app.css.scss */
+  /* line 120, ../../views/stylesheets/app.css.scss */
   input[type=button]:hover {
     cursor: pointer; }
 
-/* line 92, ../../views/stylesheets/app.css.scss */
+/* line 125, ../../views/stylesheets/app.css.scss */
 p {
   margin: 0 0 1.5em; }
 
-/* line 96, ../../views/stylesheets/app.css.scss */
+/* line 129, ../../views/stylesheets/app.css.scss */
 dl {
   margin: 0 0 1.5em; }
-  /* line 99, ../../views/stylesheets/app.css.scss */
+  /* line 132, ../../views/stylesheets/app.css.scss */
   dl dd {
     margin-bottom: 1em; }
 
-/* line 104, ../../views/stylesheets/app.css.scss */
+/* line 137, ../../views/stylesheets/app.css.scss */
 ol {
   list-style-type: decimal; }
 
-/* line 108, ../../views/stylesheets/app.css.scss */
+/* line 141, ../../views/stylesheets/app.css.scss */
 ul {
   list-style-type: square; }
 
-/* line 112, ../../views/stylesheets/app.css.scss */
+/* line 145, ../../views/stylesheets/app.css.scss */
 ul, ol {
   margin: 0 1.5em 1.5em; }
 
-/* line 116, ../../views/stylesheets/app.css.scss */
+/* line 149, ../../views/stylesheets/app.css.scss */
 strong {
   font-weight: bold; }
 
-/* line 120, ../../views/stylesheets/app.css.scss */
+/* line 153, ../../views/stylesheets/app.css.scss */
 i {
   font-style: italic; }
 
-/* line 124, ../../views/stylesheets/app.css.scss */
+/* line 157, ../../views/stylesheets/app.css.scss */
+pre, code {
+  margin: 1.5em 0;
+  overflow: auto;
+  color: #222; }
+
+/* line 158, ../../views/stylesheets/app.css.scss */
+pre, code, tt {
+  font-size: 1em;
+  font-family: "Anonymous Pro", "Inconsolata", "Menlo", "Consolas", "Bitstream Vera Sans Mono", "Courier New", monospace;
+  line-height: 1.5; }
+
+/* line 164, ../../views/stylesheets/app.css.scss */
 .wrapper {
   width: 69em;
   margin: 0 auto; }
 
-/* line 129, ../../views/stylesheets/app.css.scss */
+/* line 169, ../../views/stylesheets/app.css.scss */
 .clearfix {
   clear: both; }
 
-/* line 133, ../../views/stylesheets/app.css.scss */
+/* line 173, ../../views/stylesheets/app.css.scss */
 .hide {
   display: none; }
 
-/* line 137, ../../views/stylesheets/app.css.scss */
+/* line 177, ../../views/stylesheets/app.css.scss */
 .fr {
   float: right; }
 
-/* line 141, ../../views/stylesheets/app.css.scss */
+/* line 181, ../../views/stylesheets/app.css.scss */
 .validated {
   font-size: 0.8em;
   font-style: italic; }
-  /* line 145, ../../views/stylesheets/app.css.scss */
+  /* line 185, ../../views/stylesheets/app.css.scss */
   .validated ul {
     display: none; }
 
-/* line 150, ../../views/stylesheets/app.css.scss */
+/* line 190, ../../views/stylesheets/app.css.scss */
+.gallery {
+  text-align: center; }
+  /* line 193, ../../views/stylesheets/app.css.scss */
+  .gallery img {
+    width: 40em; }
+
+/* line 198, ../../views/stylesheets/app.css.scss */
 .warning {
   background: url("../images/tab_red.gif") no-repeat scroll left top #f9d9d8;
   border: medium none;
@@ -164,7 +215,7 @@ i {
   margin-bottom: 0.25em;
   padding: 1.25em 1.25em 1.25em 48px; }
 
-/* line 155, ../../views/stylesheets/app.css.scss */
+/* line 203, ../../views/stylesheets/app.css.scss */
 .work-in-progress {
   background: url("../images/tab_note.gif") no-repeat scroll left top #fff9d8;
   border: medium none;
@@ -173,7 +224,7 @@ i {
   margin-bottom: 0.25em;
   padding: 1.25em 1.25em 1.25em 48px; }
 
-/* line 160, ../../views/stylesheets/app.css.scss */
+/* line 208, ../../views/stylesheets/app.css.scss */
 .info {
   background: url("../images/tab_info.gif") no-repeat scroll left top #d5e9f6;
   border: medium none;
@@ -182,7 +233,7 @@ i {
   margin-bottom: 0.25em;
   padding: 1.25em 1.25em 1.25em 48px; }
 
-/* line 165, ../../views/stylesheets/app.css.scss */
+/* line 213, ../../views/stylesheets/app.css.scss */
 .code_container {
   background: url("../images/tab_grey.gif") no-repeat scroll left top #eeeeee;
   font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
@@ -193,57 +244,61 @@ i {
   margin-bottom: 0.25em;
   padding: 1.25em 1.25em 1.25em 48px; }
 
-/* line 172, ../../views/stylesheets/app.css.scss */
+/* line 220, ../../views/stylesheets/app.css.scss */
 #nav {
   padding: 1em 0;
   background: #222222;
   color: #999999; }
-  /* line 177, ../../views/stylesheets/app.css.scss */
+  /* line 225, ../../views/stylesheets/app.css.scss */
   #nav a {
     color: #ee3f3f; }
-  /* line 181, ../../views/stylesheets/app.css.scss */
+  /* line 229, ../../views/stylesheets/app.css.scss */
   #nav strong a {
     color: white; }
+  /* line 233, ../../views/stylesheets/app.css.scss */
+  #nav #design-box {
+    display: block;
+    float: right; }
 
-/* line 186, ../../views/stylesheets/app.css.scss */
+/* line 240, ../../views/stylesheets/app.css.scss */
 #menu {
   margin: 0;
   padding: 0; }
 
-/* line 191, ../../views/stylesheets/app.css.scss */
+/* line 245, ../../views/stylesheets/app.css.scss */
 #header {
   padding: 1.5em 0;
   position: relative;
   background: #c52f24; }
-  /* line 196, ../../views/stylesheets/app.css.scss */
+  /* line 250, ../../views/stylesheets/app.css.scss */
   #header .wrapper h1 {
     width: 492px;
     height: 77px;
     float: left;
     background: url("../images/logo.png") no-repeat;
     text-indent: -10000px; }
-    /* line 203, ../../views/stylesheets/app.css.scss */
+    /* line 257, ../../views/stylesheets/app.css.scss */
     #header .wrapper h1 a {
       display: block;
       height: 77px;
       text-decoration: none; }
-  /* line 210, ../../views/stylesheets/app.css.scss */
+  /* line 264, ../../views/stylesheets/app.css.scss */
   #header #menu {
     float: right;
     padding-top: 1.5em;
     font-size: 1.2857em; }
-    /* line 215, ../../views/stylesheets/app.css.scss */
+    /* line 269, ../../views/stylesheets/app.css.scss */
     #header #menu li {
       margin: 0 0 0 0.5em;
       display: inline; }
-      /* line 219, ../../views/stylesheets/app.css.scss */
+      /* line 273, ../../views/stylesheets/app.css.scss */
       #header #menu li a {
         color: white;
         text-decoration: none; }
-        /* line 223, ../../views/stylesheets/app.css.scss */
+        /* line 277, ../../views/stylesheets/app.css.scss */
         #header #menu li a:hover {
           text-decoration: underline; }
-    /* line 229, ../../views/stylesheets/app.css.scss */
+    /* line 283, ../../views/stylesheets/app.css.scss */
     #header #menu .expandable {
       position: relative;
       padding: 0.5em 1.5em;
@@ -254,17 +309,17 @@ i {
       -khtml-border-radius: 1em;
       border-radius: 1em;
       background: #980905; }
-      /* line 235, ../../views/stylesheets/app.css.scss */
+      /* line 289, ../../views/stylesheets/app.css.scss */
       #header #menu .expandable a {
         position: relative;
         padding-bottom: 0.125em;
         padding-right: 1em;
         background: url("../images/nav_arrow.gif") no-repeat top right;
         z-index: 15; }
-        /* line 242, ../../views/stylesheets/app.css.scss */
+        /* line 296, ../../views/stylesheets/app.css.scss */
         #header #menu .expandable a:hover {
           background-position: right -81px; }
-    /* line 248, ../../views/stylesheets/app.css.scss */
+    /* line 302, ../../views/stylesheets/app.css.scss */
     #header #menu #tuts {
       display: block;
       background: none repeat scroll 0 0 #980905;
@@ -282,70 +337,67 @@ i {
       top: 0;
       width: 27em;
       z-index: 10; }
-      /* line 261, ../../views/stylesheets/app.css.scss */
+      /* line 315, ../../views/stylesheets/app.css.scss */
       #header #menu #tuts hr {
         background: none repeat scroll 0 0 #F1938C;
         border: medium none;
         color: #F1938C;
         display: block;
         height: 1px; }
-      /* line 269, ../../views/stylesheets/app.css.scss */
+      /* line 323, ../../views/stylesheets/app.css.scss */
       #header #menu #tuts dt {
         font-size: 0.722em;
         font-weight: normal;
         margin: 0.5em 0 0;
-        padding: 0;
-        text-transform: capitalize; }
-      /* line 277, ../../views/stylesheets/app.css.scss */
+        padding: 0; }
+      /* line 330, ../../views/stylesheets/app.css.scss */
       #header #menu #tuts dd {
         font-size: 0.722em;
         font-weight: normal;
         margin: 0;
-        padding: 0;
-        text-transform: capitalize; }
-        /* line 284, ../../views/stylesheets/app.css.scss */
+        padding: 0; }
+        /* line 336, ../../views/stylesheets/app.css.scss */
         #header #menu #tuts dd a {
           color: white;
           text-decoration: none;
           background: none; }
-          /* line 289, ../../views/stylesheets/app.css.scss */
+          /* line 341, ../../views/stylesheets/app.css.scss */
           #header #menu #tuts dd a:hover {
             text-decoration: underline; }
-      /* line 295, ../../views/stylesheets/app.css.scss */
+      /* line 347, ../../views/stylesheets/app.css.scss */
       #header #menu #tuts #left, #header #menu #tuts #right {
         float: left;
         margin: 0;
         padding: 0;
         width: 50%; }
 
-/* line 305, ../../views/stylesheets/app.css.scss */
+/* line 357, ../../views/stylesheets/app.css.scss */
 #feature {
   padding: 0.5em 0 1.5em;
   background: #d5e9f6;
   color: #333333; }
-  /* line 310, ../../views/stylesheets/app.css.scss */
+  /* line 362, ../../views/stylesheets/app.css.scss */
   #feature .wrapper {
     width: 46em;
     padding-right: 23em;
     position: relative; }
-  /* line 316, ../../views/stylesheets/app.css.scss */
+  /* line 368, ../../views/stylesheets/app.css.scss */
   #feature p {
     font-size: 1.2857em;
     margin-bottom: 0.75em; }
-  /* line 321, ../../views/stylesheets/app.css.scss */
+  /* line 373, ../../views/stylesheets/app.css.scss */
   #feature ul {
     margin-left: 0; }
-    /* line 324, ../../views/stylesheets/app.css.scss */
+    /* line 376, ../../views/stylesheets/app.css.scss */
     #feature ul li {
       background: url("../images/check_bullet.gif") no-repeat left 0.5em;
       font-size: 1.1428em;
       font-weight: bold;
       list-style: none outside none;
       padding: 0.5em 1.75em; }
-  /* line 333, ../../views/stylesheets/app.css.scss */
+  /* line 385, ../../views/stylesheets/app.css.scss */
   #feature #sub-col {
     background: white;
-    border: 1px dashed #d5e9f6;
     font-size: 0.9285em;
     line-height: 1.3846em;
     padding: 1em 1.5em 1em 1.25em;
@@ -357,79 +409,101 @@ i {
     #feature #sub-col dt {
       margin-bottom: 0;
       padding: 0.125em 0 0.25em;
-      font-size: 1.2857em;
-      text-transform: capitalize; }
-    /* line 33, ../../views/stylesheets/app.css.scss */
+      font-size: 1.2857em; }
+    /* line 32, ../../views/stylesheets/app.css.scss */
     #feature #sub-col dd {
       border: medium none;
       margin-left: 0;
       margin-top: 0.25em;
       padding: 1.25em 1.25em 1.25em 48px; }
-    /* line 40, ../../views/stylesheets/app.css.scss */
+    /* line 39, ../../views/stylesheets/app.css.scss */
     #feature #sub-col a {
       color: #980905; }
-    /* line 345, ../../views/stylesheets/app.css.scss */
-    #feature #sub-col h3.chapters {
-      margin-top: 0.25em; }
-    /* line 349, ../../views/stylesheets/app.css.scss */
+    /* line 396, ../../views/stylesheets/app.css.scss */
+    #feature #sub-col h3.chapter {
+      margin-top: 0.25em;
+      color: #333333;
+      line-height: 1.286em; }
+      /* line 401, ../../views/stylesheets/app.css.scss */
+      #feature #sub-col h3.chapter img {
+        vertical-align: text-bottom; }
+    /* line 406, ../../views/stylesheets/app.css.scss */
     #feature #sub-col .chapters {
-      color: #980905; }
-      /* line 352, ../../views/stylesheets/app.css.scss */
+      color: #980905;
+      font-weight: bold; }
+      /* line 410, ../../views/stylesheets/app.css.scss */
       #feature #sub-col .chapters li {
         margin-bottom: 0.75em; }
+      /* line 414, ../../views/stylesheets/app.css.scss */
+      #feature #sub-col .chapters ul {
+        margin-left: 0;
+        margin-top: 0.5em; }
+        /* line 418, ../../views/stylesheets/app.css.scss */
+        #feature #sub-col .chapters ul li {
+          background: url("../images/bullet.gif") no-repeat scroll left 0.45em transparent;
+          font-size: 1em;
+          font-weight: normal;
+          list-style: none outside none;
+          margin-left: 0;
+          padding: 0 0 0 1em; }
 
-/* line 359, ../../views/stylesheets/app.css.scss */
-#container {
+/* line 431, ../../views/stylesheets/app.css.scss */
+#container, #mobile-tuts {
   color: #333333; }
-  /* line 362, ../../views/stylesheets/app.css.scss */
-  #container #main-col {
+  /* line 434, ../../views/stylesheets/app.css.scss */
+  #container #main-col, #mobile-tuts #main-col {
     margin-left: 2em;
     margin-bottom: 2em;
     width: 45em;
     min-height: 400px; }
     /* line 26, ../../views/stylesheets/app.css.scss */
-    #container #main-col dt {
+    #container #main-col dt, #mobile-tuts #main-col dt {
       margin-bottom: 0;
       padding: 0.125em 0 0.25em;
-      font-size: 1.2857em;
-      text-transform: capitalize; }
-    /* line 33, ../../views/stylesheets/app.css.scss */
-    #container #main-col dd {
+      font-size: 1.2857em; }
+    /* line 32, ../../views/stylesheets/app.css.scss */
+    #container #main-col dd, #mobile-tuts #main-col dd {
       border: medium none;
       margin-left: 0;
       margin-top: 0.25em;
       padding: 1.25em 1.25em 1.25em 48px; }
-    /* line 40, ../../views/stylesheets/app.css.scss */
-    #container #main-col a {
+    /* line 39, ../../views/stylesheets/app.css.scss */
+    #container #main-col a, #mobile-tuts #main-col a {
       color: #980905; }
-    /* line 369, ../../views/stylesheets/app.css.scss */
-    #container #main-col dd {
+    /* line 441, ../../views/stylesheets/app.css.scss */
+    #container #main-col dd, #mobile-tuts #main-col dd {
       border-bottom: 1px solid #CCCCCC;
       margin-bottom: 1em;
       margin-left: 0;
       padding: 0.25em 0 1em; }
-    /* line 375, ../../views/stylesheets/app.css.scss */
-    #container #main-col .work-in-progress, #container #main-col .warning, #container #main-col .note, #container #main-col .code_container {
+    /* line 449, ../../views/stylesheets/app.css.scss */
+    #container #main-col ul li, #mobile-tuts #main-col ul li {
+      background: url("../images/grey_bullet.gif") no-repeat scroll left 0.5em transparent;
+      list-style: none outside none;
+      margin-left: 0;
+      padding-left: 1em; }
+    /* line 457, ../../views/stylesheets/app.css.scss */
+    #container #main-col .work-in-progress, #container #main-col .warning, #container #main-col .note, #container #main-col .code_container, #mobile-tuts #main-col .work-in-progress, #mobile-tuts #main-col .warning, #mobile-tuts #main-col .note, #mobile-tuts #main-col .code_container {
       border: medium none;
       margin-left: 0;
       margin-top: 0.25em;
       padding: 1.25em 1em 1.25em 48px; }
-    /* line 382, ../../views/stylesheets/app.css.scss */
-    #container #main-col .button {
+    /* line 464, ../../views/stylesheets/app.css.scss */
+    #container #main-col .button, #mobile-tuts #main-col .button {
       padding: 4px;
       color: #FFFFFF;
       background: #980905;
       text-decoration: none;
       font-size: 0.9em;
       font-weight: bold; }
-      /* line 390, ../../views/stylesheets/app.css.scss */
-      #container #main-col .button:hover {
+      /* line 472, ../../views/stylesheets/app.css.scss */
+      #container #main-col .button:hover, #mobile-tuts #main-col .button:hover {
         background: #ee3f3f; }
-    /* line 395, ../../views/stylesheets/app.css.scss */
-    #container #main-col #rw_users, #container #main-col #r_users {
+    /* line 477, ../../views/stylesheets/app.css.scss */
+    #container #main-col #rw_users, #container #main-col #r_users, #mobile-tuts #main-col #rw_users, #mobile-tuts #main-col #r_users {
       margin-bottom: 10px; }
-    /* line 399, ../../views/stylesheets/app.css.scss */
-    #container #main-col #add_rw_user_box, #container #main-col #add_r_user_box {
+    /* line 481, ../../views/stylesheets/app.css.scss */
+    #container #main-col #add_rw_user_box, #container #main-col #add_r_user_box, #mobile-tuts #main-col #add_rw_user_box, #mobile-tuts #main-col #add_r_user_box {
       width: 120px;
       height: 120px;
       padding: 5px;
@@ -444,28 +518,34 @@ i {
       -khtml-border-radius: 4px;
       border-radius: 4px;
       z-index: 1002; }
-      /* line 410, ../../views/stylesheets/app.css.scss */
-      #container #main-col #add_rw_user_box label, #container #main-col #add_r_user_box label {
+      /* line 492, ../../views/stylesheets/app.css.scss */
+      #container #main-col #add_rw_user_box label, #container #main-col #add_r_user_box label, #mobile-tuts #main-col #add_rw_user_box label, #mobile-tuts #main-col #add_r_user_box label {
         color: #222222;
         font-size: 12px;
         margin: 0 0 3px; }
-      /* line 416, ../../views/stylesheets/app.css.scss */
-      #container #main-col #add_rw_user_box input[type=text], #container #main-col #add_r_user_box input[type=text] {
+      /* line 498, ../../views/stylesheets/app.css.scss */
+      #container #main-col #add_rw_user_box #rw_user_format, #container #main-col #add_rw_user_box #r_user_format, #container #main-col #add_r_user_box #rw_user_format, #container #main-col #add_r_user_box #r_user_format, #mobile-tuts #main-col #add_rw_user_box #rw_user_format, #mobile-tuts #main-col #add_rw_user_box #r_user_format, #mobile-tuts #main-col #add_r_user_box #rw_user_format, #mobile-tuts #main-col #add_r_user_box #r_user_format {
+        color: #222222;
+        font-size: 12px;
+        font-weight: bold;
+        color: orange; }
+      /* line 505, ../../views/stylesheets/app.css.scss */
+      #container #main-col #add_rw_user_box input[type=text], #container #main-col #add_r_user_box input[type=text], #mobile-tuts #main-col #add_rw_user_box input[type=text], #mobile-tuts #main-col #add_r_user_box input[type=text] {
         font-size: 14px;
         padding: 3px;
         height: 20px;
         width: 110px;
         background: #f7f7f7;
         border: 1px solid #C8C8C8; }
-      /* line 425, ../../views/stylesheets/app.css.scss */
-      #container #main-col #add_rw_user_box input[type=button], #container #main-col #add_r_user_box input[type=button] {
+      /* line 514, ../../views/stylesheets/app.css.scss */
+      #container #main-col #add_rw_user_box input[type=button], #container #main-col #add_r_user_box input[type=button], #mobile-tuts #main-col #add_rw_user_box input[type=button], #mobile-tuts #main-col #add_r_user_box input[type=button] {
         width: auto;
         height: auto;
         margin: 2px auto;
         font-size: 0.9em;
         padding: 1.5px; }
-      /* line 433, ../../views/stylesheets/app.css.scss */
-      #container #main-col #add_rw_user_box #add_rw_user_box_arrow, #container #main-col #add_rw_user_box #add_r_user_box_arrow, #container #main-col #add_r_user_box #add_rw_user_box_arrow, #container #main-col #add_r_user_box #add_r_user_box_arrow {
+      /* line 522, ../../views/stylesheets/app.css.scss */
+      #container #main-col #add_rw_user_box #add_rw_user_box_arrow, #container #main-col #add_rw_user_box #add_r_user_box_arrow, #container #main-col #add_r_user_box #add_rw_user_box_arrow, #container #main-col #add_r_user_box #add_r_user_box_arrow, #mobile-tuts #main-col #add_rw_user_box #add_rw_user_box_arrow, #mobile-tuts #main-col #add_rw_user_box #add_r_user_box_arrow, #mobile-tuts #main-col #add_r_user_box #add_rw_user_box_arrow, #mobile-tuts #main-col #add_r_user_box #add_r_user_box_arrow {
         position: absolute;
         left: 130px;
         top: 54px;
@@ -473,30 +553,30 @@ i {
         height: 21px;
         background: url("../images/arrow.png") no-repeat; }
 
-/* line 445, ../../views/stylesheets/app.css.scss */
+/* line 534, ../../views/stylesheets/app.css.scss */
 #footer {
   padding: 2em 0;
   background: #222222;
   color: #999999; }
-  /* line 450, ../../views/stylesheets/app.css.scss */
+  /* line 539, ../../views/stylesheets/app.css.scss */
   #footer a {
     color: #ee3f3f; }
-  /* line 454, ../../views/stylesheets/app.css.scss */
+  /* line 543, ../../views/stylesheets/app.css.scss */
   #footer #footer-left {
     float: left; }
-  /* line 458, ../../views/stylesheets/app.css.scss */
+  /* line 547, ../../views/stylesheets/app.css.scss */
   #footer #footer-right {
     float: left; }
 
 /* Admin stuff */
-/* line 464, ../../views/stylesheets/app.css.scss */
+/* line 553, ../../views/stylesheets/app.css.scss */
 ul#registrations, ul#repositories, ul#signatures {
   list-style-type: none;
   margin-left: 0; }
-  /* line 469, ../../views/stylesheets/app.css.scss */
+  /* line 558, ../../views/stylesheets/app.css.scss */
   ul#registrations li span, ul#repositories li span, ul#signatures li span {
     background: #FFFFCC; }
-  /* line 473, ../../views/stylesheets/app.css.scss */
+  /* line 562, ../../views/stylesheets/app.css.scss */
   ul#registrations li .identity, ul#repositories li .identity, ul#signatures li .identity {
     padding: 1.5px 9px;
     -moz-border-radius: 0.9em;
@@ -508,14 +588,14 @@ ul#registrations, ul#repositories, ul#signatures {
     background: #efefef;
     color: #666666;
     font-size: 0.9em; }
-    /* line 480, ../../views/stylesheets/app.css.scss */
+    /* line 569, ../../views/stylesheets/app.css.scss */
     ul#registrations li .identity a, ul#repositories li .identity a, ul#signatures li .identity a {
       color: #666666;
       text-decoration: none; }
-    /* line 485, ../../views/stylesheets/app.css.scss */
+    /* line 574, ../../views/stylesheets/app.css.scss */
     ul#registrations li .identity:hover, ul#repositories li .identity:hover, ul#signatures li .identity:hover {
       background: #a0a0a0;
       cursor: pointer; }
-  /* line 491, ../../views/stylesheets/app.css.scss */
+  /* line 580, ../../views/stylesheets/app.css.scss */
   ul#registrations li ul, ul#repositories li ul, ul#signatures li ul {
     margin-left: 3em; }

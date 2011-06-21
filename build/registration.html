@@ -2,10 +2,14 @@
 <html lang='fr'>
   <head>
     <meta charset='utf-8' />
+    <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0' />
     <link type="image/ico" href="images/favicon.ico" rel="icon" />
     <link type="image/png" href="images/favicon.png" rel="icon" />
-    <link href="stylesheets/app.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/app.css" id="app-stylesheet" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/fancybox.css" media="screen" rel="stylesheet" type="text/css" />
     <script src="javascripts/jquery.min.js" type="text/javascript"></script>
+    <script src="javascripts/mobile.min.js" type="text/javascript"></script>
+    <script src="javascripts/jquery.fancybox.pack.js" type="text/javascript"></script>
     <script src="javascripts/app.js" type="text/javascript"></script>
     <title>Enregistrement > Services informatiques</title>
   </head>
@@ -17,49 +21,65 @@
         <a href="https://web-brest.isen.fr/">ENT</a>
         &nbsp;|&nbsp;
         <a href="http://web-brest.isen.fr/moodle/">Moodle</a>
+        &nbsp;|&nbsp;
+        <a href="admin/">Admin</a>
+        <span id='design-box'>
+          Interface&nbsp;
+          <select id="design" name="design">
+          <option value="default">par défault</option>
+          <option value="isen">ISEN</option></select>
+        </span>
       </div>
     </div>
     <div id='header'>
       <div class='wrapper'>
-        <h1 id='logo'><a href="index.html">Services informatiques</a></h1>
+        <h1 id='logo'><a id="logo-home" href="index.html">Services informatiques</a></h1>
         <ul id='menu'>
-          <li><a href="index.html">Accueil</a></li>
+          <li>
+            <strong>
+              <a style="display:none;" id="isen-title" href="index.html">ISEN Brest</a>
+            </strong>
+          </li>
+          <li><a id="home" href="index.html">Accueil</a></li>
           <li class='expandable'>
             <a id="tuts-index" href="index.html">Tutoriels</a>
             <div id='tuts' style='display:none;'>
               <hr />
               <dl id='left'>
-                <dt>Commencez ici</dt>
-                <dd><a href="network.html">Acceder au réseau</a></dd>
-                <dd><a href="rooms.html">Salles informatique</a></dd>
-                <dd><a href="wifi.html">Bornes WIFI</a></dd>
-                <dt>Courrier electronique</dt>
-                <dd><a href="email.html">Configuration de l'accès aux email</a></dd>
-                <dd><a href="thunderbird.html">Configuration de Thunderbird</a></dd>
-                <dd><a href="email_note.html">Note sur le filtrage et l'annuaire</a></dd>
+                <dt>Commencez Ici</dt>
+                <dd><a href="tuts/network.html">Accéder au Réseau</a></dd>
+                <dt>Courrier Electronique</dt>
+                <dd><a href="tuts/email.html">Accéder à la Messagerie</a></dd>
+                <dd><a href="tuts/thunderbird.html">Configuration de Thunderbird</a></dd>
+                <dd><a href="tuts/email_note.html">Note sur le Filtrage et l'Annuaire</a></dd>
                 <dt>ENT</dt>
-                <dd><a href="ent_email.html">Configuration du courriel sur l'ENT</a></dd>
-                <dd><a href="ent_calendar.html">Configuration de l'agenda sur l'ENT</a></dd>
+                <dd><a href="tuts/ent_email.html">Configuration du Courriel sur l'ENT</a></dd>
+                <dd><a href="tuts/ent_calendar.html">Configuration de l'Agenda sur l'ENT</a></dd>
               </dl>
               <dl id='right'>
                 <dt>Imprimantes</dt>
-                <dd><a href="printers.html">Utilisation des imprimantes</a></dd>
+                <dd><a href="tuts/printers.html">Utilisation des Imprimantes</a></dd>
                 <dt>VirtualBox</dt>
-                <dd><a href="virtualbox.html">Configuration et utilisation de VirtualBox</a></dd>
+                <dd><a href="tuts/virtualbox.html">Configuration et Utilisation de VirtualBox</a></dd>
                 <dt>Subversion</dt>
-                <dd><a href="subversion.html">Configuration et utilisation de SVN</a></dd>
+                <dd><a href="tuts/subversion.html">Configuration et Utilisation de SVN</a></dd>
                 <dt>VOIP</dt>
-                <dd><a href="javascript:void(0);">Note sur la VOIP</a></dd>
+                <dd><a href="tuts/voip.html">Note sur la VOIP</a></dd>
+                <dt>Développement Web</dt>
+                <dd><a href="tuts/middleman.html">Développer avec The Middleman</a></dd>
               </dl>
             </div>
           </li>
-          <li><a href="registration.html">Enregistrement</a></li>
-          <li><a href="admin/">Admin</a></li>
+          <li><a id="offers" href="offers.html">Offres</a></li>
+          <li><a id="registration" href="registration.html">Enregistrement</a></li>
         </ul>
         <div class='clearfix'></div>
       </div>
     </div>
     <hr class='hide' />
+    <div id='mobile-tuts' style='display:none'>
+      <div class='wrapper'></div>
+    </div>
     <div id='feature'>
       <div class='wrapper'>
         <h2>Enregistrement</h2>
@@ -70,32 +90,33 @@
           <li>Partagez sur SVN</li>
         </ul>
         <div id='sub-col'>
-          <h3 class='chapters'>
-            <img src="images/chapters.gif" />
-            Chapitres
+          <h3 class='chapter'>
+            <img alt="#" src="images/chapters.gif" />
+            Contenu
           </h3>
           <ol class='chapters'>
             <li><a href="#computer-convention">Charte informatique</a></li>
             <li><a href="#protel-convention">Charte PROTEL</a></li>
-            <li><a href="#computer-registration">Enregistrez votre ordinateur</a></li>
-            <li><a href="#svn-registration">Demandez votre répertoire SVN</a></li>
+            <li><a href="#computer-registration">Enregistrer votre ordinateur</a></li>
+            <li><a href="#svn-registration">Demander votre répertoire SVN</a></li>
           </ol>
         </div>
       </div>
     </div>
     <div id='container'>
       <div class='wrapper'>
+        <div id='mobile-sub-col'></div>
         <div id='main-col'>
-          <h3 id='computer-convention'>Charte informatique</h3>
+          <h3 id='computer-convention'>1 Charte Informatique</h3>
           <div class='warning'>La signature de la charte informatique est obligatoire pour pouvoir accéder au réseau ainsi qu'aux salles informatique.</div>
           <p>Pour lire et signer la charte, rendez-vous sur <a href="sign_computer_convention.html">cette page</a>.</p>
-          <h3 id='protel-convention'>Charte PROTEL</h3>
+          <h3 id='protel-convention'>2 Charte PROTEL</h3>
           <div class='warning'>La signature de la charte PROTEL est obligatoire pour l'utilisation du logiciel PROTEL DXP.</div>
           <p>Pour lire et signer la charte, rendez-vous sur <a href="sign_protel_convention.html">cette page</a>.</p>
-          <h3 id='computer-registration'>Enregistrez votre ordinateur</h3>
+          <h3 id='computer-registration'>3 Enregistrer votre Ordinateur</h3>
           <p>Avant de vous connecter au réseau, vous devez, si ce n'est déjà fait, nous communiquer l'adresse MAC de votre carte WIFI.</p>
           <p>Pour nous communiquer votre adresse MAC, suivez les intructions et remplissez le formulaire sur <a href="mac_registration.html">la page suivante</a>.</p>
-          <h3 id='svn-registration'>Demandez votre répertoire SVN</h3>
+          <h3 id='svn-registration'>4 Demander votre Répertoire SVN</h3>
           <div class='warning'>Avant de faire une demande de répertoire SVN, vous devez avoir signé la charte informatique.</div>
           <p>Pour faire votre demande de répertoire Subversion, rendez-vous sur <a href="svn_registration.html">cette page</a>.</p>
         </div>
@@ -104,7 +125,7 @@
     <hr class='hide' />
     <div id='footer'>
       <div class='wrapper'>
-        <p>ISEN  - Brest &copy; 2011</p>
+        <p>ISEN - Brest &copy; 2011</p>
         <p>Réalisé par <a href="http://syrinxoon.net">Nathan Le Ray</a>, powered by <a href="http://www.mongodb.org/">MongoDB</a>.</p>
       </div>
     </div>

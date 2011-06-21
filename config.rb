@@ -15,12 +15,7 @@
 # page "/path/to/file.html", :layout => :otherlayout
 
 with_layout :admin_layout do
-  page "/admin/"
-  page "/admin/index.html"
-  page "/admin/registrations.html"
-  page "/admin/computer_convention.html"
-  page "/admin/protel_convention.html"
-  page "/admin/repositories.html"
+  page "/admin/*"
 end
 
 # Helpers
@@ -31,6 +26,9 @@ helpers do
     else
       false
     end
+  end
+  def gallery(image)
+   content_tag(:p, link_to(image_tag(image, :alt => "#"), "images/" + image, :rel => :fancybox), :class => :gallery)
   end
 end
 
