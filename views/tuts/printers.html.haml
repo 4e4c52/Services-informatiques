@@ -1,0 +1,164 @@
+- content_for :head do
+  %title Utilisation des Imprimantes Réseau > Tutoriels > Services informatiques
+  
+- content_for :feature do
+  %h2 Utilisation des Imprimantes Réseau
+  %p Découvrez comment utiliser les imprimantes réseaux de l'école.
+  %ul
+    %li Localisez et ajoutez l'imprimante
+    %li Imprimez vos fichiers
+  
+- content_for :subcol do
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Chapitres
+  %ol.chapters
+    %li= link_to "Informations Générales", "#info"
+    %li
+      = link_to "Ajouter l'Imprimante", "#add"
+      %ul
+        %li= link_to "Sur Windows 7", "#add-windows"
+        %li= link_to "Sur Ubuntu", "#add-ubuntu"
+        %li= link_to "Sur Mac OS X", "#add-mac"
+    %li= link_to "Imprimer vos Fichiers", "#print"
+    
+%h3#info 1 Informations Générales
+
+%p
+  L'imprimante réseau se situe dans la salle
+  %strong 305
+  au troisième étage de l'école.
+  %br
+  Voici les caractéristiques de l'imprimante :
+  
+%ul
+  %li 
+    %strong Nom de l'imprimante :
+    BROTHER 5250DN
+  %li
+    %strong Adresse IP :
+    172.17.2.1
+  %li
+    %strong Type de connexion :
+    port TCP/IP standard
+  
+%h3#add 2 Ajouter l'Imprimante
+
+%h4#add-windows 2.1 Sur Windows 7
+
+%p
+  Pour ajouter l'imprimante sur Windows 7, ouvrez le menu 
+  %strong Démarrer
+  puis allez dans
+  %strong Panneau de configuration
+  où vous vous renderez dans 
+  %strong Périphériques et imprimantes.
+  
+%p
+  En haut de la page, cliquez sur le bouton 
+  %strong Ajouter une imprimante.
+  
+= gallery("tuts/printers/add_printer.png", true)
+
+%p
+  Dans la fenêtre qui vient de s'ouvrir, cliquez sur
+  %strong Ajouter une imprimante réseau, sans fil ou Bluetooth.
+  
+= gallery("tuts/printers/add_network.png", true)
+
+%p
+  Windows va à présent rechercher les imprimantes disponibles sur le réseau.
+  %strong Arrêtez la recherche de l'imprimante.
+
+= gallery("tuts/printers/printer_not_found.png", true)
+
+%p
+  Cliquez à présent sur
+  %strong L'imprimante que je cherche n'est pas répertoriée
+  puis cliquez sur 
+  %strong suivant.
+
+%p
+  Dans la fenêtre qui s'affiche, choisissez
+  %strong Ajoutez une imprimante à l'aide d'une adresse TCP/IP ou d'un nom d'hôte.
+  
+= gallery("tuts/printers/printer_type.png", true)
+
+%p
+  Ensuite, entrez l'adresse IP de l'imprimante comme suit :
+  
+= gallery("tuts/printers/printer_config.png", true)
+
+%p
+  Vous allez à présent devoir installer le pilote de l'imprimante afin de pouvoir l'utiliser.
+  Pour ce faire, téléchargez le pilote correspondant à votre ordinateur ci-dessous :
+  
+%ul
+  %li= link_to "Pilote Windows 7 64 bits", "../documents/tuts/printers/BROTHER_driver_x64.zip"
+  %li= link_to "Pilote Windows 7 32 bits", "../documents/tuts/printers/BROTHER_driver_x86.zip"
+  
+%p
+  Une fois le pilote téléchargé, ouvrez l'archive puis dézippez son contenu sur votre bureau.
+  %br
+  Cliquez maintenant sur 
+  %strong Disque fourni.
+  
+= gallery("tuts/printers/printer_driver.png", true)
+
+%p
+  Dans la fenêtre qui vient de s'ouvrir, cliquez sur 
+  %strong Parcourir
+  puis rentrez dans le dossier que vous venez de dézipper sur votre bureau.
+  Vous ne devriez voir qu'un seul fichier.
+  
+= gallery("tuts/printers/printer_driver_search.png", true)
+
+%p
+  Cliquez sur 
+  %strong Ouvrir
+  puis
+  %strong Ok.
+  %br
+  Le contenu de la fenêtre devrait changer pour vous afficher une liste de quelques imprimantes.
+  Choisissez 
+  %i BROTHER HL-5250DN series.
+  
+= gallery("tuts/printers/printer_choose.png", true)
+
+%p 
+  Cliquez sur
+  %strong suivant.
+  Windows va maintenant installer l'imprimante.
+  
+= gallery("tuts/printers/printer_installing.png", true)
+
+%p
+  Une fois l'installation terminé, donnez un nom à l'imprimante puis cliquez sur
+  %strong suivant.
+  La fenêtre suivante vous propose de partager l'imprimante, 
+  %strong refusez.
+  
+= gallery("tuts/printers/printer_title.png", true)
+= gallery("tuts/printers/printer_not_share.png", true)
+
+%p
+  Cliquez une dernière fois sur 
+  %strong suivant
+  et c'est terminé !
+  %br
+  Il n'est vraiment pas nécessaire d'imprimer une page de test.
+  
+%h4#add-ubuntu 2.2 Sur Ubuntu
+
+.work-in-progress Cette partie est en attente de rédaction.
+
+%h4#add-mac 2.3 Sur Mac OS X
+
+.work-in-progress Cette partie est en attente de rédaction.
+
+%h3#print 3 Imprimez vos Fichiers
+
+%p
+  Pour imprimer un fichier, rien ne change, sélectionnez juste l'imprimante réseau qui portera le nom que vous lui avez donné lors de l'installation.
+  
+= gallery("tuts/printers/printer_print.png", true)

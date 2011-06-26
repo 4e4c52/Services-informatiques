@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang='fr'>
+  <head>
+    <meta charset='utf-8' />
+    <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0' />
+    <link type="image/ico" href="../images/favicon.ico" rel="icon" />
+    <link type="image/png" href="../images/favicon.png" rel="icon" />
+    <link href="../stylesheets/app.css" id="app-stylesheet" media="screen" rel="stylesheet" type="text/css" />
+    <link href="../stylesheets/fancybox.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="../javascripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../javascripts/mobile.min.js" type="text/javascript"></script>
+    <script src="../javascripts/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="../javascripts/app.js" type="text/javascript"></script>
+    <title>Utilisation des Imprimantes Réseau > Tutoriels > Services informatiques</title>
+  </head>
+  <body class='tuts tuts_printers'>
+    <div id='nav'>
+      <div class='wrapper'>
+        <strong>Egalement sur <a href="http://www.isen.fr/brest.asp">isen.fr:</a></strong>
+        &nbsp;
+        <a href="https://web-brest.isen.fr/">ENT</a>
+        &nbsp;|&nbsp;
+        <a href="http://web-brest.isen.fr/moodle/">Moodle</a>
+        &nbsp;|&nbsp;
+        <a href="admin/">Admin</a>
+        <span id='design-box'>
+          Interface&nbsp;
+          <select id="design" name="design">
+          <option value="default">par défault</option>
+          <option value="isen">ISEN</option></select>
+        </span>
+      </div>
+    </div>
+    <div id='header'>
+      <div class='wrapper'>
+        <h1 id='logo'><a id="logo-home" href="index.html">Services informatiques</a></h1>
+        <ul id='menu'>
+          <li>
+            <strong>
+              <a style="display:none;" id="isen-title" href="index.html">ISEN Brest</a>
+            </strong>
+          </li>
+          <li><a id="home" href="index.html">Accueil</a></li>
+          <li class='expandable'>
+            <a id="tuts-index" href="index.html">Tutoriels</a>
+            <div id='tuts' style='display:none;'>
+              <hr />
+              <dl id='left'>
+                <dt>Commencez Ici</dt>
+                <dd><a href="tuts/network.html">Accéder au Réseau</a></dd>
+                <dt>Courrier Electronique</dt>
+                <dd><a href="tuts/email.html">Accéder à la Messagerie</a></dd>
+                <dd><a href="tuts/thunderbird.html">Configuration de Thunderbird</a></dd>
+                <dd><a href="tuts/email_note.html">Note sur le Filtrage et l'Annuaire</a></dd>
+                <dt>ENT</dt>
+                <dd><a href="tuts/ent_email.html">Configuration de la Messagerie</a></dd>
+                <dd><a href="tuts/ent_calendar.html">Configuration de l'Agenda</a></dd>
+              </dl>
+              <dl id='right'>
+                <dt>Imprimantes</dt>
+                <dd><a href="tuts/printers.html">Utilisation sur le Réseau</a></dd>
+                <dt>VirtualBox</dt>
+                <dd><a href="tuts/virtualbox.html">Configuration et Utilisation</a></dd>
+                <dt>Subversion</dt>
+                <dd><a href="tuts/subversion.html">Configuration et Utilisation</a></dd>
+                <dt>VOIP</dt>
+                <dd><a href="tuts/voip.html">Note sur la VOIP</a></dd>
+                <dt>Développement Web</dt>
+                <dd><a href="tuts/middleman.html">Développer avec The Middleman</a></dd>
+              </dl>
+            </div>
+          </li>
+          <li><a id="offers" href="offers.html">Offres</a></li>
+          <li><a id="registration" href="registration.html">Enregistrement</a></li>
+        </ul>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <hr class='hide' />
+    <div id='mobile-tuts' style='display:none'>
+      <div class='wrapper'></div>
+    </div>
+    <div id='feature'>
+      <div class='wrapper'>
+        <h2>Utilisation des Imprimantes Réseau</h2>
+        <p>Découvrez comment utiliser les imprimantes réseaux de l'école.</p>
+        <ul>
+          <li>Localisez et ajoutez l'imprimante</li>
+          <li>Imprimez vos fichiers</li>
+        </ul>
+        <div id='sub-col'>
+          <h3 class='chapter'>
+            <img alt="#" src="../images/chapters.gif" />
+            Chapitres
+          </h3>
+          <ol class='chapters'>
+            <li><a href="#info">Informations Générales</a></li>
+            <li>
+              <a href="#add">Ajouter l'Imprimante</a>
+              <ul>
+                <li><a href="#add-windows">Sur Windows 7</a></li>
+                <li><a href="#add-ubuntu">Sur Ubuntu</a></li>
+                <li><a href="#add-mac">Sur Mac OS X</a></li>
+              </ul>
+            </li>
+            <li><a href="#print">Imprimer vos Fichiers</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div id='container'>
+      <div class='wrapper'>
+        <div id='mobile-sub-col'></div>
+        <div id='main-col'>
+          <h3 id='info'>1 Informations Générales</h3>
+          <p>
+            L'imprimante réseau se situe dans la salle
+            <strong>305</strong>
+            au troisième étage de l'école.
+            <br />
+            Voici les caractéristiques de l'imprimante :
+          </p>
+          <ul>
+            <li>
+              <strong>Nom de l'imprimante :</strong>
+              BROTHER 5250DN
+            </li>
+            <li>
+              <strong>Adresse IP :</strong>
+              172.17.2.1
+            </li>
+            <li>
+              <strong>Type de connexion :</strong>
+              port TCP/IP standard
+            </li>
+          </ul>
+          <h3 id='add'>2 Ajouter l'Imprimante</h3>
+          <h4 id='add-windows'>2.1 Sur Windows 7</h4>
+          <p>
+            Pour ajouter l'imprimante sur Windows 7, ouvrez le menu
+            <strong>Démarrer</strong>
+            puis allez dans
+            <strong>Panneau de configuration</strong>
+            où vous vous renderez dans
+            <strong>Périphériques et imprimantes.</strong>
+          </p>
+          <p>
+            En haut de la page, cliquez sur le bouton
+            <strong>Ajouter une imprimante.</strong>
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/printers/add_printer.png"><img alt="#" src="../images/tuts/printers/add_printer.png" /></a></p>
+          <p>
+            Dans la fenêtre qui vient de s'ouvrir, cliquez sur
+            <strong>Ajouter une imprimante réseau, sans fil ou Bluetooth.</strong>
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/printers/add_network.png"><img alt="#" src="../images/tuts/printers/add_network.png" /></a></p>
+          <p>
+            Windows va à présent rechercher les imprimantes disponibles sur le réseau.
+            <strong>Arrêtez la recherche de l'imprimante.</strong>
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/printers/printer_not_found.png"><img alt="#" src="../images/tuts/printers/printer_not_found.png" /></a></p>
+          <p>
+            Cliquez à présent sur
+            <strong>L'imprimante que je cherche n'est pas répertoriée</strong>
+            puis cliquez sur
+            <strong>suivant.</strong>
+          </p>
+          <p>
+            Dans la fenêtre qui s'affiche, choisissez
+            <strong>Ajoutez une imprimante à l'aide d'une adresse TCP/IP ou d'un nom d'hôte.</strong>
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/printers/printer_type.png"><img alt="#" src="../images/tuts/printers/printer_type.png" /></a></p>
+          <p>
+            Ensuite, entrez l'adresse IP de l'imprimante comme suit :
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/printers/printer_config.png"><img alt="#" src="../images/tuts/printers/printer_config.png" /></a></p>
+          <p>
+            Vous allez à présent devoir installer le pilote de l'imprimante afin de pouvoir l'utiliser.
+            Pour ce faire, téléchargez le pilote correspondant à votre ordinateur ci-dessous :
+          </p>
+          <ul>
+            <li><a href="../documents/tuts/printers/BROTHER_driver_x64.zip">Pilote Windows 7 64 bits</a></li>
+            <li><a href="../documents/tuts/printers/BROTHER_driver_x86.zip">Pilote Windows 7 32 bits</a></li>
+          </ul>
+          <p>
+            Une fois le pilote téléchargé, ouvrez l'archive puis dézippez son contenu sur votre bureau.
+            <br />
+            Cliquez maintenant sur
+            <strong>Disque fourni.</strong>
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/printers/printer_driver.png"><img alt="#" src="../images/tuts/printers/printer_driver.png" /></a></p>
+          <p>
+            Dans la fenêtre qui vient de s'ouvrir, cliquez sur
+            <strong>Parcourir</strong>
+            puis rentrez dans le dossier que vous venez de dézipper sur votre bureau.
+            Vous ne devriez voir qu'un seul fichier.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/printers/printer_driver_search.png"><img alt="#" src="../images/tuts/printers/printer_driver_search.png" /></a></p>
+          <p>
+            Cliquez sur
+            <strong>Ouvrir</strong>
+            puis
+            <strong>Ok.</strong>
+            <br />
+            Le contenu de la fenêtre devrait changer pour vous afficher une liste de quelques imprimantes.
+            Choisissez
+            <i>BROTHER HL-5250DN series.</i>
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/printers/printer_choose.png"><img alt="#" src="../images/tuts/printers/printer_choose.png" /></a></p>
+          <p>
+            Cliquez sur
+            <strong>suivant.</strong>
+            Windows va maintenant installer l'imprimante.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/printers/printer_installing.png"><img alt="#" src="../images/tuts/printers/printer_installing.png" /></a></p>
+          <p>
+            Une fois l'installation terminé, donnez un nom à l'imprimante puis cliquez sur
+            <strong>suivant.</strong>
+            La fenêtre suivante vous propose de partager l'imprimante,
+            <strong>refusez.</strong>
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/printers/printer_title.png"><img alt="#" src="../images/tuts/printers/printer_title.png" /></a></p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/printers/printer_not_share.png"><img alt="#" src="../images/tuts/printers/printer_not_share.png" /></a></p>
+          <p>
+            Cliquez une dernière fois sur
+            <strong>suivant</strong>
+            et c'est terminé !
+            <br />
+            Il n'est vraiment pas nécessaire d'imprimer une page de test.
+          </p>
+          <h4 id='add-ubuntu'>2.2 Sur Ubuntu</h4>
+          <div class='work-in-progress'>Cette partie est en attente de rédaction.</div>
+          <h4 id='add-mac'>2.3 Sur Mac OS X</h4>
+          <div class='work-in-progress'>Cette partie est en attente de rédaction.</div>
+          <h3 id='print'>3 Imprimez vos Fichiers</h3>
+          <p>
+            Pour imprimer un fichier, rien ne change, sélectionnez juste l'imprimante réseau qui portera le nom que vous lui avez donné lors de l'installation.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/printers/printer_print.png"><img alt="#" src="../images/tuts/printers/printer_print.png" /></a></p>
+        </div>
+      </div>
+    </div>
+    <hr class='hide' />
+    <div id='footer'>
+      <div class='wrapper'>
+        <p>ISEN - Brest &copy; 2011</p>
+        <p>Réalisé par <a href="http://syrinxoon.net">Nathan Le Ray</a>, powered by <a href="http://www.mongodb.org/">MongoDB</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>

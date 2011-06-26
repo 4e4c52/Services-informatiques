@@ -1,0 +1,148 @@
+- content_for :head do
+  %title Configurer Thunderbird > Tutoriels > Services informatiques
+  
+- content_for :feature do
+  %h2 Configurer Thunderbird
+  %p Découvrez comment configurer Thunderbird pour accéder à vos emails.
+  %ul
+    %li Téléchargez Thunderbird
+    %li Configurez votre compte de messagerie
+  
+- content_for :subcol do
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Chapitres
+  %ol.chapters
+    %li= link_to "Télécharger Thunderbird", "#download"
+    %li
+      = link_to "Configurer Thunderbird", "#config"
+      %ul
+        %li= link_to "Nouveau Compte", "#new-account"
+        %li= link_to "Identité", "#identity"
+        %li= link_to "Paramètres du Compte", "#params"
+        %li= link_to "Mots de Passe", "#passwords"
+
+%h3#download 1 Télécharger Thunderbird
+
+%p
+  Avant de commencer, assurez vous d'avoir la dernière version de Thunderbird installée sur votre ordinateur.
+  Si ce n'est pas le cas, rendez vous sur la #{link_to "page de téléchargement", "http://www.mozillamessaging.com/fr/"} de Thunderbird puis téléchargez la dernière version.
+  Une fois Thunderbird téléchargé, installez le en laissant les options par défaut (standard).
+  
+%h3#config 2 Configurer Thunderbird
+
+%h4#new-account 2.1 Nouveau Compte
+
+%p
+  Une fois Thunderbird téléchargé et installé, démarrez le.
+  Si c'est la première fois, Thunderbird vous demandera votre identité, dans ce cas, passez directement à la #{link_to "partie 2.2", "#identity"}.
+  Sinon, allez dans le menu
+  %strong Fichier > Nouveau > Comptes courrier
+  comme sur l'image ci-dessous.
+  
+= gallery("tuts/thunderbird/new_account_menu.png", true)
+
+%h4#identity 2.2 Identité
+
+%p
+  Thunderbird vous demande à présent votre identité.
+  Entrez les informations demandées comme ci-dessous.
+  
+= gallery("tuts/thunderbird/new_account_id.png", true)
+
+%p
+  Une fois les informations données, cliquez sur le bonton
+  %i Continuer.
+  
+%h4#params 2.3 Paramètres du Compte
+
+%p
+  Thunderbird devrait à présent tenter de trouver automatiquement les paramètres de votre compte. 
+  En vain.
+  Modifiez les paramètres avec ceux donnés ci-dessous.
+  Vérifiez que vous avez entré toutes les informations comme sur l'image un peu plus bas.
+  
+%ul
+  %li
+    %strong Identifiant :
+    votre login ISEN
+  %li
+    %strong Serveur entrant :
+    mail-brest.isen.fr
+    %ul
+      %li
+        %strong Protocol :
+        POP
+      %li
+        %strong Port :
+        995
+      %li
+        %strong Type de sécurité :
+        SSL/TLS
+      %li
+        %strong Authentification :
+        Autodétection
+  %li
+    %strong Serveur sortant :
+    smtp-brest.isen.fr
+    %ul
+      %li
+        %strong Protocol :
+        SMTP
+      %li
+        %strong Port :
+        465
+      %li
+        %strong Type de sécurité :
+        SSL/TLS
+      %li
+        %strong Authentification :
+        Autodétection
+
+= gallery("tuts/thunderbird/new_account_config.png", true)
+
+%p
+  Cliquez à présent sur 
+  %strong Re-tester
+  afin que Thunderbird vérifie et enregistre les paramètres.
+  %br
+  Il est probable qu'une fenêtre s'ouvre comme sur l'image ci-dessous.
+  C'est tout à fait normal. Cette fenêtre vous indique que la connexion est sécurisée 
+  mais que l'identité du site n'a pas été vérifiée par une autorité digne de confiance.
+  %br
+  Cochez la case 
+  %i Conserver cette exception de façon permanente
+  puis cliquez sur
+  %strong Confirmer l'exception de sécurité.
+  
+= gallery("tuts/thunderbird/new_account_certificate.png", true)
+
+%p
+  Thunderbird devrait à présent vous afficher quelque chose comme l'image ci-dessous à la place des paramètres de votre compte.
+  Si vous avez fait une erreur en tapant les paramètres de votre compte, modifiez les paramètres et recommencez l'opération.
+  
+= gallery("tuts/thunderbird/new_account_params.png", true)
+
+%p
+  Enfin, vous pouvez cliquez sur le bouton
+  %strong Créer le compte.
+  %br
+  Une fois encore, il est possible que vous receviez une alerte de sécurité.
+  C'est plus ou moins la même que la précédente.
+  Cochez 
+  %i Je comprends les risques
+  puis cliquez sur le bouton
+  %strong Créer le compte.
+  %br
+  Votre compte est maintenant sauvegardé et devrait apparaître dans la colonne à gauche du logiciel.
+  
+= gallery("tuts/thunderbird/new_account_warning.png", true)
+
+%h4#passwords 2.4 Mots de Passe
+
+%p
+  Il est possible que lorsque vous enverrez un email pour la première fois,
+  Thunderbird vous redemande votre mot de passe.
+  Si tel est le cas, entrez le et cochez la case 
+  %i Retenir le mot de passe.
+  

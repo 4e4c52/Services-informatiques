@@ -1,0 +1,133 @@
+- content_for :head do
+  %title Configuration de la Messagerie sur l'ENT > Tutoriels > Services informatiques
+  
+- content_for :feature do
+  %h2 Configuration de la Messagerie sur l'ENT
+  %p Découvrez comment configurer votre messagerie sur l'ENT.
+  %ul
+    %li Connectez vous
+    %li Configurez votre compte
+    %li Gérez vos informations
+  
+- content_for :subcol do
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Chapitres
+  %ol.chapters
+    %li= link_to "Connexion", "#login"
+    %li= link_to "Configuration", "#config"
+    %li= link_to "Redirection", "#redirect"
+    %li= link_to "Absences", "#absences"
+    %li= link_to "Modification du Mot de Passe", "#password"
+    %li= link_to "Filtrage des Emails", "#filter"
+    
+%h3#login 1 Connexion
+
+%p
+  Tout d'abord, rendez-vous sur #{link_to "le site de l'ENT", "https://web-brest.isen.fr"}.
+  Cliquez maintenant sur 
+  %strong Se connecter
+  en haut à droite.
+  Entrez votre identifiant ISEN et votre mot de passe (par défaut: 
+  %i isen29
+  ).
+  %br
+  Pour rappel, l'identifiant ISEN est composé de façon suivante:
+
+%ul
+  %li	Première lettre de votre prénom
+  %li	5 premières lettres de votre nom
+  %li	2 derniers chiffres de votre année de sortie
+  %li	Par exemple, John Smith de la promotion 2015 aura pour identifiant jsmith15
+
+%p				
+  A présent allez dans l'onglet 
+  %strong Communication et cliquez sur 
+  %strong Courriel.
+  Vous êtes maintenant sur votre boite de reception.
+			
+%h3#config 2 Configuration
+			
+%p
+  Avant tout, il faut modifier votre identité par défaut en remplaçant 
+  %strong votrelogin@iseb.fr 
+  par 
+  %strong prenom.nom@isen.fr. 
+  %br
+  Pour cela, cliquez sur 
+  %strong option
+  dans le menu à gauche.
+  Dans 
+  %i Editer les options pour
+  en haut à droite, choisissez 
+  %strong Courrier.
+			
+= gallery("tuts/ent_email/options.png", true)
+			
+%p
+  Dans la catégorie 
+  %i Option générales, 
+  cliquez sur 
+  %strong Données personnelles.
+  Complétez de la manière suivante:
+
+%ul
+  %li 
+    %strong Profil par défaut : 
+    identité pas défaut
+  %li 
+    %strong Sélectionnez le profil que vous désirez modifier : 
+    identité par défaut
+  %li 
+    %strong Nom du compte : 
+    identité par défaut
+  %li 
+    %strong Nom complet : 
+    rentrez votre nom complet
+  %li 
+    %strong
+      Votre adresse d'envoi 
+      %i De :
+    prenom.nom@isen.fr	
+
+%p
+  Normalement vous devriez obtenir ceci :
+			
+= gallery("tuts/ent_email/identity.png", true)
+			
+%p
+  Cliquez ensuite sur 
+  %strong enregister les options.
+			
+%h3#redirect 3 Redirection
+			
+%p
+  Le service mail de l'ENT dispose d'une redirection des mails, pour cela cliquez sur 
+  %strong Redirection
+  dans le menu à gauche.
+			
+%h3#absences 4 Absences
+			
+%p
+  Sur votre page mail de l'ENT vous trouverez également l'option absences, cette dernière permet de renvoyer automatiquement une réponse aux mails
+  que vous recevrez pendant une période durant laquelle vous serez dans l'incapacité de répondre par vous même.
+  Pour l'utiliser cliquez sur 
+  %strong Absence
+  dans le menu à gauche.
+			
+%h3#password 5 Modification du Mot de Passe
+			
+%p
+  Pour modifier votre mot de passe sur l'ENT allez dans l'onglet 
+  %strong Mon compte
+  puis cliquez sur 
+  %i "Mot de passe.
+			
+= gallery("tuts/ent_email/password.png", true)
+			
+%h3#filter 6 Filtrage des Emails
+			
+%p
+  Le service mail de l'ENT dispose d'un filtrage des mails, pour cela cliquez sur 
+  %strong Filtage
+  dans le menu à gauche et configurez les différentes options comme bon vous semble.

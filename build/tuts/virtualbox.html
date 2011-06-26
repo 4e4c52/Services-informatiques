@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang='fr'>
+  <head>
+    <meta charset='utf-8' />
+    <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0' />
+    <link type="image/ico" href="../images/favicon.ico" rel="icon" />
+    <link type="image/png" href="../images/favicon.png" rel="icon" />
+    <link href="../stylesheets/app.css" id="app-stylesheet" media="screen" rel="stylesheet" type="text/css" />
+    <link href="../stylesheets/fancybox.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="../javascripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../javascripts/mobile.min.js" type="text/javascript"></script>
+    <script src="../javascripts/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="../javascripts/app.js" type="text/javascript"></script>
+    <title>Configuration et Utilisation de VirtualBox > Tutoriels > Services informatiques</title>
+  </head>
+  <body class='tuts tuts_virtualbox'>
+    <div id='nav'>
+      <div class='wrapper'>
+        <strong>Egalement sur <a href="http://www.isen.fr/brest.asp">isen.fr:</a></strong>
+        &nbsp;
+        <a href="https://web-brest.isen.fr/">ENT</a>
+        &nbsp;|&nbsp;
+        <a href="http://web-brest.isen.fr/moodle/">Moodle</a>
+        &nbsp;|&nbsp;
+        <a href="admin/">Admin</a>
+        <span id='design-box'>
+          Interface&nbsp;
+          <select id="design" name="design">
+          <option value="default">par défault</option>
+          <option value="isen">ISEN</option></select>
+        </span>
+      </div>
+    </div>
+    <div id='header'>
+      <div class='wrapper'>
+        <h1 id='logo'><a id="logo-home" href="index.html">Services informatiques</a></h1>
+        <ul id='menu'>
+          <li>
+            <strong>
+              <a style="display:none;" id="isen-title" href="index.html">ISEN Brest</a>
+            </strong>
+          </li>
+          <li><a id="home" href="index.html">Accueil</a></li>
+          <li class='expandable'>
+            <a id="tuts-index" href="index.html">Tutoriels</a>
+            <div id='tuts' style='display:none;'>
+              <hr />
+              <dl id='left'>
+                <dt>Commencez Ici</dt>
+                <dd><a href="tuts/network.html">Accéder au Réseau</a></dd>
+                <dt>Courrier Electronique</dt>
+                <dd><a href="tuts/email.html">Accéder à la Messagerie</a></dd>
+                <dd><a href="tuts/thunderbird.html">Configuration de Thunderbird</a></dd>
+                <dd><a href="tuts/email_note.html">Note sur le Filtrage et l'Annuaire</a></dd>
+                <dt>ENT</dt>
+                <dd><a href="tuts/ent_email.html">Configuration de la Messagerie</a></dd>
+                <dd><a href="tuts/ent_calendar.html">Configuration de l'Agenda</a></dd>
+              </dl>
+              <dl id='right'>
+                <dt>Imprimantes</dt>
+                <dd><a href="tuts/printers.html">Utilisation sur le Réseau</a></dd>
+                <dt>VirtualBox</dt>
+                <dd><a href="tuts/virtualbox.html">Configuration et Utilisation</a></dd>
+                <dt>Subversion</dt>
+                <dd><a href="tuts/subversion.html">Configuration et Utilisation</a></dd>
+                <dt>VOIP</dt>
+                <dd><a href="tuts/voip.html">Note sur la VOIP</a></dd>
+                <dt>Développement Web</dt>
+                <dd><a href="tuts/middleman.html">Développer avec The Middleman</a></dd>
+              </dl>
+            </div>
+          </li>
+          <li><a id="offers" href="offers.html">Offres</a></li>
+          <li><a id="registration" href="registration.html">Enregistrement</a></li>
+        </ul>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <hr class='hide' />
+    <div id='mobile-tuts' style='display:none'>
+      <div class='wrapper'></div>
+    </div>
+    <div id='feature'>
+      <div class='wrapper'>
+        <h2>Configuration et Utilisation de VirtualBox</h2>
+        <p>Découvrez comment configurer et utiliser VirtualBox.</p>
+        <ul>
+          <li>Téléchargez VirtualBox</li>
+          <li>Créez votre machine virtuelle</li>
+        </ul>
+        <div id='sub-col'>
+          <h3 class='chapter'>
+            <img alt="#" src="../images/chapters.gif" />
+            Chapitres
+          </h3>
+          <ol class='chapters'>
+            <li><a href="#download">Télécharger VirtualBox</a></li>
+            <li>
+              <a href="#vm">Créer une Machine Virtuelle</a>
+              <ul>
+                <li><a href="#iso">Télécharger une Image</a></li>
+                <li><a href="#config">Configuration de la VM</a></li>
+                <li><a href="#hardware">Paramètres Hardware</a></li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div id='container'>
+      <div class='wrapper'>
+        <div id='mobile-sub-col'></div>
+        <div id='main-col'>
+          <h3 id='download'>1 Télécharger VirtualBox</h3>
+          <p>
+            VirtualBox est un logiciel de virtualisation permettant d'avoir plusieurs systèmes d'exploitation sur la même machine et fonctionnant au même moment.
+            Ce logiciel est gratuit et est disponible en téléchargement sur <a href="http://www.virtualbox.org/wiki/Downloads">le site officiel</a>.
+          </p>
+          <h3 id='vm'>2 Créer une Machine Virtuelle</h3>
+          <h4 id='iso'>2.1 Télécharger une Image</h4>
+          <div class='info'>
+            Avant d'aller plus moin, vous devez avoir sur votre ordinateur une image disque d'un système d'exploitation.
+            Ces fichiers prennent l'extension
+            <strong>.iso</strong>
+            et sont téléchargeables sur les sites des différentes distributions.
+          </div>
+          <p>
+            Vous pouvez télécharger CentOS ainsi que Ubuntu depuis les liens suivants :
+          </p>
+          <ul>
+            <li><a href="http://mirror.centos.org/centos/">CentOS</a></li>
+            <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+          </ul>
+          <p>
+            Pensez bien à télécharger le fichier
+            <strong>ISO</strong>
+            prévu pour l'architecture de votre processeur (x86 ou x64).
+          </p>
+          <h4 id='config'>2.2 Configuration de la VM</h4>
+          <p>
+            Après avoir téléchargé une image, sauvegardez là dans un dossier où vous pourrez la retrouver.
+            Ouvrez ensuite VirtualBox et cliquez sur le bouton
+            <strong>Créer.</strong>
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_create.png"><img alt="#" src="../images/tuts/virtualbox/vm_create.png" /></a></p>
+          <p>
+            Cliquez ensuite sur
+            <strong>suivant.</strong>
+            VirtualBox vous demande maintenant des informations sur la machine virtuelle que vous souhaitez créer.
+            Vous devez dans un premier temps lui donner un nom (unique sur votre ordinateur) qui sera utilisé pour identifier la machine dans VirtualBox
+            mais qui servira également de nom pour le fichier contenant votre machine virtuelle sur votre ordinateur.
+            Après avoir nommé votre machine virtuelle, vous devez sélectionner son type à l'aide des listes déroulantes.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_info.png"><img alt="#" src="../images/tuts/virtualbox/vm_info.png" /></a></p>
+          <p>
+            Cliquez sur
+            <strong>suivant.</strong>
+            Vous devez maintenant entrer le nombre de Megaoctets de mémoire vive que votre machine virtuelle est autorisée à exploiter.
+            VirtualBox recommande 512 Mo mais 1 Go (1024 Mo) est tout de même préférable pour un confort d'utilisation optimal.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_ram.png"><img alt="#" src="../images/tuts/virtualbox/vm_ram.png" /></a></p>
+          <p>
+            L'étape suivante traite du disque dur virtuel utilisé par VirtualBox pour sauvegarder votre machine.
+            Si vous suivez ce tutoriel, laissez coché
+            <i>Disque dur d'amorçage</i>
+            et sélectionnez
+            <i>Créer un nouveau disque dur.</i>
+          </p>
+          <p>
+            En revanche, si vous avez déjà un disque de machine virtuelle (au format
+            <strong>.vdi</strong>
+            pour VirtualBox), vous pouvez l'utiliser en sélectionnant
+            <i>Utiliser un disque dur existant</i>
+            et en allant le chercher dans vos dossiers.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hd.png"><img alt="#" src="../images/tuts/virtualbox/vm_hd.png" /></a></p>
+          <p>
+            Le fait de cliquer sur
+            <strong>Suivant</strong>
+            va ouvrir une nouvelle fenêtre permettant de créer le nouveau disque dur virtuel.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hd_new.png"><img alt="#" src="../images/tuts/virtualbox/vm_hd_new.png" /></a></p>
+          <p>
+            Cliquez sur
+            <strong>Suivant</strong>
+            et dans
+            <i>Type de disque virtuel,</i>
+            sélectionnez
+            <i>Fichier de taille variable.</i>
+            Ainsi, au fur et à mesure que votre machine virtuelle prendra de la place, le fichier la contenant s'agrandira. Plutôt sympa !
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hd_container_size.png"><img alt="#" src="../images/tuts/virtualbox/vm_hd_container_size.png" /></a></p>
+          <p>
+            La fenêtre suivante pour demande de donner un nom à votre disque dur virtuel.
+            Par défaut, le nom que vous avez donné à votre machine virtuelle est utilisé mais libre à vous de le changer si bon vous semble.
+            Ce qui est important sur cette fenêtre est à la taille de base de votre disque dur virtuel.
+            Cette taille doit être au minimum de 8 Go. J'ai pour habitude de mettre au minimum
+            <strong>20 Go</strong>
+            pour avoir une bonne marge de manoeuvre.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hd_size.png"><img alt="#" src="../images/tuts/virtualbox/vm_hd_size.png" /></a></p>
+          <p>
+            Cliquez maintenant sur
+            <strong>Terminer</strong>
+            pour fermer la fenêtre de création du disque virtuel puis encore sur
+            <strong>Terminer</strong>
+            pour fermer la fenêtre de création de la machine virtuelle.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_created.png"><img alt="#" src="../images/tuts/virtualbox/vm_created.png" /></a></p>
+          <p>
+            Notre machine virtuelle apparaît maintenant dans la colonne de gauche sur VirtualBox.
+            Sélectionnez la pour avoir quelques informations sur elle.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_home.png"><img alt="#" src="../images/tuts/virtualbox/vm_home.png" /></a></p>
+          <h4 id='hardware'>2.3 Paramètres Hardware</h4>
+          <p>
+            Telle quelle, notre machine virtuelle nous est parfaitement inutile.
+            Nous allons devoir configurer la partie
+            <i>hardware</i>
+            de cette dernière afin de la rendre utilisable.
+          </p>
+          <p>
+            Sélectionnez la machine virtuelle et cliquez sur
+            <strong>Configuration.</strong>
+            La fenêtre ci-dessous va s'ouvrir.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_home.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_home.png" /></a></p>
+          <p>
+            Par défaut, notre machine virtuelle n'utilisera qu'un seul coeur du processeur quand bien même il en comporte plusieurs.
+            Si vous souhaitez que votre machine virtuelle utilise 2 coeurs ou plus, allez dans la partie
+            <strong>Système</strong>
+            puis cochez la case
+            <i>Activier les IO-APIC</i>
+            dans l'onglet
+            <strong>Carte mère.</strong>
+          </p>
+          <div class='info'>
+            Notez la partie
+            <i>Ordre d'amorçage.</i>
+            La machine virtuelle tentera dans un premier temps de démarrer sur une Disquette puis sur un CD/DVD et enfin sur le disque dur virtuel.
+          </div>
+          <br />
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_io_apic.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_io_apic.png" /></a></p>
+          <p>
+            Toujours dans la partie
+            <strong>Système,</strong>
+            allez dans l'onglet
+            <strong>Processeur</strong>
+            puis sélectionnez le nombre de coeurs que vous souhaitez utiliser.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_processor.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_processor.png" /></a></p>
+          <p>
+            Rendez vous maintenant dans la partie
+            <strong>Affichage.</strong>
+            Attribuez à votre machine virtuelle au minimum
+            <strong>25 Mo</strong>
+            de mémoire vidéo (21 Mo sont nécessaires pour lire des vidéos HD) puis cochez la case
+            <i>Activer l'acclération 3D.</i>
+            L'accélération 2D n'est supportée que vous les machine virtuelles Windows.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_display.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_display.png" /></a></p>
+          <p>
+            Nous allons maintenant nous attaquer à l'étape essentielle du paramètrage de la machine virtuelle.
+            A l'heure actuelle, la machine virtuelle n'est qu'un ordinateur sans système d'exploitation.
+            Autrement dit, une coquille vide.
+            Pour installer un système d'exploitation, il faut insérer le DVD d'installation dans l'ordinateur et démarrer ce dernier sur le DVD.
+            C'est exactement ce que nous allons faire ici.
+            Souvenez vous de
+            <i>l'ordre d'amorçage</i>
+            dont nous avons parlé un peu plus haut.
+            La machine virtuelle tentera de démarrer sur le lecteur de CD/DVD. Nous allons donc devoir insérer notre DVD d'installation dans ce lecteur.
+          </p>
+          <p>
+            Pour cela, rendez vous dans la partie
+            <strong>Stockage.</strong>
+            Sur la gauche, vous pouvez voir l'arborescence de stockage contenant un contrôleur IDE (notre lecteur de CD/DVD) ainsi qu'un contrôleur SATA (notre disque dur virtuel).
+            Sous le contrôleur IDE, vous pouvez voir une icône de disque avec vide à côté.
+            Cliquez sur cette icône. La partie droite de la fenêtre intitulée
+            <i>Attributs</i>
+            va se mettre à jour.
+            La ligne lecteur CD/DVD contient un autre icône de disque.
+            Cliquez dessus et sélectionnez
+            <strong>Choisissez une fichier de CD/DVD virtuel...</strong>
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_stock.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_stock.png" /></a></p>
+          <p>
+            Allez chercher le fichier
+            <strong>.iso</strong>
+            que vous avez téléchargé tout à l'heure puis cliquez sur
+            <strong>Ouvrir.</strong>
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_iso.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_iso.png" /></a></p>
+          <p>
+            Cliquez sur
+            <strong>OK</strong>
+            pour sauvegarder et fermer la fenêtre des paramètres.
+          </p>
+          <p>
+            Vous pouvez à présent sélectionner votre machione virtuelle et cliquer sur
+            <strong>Démarrer.</strong>
+            Vous vous retrouverez alors avec une fenêtre d'installation de votre système d'exploitation.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_install.png"><img alt="#" src="../images/tuts/virtualbox/vm_install.png" /></a></p>
+          <div class='warning'>N'oubliez pas de supprimer le DVD du lecteur de la machine virtuelle après l'installation sans quoi, elle démarrera toujours sur le DVD d'installation.</div>
+          <br />
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_remove_dvd.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_remove_dvd.png" /></a></p>
+          <p>
+            Vous avez à présent une machine virtuelle fonctionnelle.
+            Libre à vous de la configurer par la suite et d'installer les
+            <i>Addons</i>
+            proposés par VirtualBox pour un meilleur confort d'utilisation.
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr class='hide' />
+    <div id='footer'>
+      <div class='wrapper'>
+        <p>ISEN - Brest &copy; 2011</p>
+        <p>Réalisé par <a href="http://syrinxoon.net">Nathan Le Ray</a>, powered by <a href="http://www.mongodb.org/">MongoDB</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>

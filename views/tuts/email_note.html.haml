@@ -1,0 +1,52 @@
+- content_for :head do
+  %title Note sur le Filtrage et l'Annuaire > Tutoriels > Services informatiques
+  
+- content_for :feature do
+  %h2 Note sur le Filtrage et l'Annuaire
+  %p Quelques informations sur les emails.
+  
+- content_for :subcol do
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Chapitres
+  %ol.chapters
+    %li= link_to "Annuaire LDAP", "#ldap"
+    %li= link_to "Filtrage", "#filter"
+    
+%h3#ldap 1 Annuaire LDAP
+
+%p
+  L'école dispose d'un annaire LDAP contenant toutes les adresses email utilisées dans l'école.
+  Vous pouvez configurer votre logiciel de messagerie pour tirer parti de cet annuaire.
+  Voici les informations dont vous aurez besoin pour vous connecter à l'annuaire.
+  
+%ul
+  %li 
+    %strong Nom d'hôte :
+    ldap-brest.isen.fr
+  %li
+    %strong Nom distinct de base :
+    o=tous,c=fr
+  %li
+    %strong Type de connexion sécurisé
+    SSL
+  
+%p
+  Voici par exemple les informations à entrer pour ajouter l'annuaire LDAP dans Thunderbird.
+  
+= gallery("tuts/ldap/thunderbird_ldap.png", true)
+
+%h3#filter 2 Filtrage
+
+%p
+  Un système est mis en place pour lutter contre les spams.
+
+%p
+  Greylisting : technique rejetant tous les mails la première fois qu’ils arrivent (un serveur bien configuré essayera de renvoyer le message un peu plus tard, les spammeurs ne réessayent pas généralement). Cette technique permet d’éliminer 80% des mails indésirables (ordre d’idée : 8000 mails rejetés par ce système par jour). Ce système est très efficace mais peut entraîner des retards dans la livraison des messages.
+  
+%p
+  Marquage des spams : certains spams passent à travers le greylisting c'est pour cela qu'un logiciel tente de repérer les spams et les marque en ajoutant *****SPAM !!!!!***** dans le sujet du message (on vous laisse la responsabilité de supprimer le message, la détection ne pouvant être garantie à 100%).
+  
+%p
+  Ceux qui souhaitent peuvent donc mettre en place un filtre sur les mails dont le sujet comprend *****SPAM !!!!!***** et décider de les supprimer directement ou de les déplacer dans un dossier autre que la boite de réception… (fonction existant sur tout type d’outils : thunderbird, outlook, webmail, ...).
+  

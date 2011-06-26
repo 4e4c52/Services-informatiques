@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang='fr'>
+  <head>
+    <meta charset='utf-8' />
+    <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0' />
+    <link type="image/ico" href="../images/favicon.ico" rel="icon" />
+    <link type="image/png" href="../images/favicon.png" rel="icon" />
+    <link href="../stylesheets/app.css" id="app-stylesheet" media="screen" rel="stylesheet" type="text/css" />
+    <link href="../stylesheets/fancybox.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="../javascripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../javascripts/mobile.min.js" type="text/javascript"></script>
+    <script src="../javascripts/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="../javascripts/app.js" type="text/javascript"></script>
+    <title>Configurer Thunderbird > Tutoriels > Services informatiques</title>
+  </head>
+  <body class='tuts tuts_thunderbird'>
+    <div id='nav'>
+      <div class='wrapper'>
+        <strong>Egalement sur <a href="http://www.isen.fr/brest.asp">isen.fr:</a></strong>
+        &nbsp;
+        <a href="https://web-brest.isen.fr/">ENT</a>
+        &nbsp;|&nbsp;
+        <a href="http://web-brest.isen.fr/moodle/">Moodle</a>
+        &nbsp;|&nbsp;
+        <a href="admin/">Admin</a>
+        <span id='design-box'>
+          Interface&nbsp;
+          <select id="design" name="design">
+          <option value="default">par défault</option>
+          <option value="isen">ISEN</option></select>
+        </span>
+      </div>
+    </div>
+    <div id='header'>
+      <div class='wrapper'>
+        <h1 id='logo'><a id="logo-home" href="index.html">Services informatiques</a></h1>
+        <ul id='menu'>
+          <li>
+            <strong>
+              <a style="display:none;" id="isen-title" href="index.html">ISEN Brest</a>
+            </strong>
+          </li>
+          <li><a id="home" href="index.html">Accueil</a></li>
+          <li class='expandable'>
+            <a id="tuts-index" href="index.html">Tutoriels</a>
+            <div id='tuts' style='display:none;'>
+              <hr />
+              <dl id='left'>
+                <dt>Commencez Ici</dt>
+                <dd><a href="tuts/network.html">Accéder au Réseau</a></dd>
+                <dt>Courrier Electronique</dt>
+                <dd><a href="tuts/email.html">Accéder à la Messagerie</a></dd>
+                <dd><a href="tuts/thunderbird.html">Configuration de Thunderbird</a></dd>
+                <dd><a href="tuts/email_note.html">Note sur le Filtrage et l'Annuaire</a></dd>
+                <dt>ENT</dt>
+                <dd><a href="tuts/ent_email.html">Configuration de la Messagerie</a></dd>
+                <dd><a href="tuts/ent_calendar.html">Configuration de l'Agenda</a></dd>
+              </dl>
+              <dl id='right'>
+                <dt>Imprimantes</dt>
+                <dd><a href="tuts/printers.html">Utilisation sur le Réseau</a></dd>
+                <dt>VirtualBox</dt>
+                <dd><a href="tuts/virtualbox.html">Configuration et Utilisation</a></dd>
+                <dt>Subversion</dt>
+                <dd><a href="tuts/subversion.html">Configuration et Utilisation</a></dd>
+                <dt>VOIP</dt>
+                <dd><a href="tuts/voip.html">Note sur la VOIP</a></dd>
+                <dt>Développement Web</dt>
+                <dd><a href="tuts/middleman.html">Développer avec The Middleman</a></dd>
+              </dl>
+            </div>
+          </li>
+          <li><a id="offers" href="offers.html">Offres</a></li>
+          <li><a id="registration" href="registration.html">Enregistrement</a></li>
+        </ul>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <hr class='hide' />
+    <div id='mobile-tuts' style='display:none'>
+      <div class='wrapper'></div>
+    </div>
+    <div id='feature'>
+      <div class='wrapper'>
+        <h2>Configurer Thunderbird</h2>
+        <p>Découvrez comment configurer Thunderbird pour accéder à vos emails.</p>
+        <ul>
+          <li>Téléchargez Thunderbird</li>
+          <li>Configurez votre compte de messagerie</li>
+        </ul>
+        <div id='sub-col'>
+          <h3 class='chapter'>
+            <img alt="#" src="../images/chapters.gif" />
+            Chapitres
+          </h3>
+          <ol class='chapters'>
+            <li><a href="#download">Télécharger Thunderbird</a></li>
+            <li>
+              <a href="#config">Configurer Thunderbird</a>
+              <ul>
+                <li><a href="#new-account">Nouveau Compte</a></li>
+                <li><a href="#identity">Identité</a></li>
+                <li><a href="#params">Paramètres du Compte</a></li>
+                <li><a href="#passwords">Mots de Passe</a></li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div id='container'>
+      <div class='wrapper'>
+        <div id='mobile-sub-col'></div>
+        <div id='main-col'>
+          <h3 id='download'>1 Télécharger Thunderbird</h3>
+          <p>
+            Avant de commencer, assurez vous d'avoir la dernière version de Thunderbird installée sur votre ordinateur.
+            Si ce n'est pas le cas, rendez vous sur la <a href="http://www.mozillamessaging.com/fr/">page de téléchargement</a> de Thunderbird puis téléchargez la dernière version.
+            Une fois Thunderbird téléchargé, installez le en laissant les options par défaut (standard).
+          </p>
+          <h3 id='config'>2 Configurer Thunderbird</h3>
+          <h4 id='new-account'>2.1 Nouveau Compte</h4>
+          <p>
+            Une fois Thunderbird téléchargé et installé, démarrez le.
+            Si c'est la première fois, Thunderbird vous demandera votre identité, dans ce cas, passez directement à la <a href="#identity">partie 2.2</a>.
+            Sinon, allez dans le menu
+            <strong>Fichier > Nouveau > Comptes courrier</strong>
+            comme sur l'image ci-dessous.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/thunderbird/new_account_menu.png"><img alt="#" src="../images/tuts/thunderbird/new_account_menu.png" /></a></p>
+          <h4 id='identity'>2.2 Identité</h4>
+          <p>
+            Thunderbird vous demande à présent votre identité.
+            Entrez les informations demandées comme ci-dessous.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/thunderbird/new_account_id.png"><img alt="#" src="../images/tuts/thunderbird/new_account_id.png" /></a></p>
+          <p>
+            Une fois les informations données, cliquez sur le bonton
+            <i>Continuer.</i>
+          </p>
+          <h4 id='params'>2.3 Paramètres du Compte</h4>
+          <p>
+            Thunderbird devrait à présent tenter de trouver automatiquement les paramètres de votre compte.
+            En vain.
+            Modifiez les paramètres avec ceux donnés ci-dessous.
+            Vérifiez que vous avez entré toutes les informations comme sur l'image un peu plus bas.
+          </p>
+          <ul>
+            <li>
+              <strong>Identifiant :</strong>
+              votre login ISEN
+            </li>
+            <li>
+              <strong>Serveur entrant :</strong>
+              mail-brest.isen.fr
+              <ul>
+                <li>
+                  <strong>Protocol :</strong>
+                  POP
+                </li>
+                <li>
+                  <strong>Port :</strong>
+                  995
+                </li>
+                <li>
+                  <strong>Type de sécurité :</strong>
+                  SSL/TLS
+                </li>
+                <li>
+                  <strong>Authentification :</strong>
+                  Autodétection
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Serveur sortant :</strong>
+              smtp-brest.isen.fr
+              <ul>
+                <li>
+                  <strong>Protocol :</strong>
+                  SMTP
+                </li>
+                <li>
+                  <strong>Port :</strong>
+                  465
+                </li>
+                <li>
+                  <strong>Type de sécurité :</strong>
+                  SSL/TLS
+                </li>
+                <li>
+                  <strong>Authentification :</strong>
+                  Autodétection
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/thunderbird/new_account_config.png"><img alt="#" src="../images/tuts/thunderbird/new_account_config.png" /></a></p>
+          <p>
+            Cliquez à présent sur
+            <strong>Re-tester</strong>
+            afin que Thunderbird vérifie et enregistre les paramètres.
+            <br />
+            Il est probable qu'une fenêtre s'ouvre comme sur l'image ci-dessous.
+            C'est tout à fait normal. Cette fenêtre vous indique que la connexion est sécurisée
+            mais que l'identité du site n'a pas été vérifiée par une autorité digne de confiance.
+            <br />
+            Cochez la case
+            <i>Conserver cette exception de façon permanente</i>
+            puis cliquez sur
+            <strong>Confirmer l'exception de sécurité.</strong>
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/thunderbird/new_account_certificate.png"><img alt="#" src="../images/tuts/thunderbird/new_account_certificate.png" /></a></p>
+          <p>
+            Thunderbird devrait à présent vous afficher quelque chose comme l'image ci-dessous à la place des paramètres de votre compte.
+            Si vous avez fait une erreur en tapant les paramètres de votre compte, modifiez les paramètres et recommencez l'opération.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/thunderbird/new_account_params.png"><img alt="#" src="../images/tuts/thunderbird/new_account_params.png" /></a></p>
+          <p>
+            Enfin, vous pouvez cliquez sur le bouton
+            <strong>Créer le compte.</strong>
+            <br />
+            Une fois encore, il est possible que vous receviez une alerte de sécurité.
+            C'est plus ou moins la même que la précédente.
+            Cochez
+            <i>Je comprends les risques</i>
+            puis cliquez sur le bouton
+            <strong>Créer le compte.</strong>
+            <br />
+            Votre compte est maintenant sauvegardé et devrait apparaître dans la colonne à gauche du logiciel.
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/thunderbird/new_account_warning.png"><img alt="#" src="../images/tuts/thunderbird/new_account_warning.png" /></a></p>
+          <h4 id='passwords'>2.4 Mots de Passe</h4>
+          <p>
+            Il est possible que lorsque vous enverrez un email pour la première fois,
+            Thunderbird vous redemande votre mot de passe.
+            Si tel est le cas, entrez le et cochez la case
+            <i>Retenir le mot de passe.</i>
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr class='hide' />
+    <div id='footer'>
+      <div class='wrapper'>
+        <p>ISEN - Brest &copy; 2011</p>
+        <p>Réalisé par <a href="http://syrinxoon.net">Nathan Le Ray</a>, powered by <a href="http://www.mongodb.org/">MongoDB</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>

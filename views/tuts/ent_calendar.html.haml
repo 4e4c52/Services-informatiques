@@ -1,0 +1,74 @@
+- content_for :head do
+  %title Configuration de l'Agenda sur l'ENT > Tutoriels > Services informatiques
+  
+- content_for :feature do
+  %h2 Configuration de l'Agenda sur l'ENT
+  %p Découvrez comment configurer votre agenda sur l'ENT.
+  %ul
+    %li Configurez votre agenda
+  
+- content_for :subcol do
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Chapitres
+  %ol.chapters
+    %li= link_to "Configurer l'Agenda", "#config"
+    
+%h3#config 1 Configurer l'Agenda
+
+%p
+  L'ENT vous permet d'accéder à votre emploi du temps.
+
+%p
+  Pour cela, rendez vous dans la rubrique 
+  %strong Etudes > Agenda
+  comme ci-dessous.
+
+= gallery("tuts/ent_agenda/agenda_menu.png", true)
+
+
+%p
+  Allez ensuite dans 
+  %strong Réglages > Calques.
+  
+= gallery("tuts/ent_agenda/layers.png", true)
+
+%p
+  Si les calques sont désactivés, cliquez sur 
+  %strong Activer les calques.
+  
+= gallery("tuts/ent_agenda/enable_layers.png", true)
+
+%p
+  Vous devriez maintenant avoir le message 
+  %i Les calques sont actuellement activés.
+
+%p
+  A présent, cliquez sur 
+  %strong Ajouter un calque.
+  
+= gallery("tuts/ent_agenda/add_layer.png", true)
+
+%p
+  Dans 
+  %i Source,
+  sélectionnez votre classe/section et sauvegardez.
+
+= gallery("tuts/ent_agenda/layers_list.png", true)
+
+%p
+  Si vous rencontrez un problème avec les horaires,
+  allez dans 
+  %strong Réglages > Préférences
+  puis choississez 
+  %strong Europe/Paris 
+  comme fuseau horaire puis sauvegardez les préférences.
+  
+= gallery("tuts/ent_agenda/timezone.png", true)
+  
+
+%p
+  Votre agenda est à présent configuré et prêt à être utilisé.
+
+%p
+  Si vous utilisez un logiciel d’agenda, vous pouvez consulter ce #{link_to "document PDF", "../documents/tuts/ent_calendar/calendar_config.pdf"} pour plus d'informations.

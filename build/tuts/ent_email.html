@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang='fr'>
+  <head>
+    <meta charset='utf-8' />
+    <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0' />
+    <link type="image/ico" href="../images/favicon.ico" rel="icon" />
+    <link type="image/png" href="../images/favicon.png" rel="icon" />
+    <link href="../stylesheets/app.css" id="app-stylesheet" media="screen" rel="stylesheet" type="text/css" />
+    <link href="../stylesheets/fancybox.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="../javascripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../javascripts/mobile.min.js" type="text/javascript"></script>
+    <script src="../javascripts/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="../javascripts/app.js" type="text/javascript"></script>
+    <title>Configuration de la Messagerie sur l'ENT > Tutoriels > Services informatiques</title>
+  </head>
+  <body class='tuts tuts_ent_email'>
+    <div id='nav'>
+      <div class='wrapper'>
+        <strong>Egalement sur <a href="http://www.isen.fr/brest.asp">isen.fr:</a></strong>
+        &nbsp;
+        <a href="https://web-brest.isen.fr/">ENT</a>
+        &nbsp;|&nbsp;
+        <a href="http://web-brest.isen.fr/moodle/">Moodle</a>
+        &nbsp;|&nbsp;
+        <a href="admin/">Admin</a>
+        <span id='design-box'>
+          Interface&nbsp;
+          <select id="design" name="design">
+          <option value="default">par défault</option>
+          <option value="isen">ISEN</option></select>
+        </span>
+      </div>
+    </div>
+    <div id='header'>
+      <div class='wrapper'>
+        <h1 id='logo'><a id="logo-home" href="index.html">Services informatiques</a></h1>
+        <ul id='menu'>
+          <li>
+            <strong>
+              <a style="display:none;" id="isen-title" href="index.html">ISEN Brest</a>
+            </strong>
+          </li>
+          <li><a id="home" href="index.html">Accueil</a></li>
+          <li class='expandable'>
+            <a id="tuts-index" href="index.html">Tutoriels</a>
+            <div id='tuts' style='display:none;'>
+              <hr />
+              <dl id='left'>
+                <dt>Commencez Ici</dt>
+                <dd><a href="tuts/network.html">Accéder au Réseau</a></dd>
+                <dt>Courrier Electronique</dt>
+                <dd><a href="tuts/email.html">Accéder à la Messagerie</a></dd>
+                <dd><a href="tuts/thunderbird.html">Configuration de Thunderbird</a></dd>
+                <dd><a href="tuts/email_note.html">Note sur le Filtrage et l'Annuaire</a></dd>
+                <dt>ENT</dt>
+                <dd><a href="tuts/ent_email.html">Configuration de la Messagerie</a></dd>
+                <dd><a href="tuts/ent_calendar.html">Configuration de l'Agenda</a></dd>
+              </dl>
+              <dl id='right'>
+                <dt>Imprimantes</dt>
+                <dd><a href="tuts/printers.html">Utilisation sur le Réseau</a></dd>
+                <dt>VirtualBox</dt>
+                <dd><a href="tuts/virtualbox.html">Configuration et Utilisation</a></dd>
+                <dt>Subversion</dt>
+                <dd><a href="tuts/subversion.html">Configuration et Utilisation</a></dd>
+                <dt>VOIP</dt>
+                <dd><a href="tuts/voip.html">Note sur la VOIP</a></dd>
+                <dt>Développement Web</dt>
+                <dd><a href="tuts/middleman.html">Développer avec The Middleman</a></dd>
+              </dl>
+            </div>
+          </li>
+          <li><a id="offers" href="offers.html">Offres</a></li>
+          <li><a id="registration" href="registration.html">Enregistrement</a></li>
+        </ul>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <hr class='hide' />
+    <div id='mobile-tuts' style='display:none'>
+      <div class='wrapper'></div>
+    </div>
+    <div id='feature'>
+      <div class='wrapper'>
+        <h2>Configuration de la Messagerie sur l'ENT</h2>
+        <p>Découvrez comment configurer votre messagerie sur l'ENT.</p>
+        <ul>
+          <li>Connectez vous</li>
+          <li>Configurez votre compte</li>
+          <li>Gérez vos informations</li>
+        </ul>
+        <div id='sub-col'>
+          <h3 class='chapter'>
+            <img alt="#" src="../images/chapters.gif" />
+            Chapitres
+          </h3>
+          <ol class='chapters'>
+            <li><a href="#login">Connexion</a></li>
+            <li><a href="#config">Configuration</a></li>
+            <li><a href="#redirect">Redirection</a></li>
+            <li><a href="#absences">Absences</a></li>
+            <li><a href="#password">Modification du Mot de Passe</a></li>
+            <li><a href="#filter">Filtrage des Emails</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div id='container'>
+      <div class='wrapper'>
+        <div id='mobile-sub-col'></div>
+        <div id='main-col'>
+          <h3 id='login'>1 Connexion</h3>
+          <p>
+            Tout d'abord, rendez-vous sur <a href="https://web-brest.isen.fr">le site de l'ENT</a>.
+            Cliquez maintenant sur
+            <strong>Se connecter</strong>
+            en haut à droite.
+            Entrez votre identifiant ISEN et votre mot de passe (par défaut:
+            <i>isen29</i>
+            ).
+            <br />
+            Pour rappel, l'identifiant ISEN est composé de façon suivante:
+          </p>
+          <ul>
+            <li>Première lettre de votre prénom</li>
+            <li>5 premières lettres de votre nom</li>
+            <li>2 derniers chiffres de votre année de sortie</li>
+            <li>Par exemple, John Smith de la promotion 2015 aura pour identifiant jsmith15</li>
+          </ul>
+          <p>
+            A présent allez dans l'onglet
+            <strong>Communication et cliquez sur</strong>
+            <strong>Courriel.</strong>
+            Vous êtes maintenant sur votre boite de reception.
+          </p>
+          <h3 id='config'>2 Configuration</h3>
+          <p>
+            Avant tout, il faut modifier votre identité par défaut en remplaçant
+            <strong>votrelogin@iseb.fr</strong>
+            par
+            <strong>prenom.nom@isen.fr.</strong>
+            <br />
+            Pour cela, cliquez sur
+            <strong>option</strong>
+            dans le menu à gauche.
+            Dans
+            <i>Editer les options pour</i>
+            en haut à droite, choisissez
+            <strong>Courrier.</strong>
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/ent_email/options.png"><img alt="#" src="../images/tuts/ent_email/options.png" /></a></p>
+          <p>
+            Dans la catégorie
+            <i>Option générales,</i>
+            cliquez sur
+            <strong>Données personnelles.</strong>
+            Complétez de la manière suivante:
+          </p>
+          <ul>
+            <li>
+              <strong>Profil par défaut :</strong>
+              identité pas défaut
+            </li>
+            <li>
+              <strong>Sélectionnez le profil que vous désirez modifier :</strong>
+              identité par défaut
+            </li>
+            <li>
+              <strong>Nom du compte :</strong>
+              identité par défaut
+            </li>
+            <li>
+              <strong>Nom complet :</strong>
+              rentrez votre nom complet
+            </li>
+            <li>
+              <strong>
+                Votre adresse d'envoi
+                <i>De :</i>
+              </strong>
+              prenom.nom@isen.fr
+            </li>
+          </ul>
+          <p>
+            Normalement vous devriez obtenir ceci :
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/ent_email/identity.png"><img alt="#" src="../images/tuts/ent_email/identity.png" /></a></p>
+          <p>
+            Cliquez ensuite sur
+            <strong>enregister les options.</strong>
+          </p>
+          <h3 id='redirect'>3 Redirection</h3>
+          <p>
+            Le service mail de l'ENT dispose d'une redirection des mails, pour cela cliquez sur
+            <strong>Redirection</strong>
+            dans le menu à gauche.
+          </p>
+          <h3 id='absences'>4 Absences</h3>
+          <p>
+            Sur votre page mail de l'ENT vous trouverez également l'option absences, cette dernière permet de renvoyer automatiquement une réponse aux mails
+            que vous recevrez pendant une période durant laquelle vous serez dans l'incapacité de répondre par vous même.
+            Pour l'utiliser cliquez sur
+            <strong>Absence</strong>
+            dans le menu à gauche.
+          </p>
+          <h3 id='password'>5 Modification du Mot de Passe</h3>
+          <p>
+            Pour modifier votre mot de passe sur l'ENT allez dans l'onglet
+            <strong>Mon compte</strong>
+            puis cliquez sur
+            <i>"Mot de passe.</i>
+          </p>
+          <p class="gallery"><a rel="fancybox" href="../images/tuts/ent_email/password.png"><img alt="#" src="../images/tuts/ent_email/password.png" /></a></p>
+          <h3 id='filter'>6 Filtrage des Emails</h3>
+          <p>
+            Le service mail de l'ENT dispose d'un filtrage des mails, pour cela cliquez sur
+            <strong>Filtage</strong>
+            dans le menu à gauche et configurez les différentes options comme bon vous semble.
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr class='hide' />
+    <div id='footer'>
+      <div class='wrapper'>
+        <p>ISEN - Brest &copy; 2011</p>
+        <p>Réalisé par <a href="http://syrinxoon.net">Nathan Le Ray</a>, powered by <a href="http://www.mongodb.org/">MongoDB</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>

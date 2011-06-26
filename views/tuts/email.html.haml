@@ -5,12 +5,44 @@
   %h2 Accéder à la Messagerie
   %p Découvrez comment accéder à la messagerie de l'école.
   %ul
-    %li Signez la charte informatique
-    %li Enregistrez votre ordinateur
-    %li Entrez la clé WIFI
   
 - content_for :subcol do
   %h3.chapter 
     = image_tag "chapters.gif", :alt => '#'
     Chapitres
   %ol.chapters
+    %li= link_to "Via le Webmail", "#webmail"
+    %li= link_to "Via un Logiciel de Messagerie", "#messaging"
+
+%p
+  %br
+  Vous pouvez accéder à vos mails de deux façons différentes.
+  
+%h3#webmail 1 Via le Webmail
+
+%p
+  Pour commencer, rendez-vous sur #{link_to "le site de l'ENT", "https://web-brest.isen.fr/", :target => "_blank"}.
+  %br
+  Cliquez maintenant sur 
+  %strong Se connecter
+  en haut à droite.
+
+%p
+  Entrez votre identifiant ISEN (première lettre de votre prénom, 5 premières lettre de votre nom,
+  puis les 2 derniers chiffres de votre année de sortie) et votre mot de passe (par défaut: isen29).
+  Cliquez ensuite sur le bouton
+  %strong Se connecter.
+
+%p
+  A présent allez dans l'onglet 
+  %strong Communication et cliquez sur 
+  %strong Courriel.
+  Vous êtes maintenant sur votre boite mail.
+
+%p
+  Pour plus d'informations sur les fonctionnalitées du service mail de l'ENT, rendez-vous sur #{link_to "cette page", "ent_email.html"}.
+
+%h3#messaging 2 Via un Logiciel de Messagerie
+
+%p
+  Pour télécharger et configurer Thunderbird, rendez-vous sur #{link_to "le tutoriel qui lui est dédié", "thunderbird.html"}.

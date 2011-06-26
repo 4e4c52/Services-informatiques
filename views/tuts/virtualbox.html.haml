@@ -1,0 +1,245 @@
+- content_for :head do
+  %title Configuration et Utilisation de VirtualBox > Tutoriels > Services informatiques
+  
+- content_for :feature do
+  %h2 Configuration et Utilisation de VirtualBox
+  %p Découvrez comment configurer et utiliser VirtualBox.
+  %ul
+    %li Téléchargez VirtualBox
+    %li Créez votre machine virtuelle
+  
+- content_for :subcol do
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Chapitres
+  %ol.chapters
+    %li= link_to "Télécharger VirtualBox", "#download"
+    %li
+      = link_to "Créer une Machine Virtuelle", "#vm"
+      %ul
+        %li= link_to "Télécharger une Image", "#iso"
+        %li= link_to "Configuration de la VM", "#config"
+        %li= link_to "Paramètres Hardware", "#hardware"
+    
+%h3#download 1 Télécharger VirtualBox
+
+%p
+  VirtualBox est un logiciel de virtualisation permettant d'avoir plusieurs systèmes d'exploitation sur la même machine et fonctionnant au même moment.
+  Ce logiciel est gratuit et est disponible en téléchargement sur #{link_to "le site officiel", "http://www.virtualbox.org/wiki/Downloads"}.
+
+%h3#vm 2 Créer une Machine Virtuelle
+
+%h4#iso 2.1 Télécharger une Image
+
+.info 
+  Avant d'aller plus moin, vous devez avoir sur votre ordinateur une image disque d'un système d'exploitation.
+  Ces fichiers prennent l'extension
+  %strong .iso
+  et sont téléchargeables sur les sites des différentes distributions.
+  
+%p
+  Vous pouvez télécharger CentOS ainsi que Ubuntu depuis les liens suivants :
+%ul
+  %li= link_to "CentOS", "http://mirror.centos.org/centos/"
+  %li= link_to "Ubuntu", "http://www.ubuntu.com/download/ubuntu/download"
+  
+%p 
+  Pensez bien à télécharger le fichier 
+  %strong ISO
+  prévu pour l'architecture de votre processeur (x86 ou x64).
+  
+%h4#config 2.2 Configuration de la VM
+
+%p
+  Après avoir téléchargé une image, sauvegardez là dans un dossier où vous pourrez la retrouver.
+  Ouvrez ensuite VirtualBox et cliquez sur le bouton
+  %strong Créer.
+  
+= gallery("tuts/virtualbox/vm_create.png", true)
+
+%p
+  Cliquez ensuite sur 
+  %strong suivant.
+  VirtualBox vous demande maintenant des informations sur la machine virtuelle que vous souhaitez créer.
+  Vous devez dans un premier temps lui donner un nom (unique sur votre ordinateur) qui sera utilisé pour identifier la machine dans VirtualBox
+  mais qui servira également de nom pour le fichier contenant votre machine virtuelle sur votre ordinateur.
+  Après avoir nommé votre machine virtuelle, vous devez sélectionner son type à l'aide des listes déroulantes.
+  
+= gallery("tuts/virtualbox/vm_info.png", true)
+
+%p
+  Cliquez sur
+  %strong suivant.
+  Vous devez maintenant entrer le nombre de Megaoctets de mémoire vive que votre machine virtuelle est autorisée à exploiter.
+  VirtualBox recommande 512 Mo mais 1 Go (1024 Mo) est tout de même préférable pour un confort d'utilisation optimal.
+  
+= gallery("tuts/virtualbox/vm_ram.png", true)
+
+%p
+  L'étape suivante traite du disque dur virtuel utilisé par VirtualBox pour sauvegarder votre machine.
+  Si vous suivez ce tutoriel, laissez coché 
+  %i Disque dur d'amorçage
+  et sélectionnez
+  %i Créer un nouveau disque dur.
+  
+%p
+  En revanche, si vous avez déjà un disque de machine virtuelle (au format 
+  %strong .vdi
+  pour VirtualBox), vous pouvez l'utiliser en sélectionnant
+  %i Utiliser un disque dur existant
+  et en allant le chercher dans vos dossiers.
+  
+= gallery("tuts/virtualbox/vm_hd.png", true)
+
+%p 
+  Le fait de cliquer sur
+  %strong Suivant
+  va ouvrir une nouvelle fenêtre permettant de créer le nouveau disque dur virtuel.
+  
+= gallery("tuts/virtualbox/vm_hd_new.png", true)
+
+%p
+  Cliquez sur 
+  %strong Suivant
+  et dans 
+  %i Type de disque virtuel,
+  sélectionnez
+  %i Fichier de taille variable.
+  Ainsi, au fur et à mesure que votre machine virtuelle prendra de la place, le fichier la contenant s'agrandira. Plutôt sympa !
+  
+= gallery("tuts/virtualbox/vm_hd_container_size.png", true)
+
+%p
+  La fenêtre suivante pour demande de donner un nom à votre disque dur virtuel.
+  Par défaut, le nom que vous avez donné à votre machine virtuelle est utilisé mais libre à vous de le changer si bon vous semble.
+  Ce qui est important sur cette fenêtre est à la taille de base de votre disque dur virtuel.
+  Cette taille doit être au minimum de 8 Go. J'ai pour habitude de mettre au minimum 
+  %strong 20 Go
+  pour avoir une bonne marge de manoeuvre.
+  
+= gallery("tuts/virtualbox/vm_hd_size.png", true)
+
+%p
+  Cliquez maintenant sur 
+  %strong Terminer
+  pour fermer la fenêtre de création du disque virtuel puis encore sur
+  %strong Terminer
+  pour fermer la fenêtre de création de la machine virtuelle.
+  
+= gallery("tuts/virtualbox/vm_created.png", true)
+
+%p
+  Notre machine virtuelle apparaît maintenant dans la colonne de gauche sur VirtualBox.
+  Sélectionnez la pour avoir quelques informations sur elle.
+  
+= gallery("tuts/virtualbox/vm_home.png", true)
+
+%h4#hardware 2.3 Paramètres Hardware
+
+%p
+  Telle quelle, notre machine virtuelle nous est parfaitement inutile.
+  Nous allons devoir configurer la partie
+  %i hardware
+  de cette dernière afin de la rendre utilisable.
+  
+%p
+  Sélectionnez la machine virtuelle et cliquez sur 
+  %strong Configuration.
+  La fenêtre ci-dessous va s'ouvrir.
+  
+= gallery("tuts/virtualbox/vm_hw_home.png", true)
+
+%p
+  Par défaut, notre machine virtuelle n'utilisera qu'un seul coeur du processeur quand bien même il en comporte plusieurs.
+  Si vous souhaitez que votre machine virtuelle utilise 2 coeurs ou plus, allez dans la partie
+  %strong Système
+  puis cochez la case 
+  %i Activier les IO-APIC
+  dans l'onglet
+  %strong Carte mère.
+  
+.info 
+  Notez la partie
+  %i Ordre d'amorçage.
+  La machine virtuelle tentera dans un premier temps de démarrer sur une Disquette puis sur un CD/DVD et enfin sur le disque dur virtuel.
+
+%br 
+  
+= gallery("tuts/virtualbox/vm_hw_io_apic.png", true)
+
+%p
+  Toujours dans la partie
+  %strong Système,
+  allez dans l'onglet 
+  %strong Processeur
+  puis sélectionnez le nombre de coeurs que vous souhaitez utiliser.
+  
+= gallery("tuts/virtualbox/vm_hw_processor.png", true)
+
+%p
+  Rendez vous maintenant dans la partie
+  %strong Affichage.
+  Attribuez à votre machine virtuelle au minimum
+  %strong 25 Mo
+  de mémoire vidéo (21 Mo sont nécessaires pour lire des vidéos HD) puis cochez la case
+  %i Activer l'acclération 3D.
+  L'accélération 2D n'est supportée que vous les machine virtuelles Windows.
+  
+= gallery("tuts/virtualbox/vm_hw_display.png", true)
+
+%p
+  Nous allons maintenant nous attaquer à l'étape essentielle du paramètrage de la machine virtuelle.
+  A l'heure actuelle, la machine virtuelle n'est qu'un ordinateur sans système d'exploitation. 
+  Autrement dit, une coquille vide.
+  Pour installer un système d'exploitation, il faut insérer le DVD d'installation dans l'ordinateur et démarrer ce dernier sur le DVD.
+  C'est exactement ce que nous allons faire ici.
+  Souvenez vous de 
+  %i l'ordre d'amorçage
+  dont nous avons parlé un peu plus haut. 
+  La machine virtuelle tentera de démarrer sur le lecteur de CD/DVD. Nous allons donc devoir insérer notre DVD d'installation dans ce lecteur.
+  
+%p
+  Pour cela, rendez vous dans la partie
+  %strong Stockage.
+  Sur la gauche, vous pouvez voir l'arborescence de stockage contenant un contrôleur IDE (notre lecteur de CD/DVD) ainsi qu'un contrôleur SATA (notre disque dur virtuel).
+  Sous le contrôleur IDE, vous pouvez voir une icône de disque avec vide à côté.
+  Cliquez sur cette icône. La partie droite de la fenêtre intitulée
+  %i Attributs
+  va se mettre à jour.
+  La ligne lecteur CD/DVD contient un autre icône de disque. 
+  Cliquez dessus et sélectionnez
+  %strong Choisissez une fichier de CD/DVD virtuel...
+  
+= gallery("tuts/virtualbox/vm_hw_stock.png", true)
+
+%p
+  Allez chercher le fichier
+  %strong .iso
+  que vous avez téléchargé tout à l'heure puis cliquez sur 
+  %strong Ouvrir.
+  
+= gallery("tuts/virtualbox/vm_hw_iso.png", true)
+
+%p
+  Cliquez sur 
+  %strong OK
+  pour sauvegarder et fermer la fenêtre des paramètres.
+  
+%p
+  Vous pouvez à présent sélectionner votre machione virtuelle et cliquer sur
+  %strong Démarrer.
+  Vous vous retrouverez alors avec une fenêtre d'installation de votre système d'exploitation.
+  
+= gallery("tuts/virtualbox/vm_install.png", true)
+
+.warning N'oubliez pas de supprimer le DVD du lecteur de la machine virtuelle après l'installation sans quoi, elle démarrera toujours sur le DVD d'installation.
+
+%br
+
+= gallery("tuts/virtualbox/vm_hw_remove_dvd.png", true)
+
+%p
+  Vous avez à présent une machine virtuelle fonctionnelle.
+  Libre à vous de la configurer par la suite et d'installer les 
+  %i Addons
+  proposés par VirtualBox pour un meilleur confort d'utilisation.

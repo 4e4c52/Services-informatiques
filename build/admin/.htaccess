@@ -1,0 +1,4 @@
+AuthName "Protected Page"
+AuthType Basic
+AuthUserFile "/var/www/syrinxoon.net/subdomains/asset/html/isen/admin/.htpasswd"
+Require valid-user

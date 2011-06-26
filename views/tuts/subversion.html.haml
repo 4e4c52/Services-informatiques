@@ -1,0 +1,32 @@
+- content_for :head do
+  %title Configuration et Utilisation de SVN > Tutoriels > Services informatiques
+  
+- content_for :feature do
+  %h2 Configuration et Utilisation de SVN
+  %p Découvrez comment configurer et utiliser le serveur Subversion de l'école.
+  %ul
+    %li Téléchargez TortoiseSVN
+    %li Configurez TortoiseSVN
+  
+- content_for :subcol do
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Chapitres
+  %ol.chapters
+    %li= link_to "Télécharger TortoiseSVN", "#tortoiseSVN"
+    %li= link_to "Configurer Tortoise SVN", "#config"
+    
+%h3#tortoiseSVN 1 Télécharger TortoiseSVN
+
+%p
+  TortoiseSVN est un logiciel utilisé sur Windows pour communiquer avec un serveur Subversion.
+  Vous pouvez le télécharger gratuitement depuis le #{link_to "site officiel", "http://tortoisesvn.net/downloads.html"}.
+
+%h3#config 2 Configurer TortoiseSVN 
+
+.warning 
+  Avant de configurer TortoiseSVN, vous devez faire une demande de répertoire Subversion auprès des services informatiques de l'école.
+  Vous pouvez faire cela depuis la #{link_to "page de demande de répertoire", "../svn_registration.html"}.
+  
+%p
+  Une fois votre demande de répertoire reçu et traitée par l'école, vous recevrez un email vous informant comment configurer TortoiseSVN avec le répertoire SVN créé à cette occasion.

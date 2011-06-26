@@ -189,9 +189,21 @@ pre,code,tt {
 
 .gallery {
   text-align: center;
+  background: #F4F4F4;
+  border: 1px solid #DDDDDD;
+  padding: 1em;
   
   img {
-    width: 40em;
+    max-width: 40em;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  a:after {
+    display: block;
+    content: "Cliquez pour agrandir";
   }
 }
 
