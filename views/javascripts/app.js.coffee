@@ -41,7 +41,7 @@ jQuery ->
     
   # Fancybox
   if not jQuery.browser.mobile
-    $('a[rel="fancybox"]').fancybox({
+    $('a.fancybox').fancybox({
       hideOnContentClick: true
     })
     
@@ -318,24 +318,43 @@ jQuery ->
   setDesign = ->
     link = $('#app-stylesheet').clone()
     stylesheet = link.attr('href')
-    stylesheet = stylesheet.replace("app", "isen")
+    stylesheet = stylesheet.replace("app", "alternate")
     link.attr('href', stylesheet)
-    link.attr('id', 'isen')
+    link.attr('id', 'alternate')
     $('head').append(link)
-    setCookie 'design', 'isen'
+    setCookie 'design', 'alternate'
+    
+  get_session = ->
+    $.ajax({
+      type: 'get'
+      url: 'data/receiver.php'
+      data: {
+        action: 'get_session'
+      }
+      success: (result) ->
+        data = jQuery.parseJSON result
+        if data.status is 200
+          if data.iadm
+            setCookie "iadm", true
+            $('#iadm').show()
+    }) 
       
   $('#design').change ->
     design = $(@).val()
-    if design is 'isen'
-      console.log 'from there'
+    if design is 'alternate'
       setDesign()
     else
-      $('#isen').remove()
-      setCookie 'design', 'default'
+      $('#alternate').remove()
+      setCookie 'design', 'isen'
       
   if design = getCookie('design')
-    if design is 'isen'
-      console.log 'from here'
+    if design is 'alternate'
       setDesign()
-      $('#design option[value="isen"]').attr('selected', 'selected')
+      $('#design option[value="alternate"]').attr('selected', 'selected')
+ 
+  # Checks if the user is an admin
+  if getCookie("iadm")
+    $('#iadm').show()
+  else
+    get_session()
   

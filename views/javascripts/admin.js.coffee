@@ -316,6 +316,50 @@ jQuery ->
     li.find('input[type=checkbox]').show();
     $('#loading-' + repository).hide();
     false  
+    
+  # Delete a cc signature
+  $('.admin_computer_convention .delete').live 'click', ->
+    li = $(@).parent()
+    email = $(@).attr 'title'    
+    $.ajax({
+      type: 'post'
+      url: '../data/receiver_admin.php'
+      data: {
+        action: 'delete_cc_signature'
+        email: email
+      }
+      success: (result) ->
+        data = jQuery.parseJSON result
+        if data.status is 200
+          li.remove()
+        else if data.status is 400 or data.status is 500
+          alert 'Une erreur est survenue lors de la communication avec le serveur.'
+      error: (a, b, c) ->
+        alert 'Impossible de contacter le serveur.'
+    })
+    false
+    
+  # Delete a cp signature
+  $('.admin_protel_convention .delete').live 'click', ->
+    li = $(@).parent()
+    email = $(@).attr 'title'    
+    $.ajax({
+      type: 'post'
+      url: '../data/receiver_admin.php'
+      data: {
+        action: 'delete_cp_signature'
+        email: email
+      }
+      success: (result) ->
+        data = jQuery.parseJSON result
+        if data.status is 200
+          li.remove()
+        else if data.status is 400 or data.status is 500
+          alert 'Une erreur est survenue lors de la communication avec le serveur.'
+      error: (a, b, c) ->
+        alert 'Impossible de contacter le serveur.'
+    })
+    false
   
   ## Events
     

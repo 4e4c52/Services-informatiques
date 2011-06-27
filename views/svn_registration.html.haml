@@ -30,11 +30,11 @@
   - field_set_tag do
   
     %p
-      = label_tag "Nom du répertoire "
+      = label_tag "Nom du répertoire ", :for => :repository
       = text_field_tag :repository, :id => :repository
       
     %p
-      = label_tag "Adresse email (pour notification lors de la création) "
+      = label_tag "Adresse email (pour notification lors de la création) ", :for => :email
       = text_field_tag :email, :id => :email
 
   %h3#add-rw-users 2 Ajouter des Utilisateurs R/W
@@ -50,7 +50,7 @@
     
   #add_rw_user_box
     - field_set_tag do
-      = label_tag "Login read/write "
+      = label_tag "Login read/write ", :for => :rw_user_login
       %span#rw_user_format
       = text_field_tag :rw_user_login, :id => :rw_user_login
       %br
@@ -71,7 +71,7 @@
     
   #add_r_user_box
     - field_set_tag do
-      = label_tag "Login read only "
+      = label_tag "Login read only ", :for => :r_user_login
       %span#r_user_format
       = text_field_tag :r_user_login, :id => :r_user_login
       %br

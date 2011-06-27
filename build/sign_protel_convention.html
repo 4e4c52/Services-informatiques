@@ -2,7 +2,6 @@
 <html lang='fr'>
   <head>
     <meta charset='utf-8' />
-    <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0' />
     <link type="image/ico" href="images/favicon.ico" rel="icon" />
     <link type="image/png" href="images/favicon.png" rel="icon" />
     <link href="stylesheets/app.css" id="app-stylesheet" media="screen" rel="stylesheet" type="text/css" />
@@ -22,12 +21,12 @@
         &nbsp;|&nbsp;
         <a href="http://web-brest.isen.fr/moodle/">Moodle</a>
         &nbsp;|&nbsp;
-        <a href="admin/">Admin</a>
+        <a id="iadm" style="display:none;" href="admin/">Admin</a>
         <span id='design-box'>
           Interface&nbsp;
           <select id="design" name="design">
-          <option value="default">par défault</option>
-          <option value="isen">ISEN</option></select>
+          <option value="isen">ISEN</option>
+          <option value="alternate">alternative</option></select>
         </span>
       </div>
     </div>
@@ -113,15 +112,15 @@
           <h3 id='sign-convention'>2 Signer la Charte</h3>
           <form class="registration-form" method="post" action="/data/data.php" accept-charset="UTF-8"><div id='ajax-response'></div>
           <fieldset><p>
-            <label for="Prénom ">Prénom : </label>
+            <label for="first_name">Prénom : </label>
             <input id="first_name" name="first_name" type="text" />
           </p>
           <p>
-            <label for="Nom ">Nom : </label>
+            <label for="name">Nom : </label>
             <input id="name" name="name" type="text" />
           </p>
           <p>
-            <label for="Adresse email ISEN ">Adresse email isen : </label>
+            <label for="email">Adresse email isen : </label>
             <input id="email" value="@isen.fr" name="email" type="text" />
           </p>
           </fieldset>

@@ -2,7 +2,6 @@
 <html lang='fr'>
   <head>
     <meta charset='utf-8' />
-    <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0' />
     <link type="image/ico" href="../images/favicon.ico" rel="icon" />
     <link type="image/png" href="../images/favicon.png" rel="icon" />
     <link href="../stylesheets/app.css" id="app-stylesheet" media="screen" rel="stylesheet" type="text/css" />
@@ -22,12 +21,12 @@
         &nbsp;|&nbsp;
         <a href="http://web-brest.isen.fr/moodle/">Moodle</a>
         &nbsp;|&nbsp;
-        <a href="admin/">Admin</a>
+        <a id="iadm" style="display:none;" href="admin/">Admin</a>
         <span id='design-box'>
           Interface&nbsp;
           <select id="design" name="design">
-          <option value="default">par défault</option>
-          <option value="isen">ISEN</option></select>
+          <option value="isen">ISEN</option>
+          <option value="alternate">alternative</option></select>
         </span>
       </div>
     </div>
@@ -123,7 +122,7 @@
           <p>
             Voici par exemple les informations à entrer pour ajouter l'annuaire LDAP dans Thunderbird.
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/ldap/thunderbird_ldap.png"><img alt="#" src="../images/tuts/ldap/thunderbird_ldap.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/ldap/thunderbird_ldap.png"><img alt="#" src="../images/tuts/ldap/thunderbird_ldap.png" /></a></p>
           <h3 id='filter'>2 Filtrage</h3>
           <p>
             Un système est mis en place pour lutter contre les spams.

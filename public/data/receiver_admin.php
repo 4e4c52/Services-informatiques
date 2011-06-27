@@ -30,8 +30,16 @@ switch ($safe_data['action']) {
     get_cc_signatures();
     break;
     
+  case 'delete_cc_signature':
+    delete_cc_signature($safe_data);
+    break;
+    
   case 'get_cp_signatures':
     get_cp_signatures();
+    break;
+    
+  case 'delete_cp_signature':
+    delete_cp_signature($safe_data);
     break;
     
   case 'delete_registration':
@@ -339,12 +347,30 @@ function get_cc_signatures() {
     
     $signatures .= '<li class="waiting">' . $data['on_date'] . '&nbsp;';
     $signatures .= '<span>' . $data['first_name'] . ' ' . $data['name'] . '</span>&nbsp;';
-    $signatures .= '<span class="identity"><a href="mailto:' . $data['email'] . '">' . $data['email'] . '</a></span></li>';
+    $signatures .= '<span class="identity"><a href="mailto:' . $data['email'] . '">' . $data['email'] . '</a></span>';
+    $signatures .= '&nbsp;<a href="#" class="delete" style="display:none;" title="' . $data['email'] . '"><img src="../images/bin.png" alt="supprimer" /></a>';
+    $signatures .= '</li>';
     
   }
   
   $message = array('status' => 200, 'signatures' => $signatures);
   exit(json_encode($message));  
+  
+}
+
+function delete_cc_signature($data) {
+  
+  $d = new Data(DB);
+  $result = $d->delete_cc_signature($data['email']);
+  
+  if ($result) {
+    $message = array('status' => 200, 'message' => 'Signature supprimé.');
+    exit(json_encode($message));  
+  }
+  else {
+    $message = array('status' => 500, 'message' => 'Erreur lors de la suppression de la signature.');
+    exit(json_encode($message));  
+  }
   
 }
 
@@ -359,11 +385,30 @@ function get_cp_signatures() {
     
     $signatures .= '<li class="waiting">' . $data['on_date'] . '&nbsp;';
     $signatures .= '<span>' . $data['first_name'] . ' ' . $data['name'] . '</span>&nbsp;';
-    $signatures .= '<span class="identity"><a href="mailto:' . $data['email'] . '">' . $data['email'] . '</a></span></li>';
+    $signatures .= '<span class="identity"><a href="mailto:' . $data['email'] . '">' . $data['email'] . '</a></span>';
+    $signatures .= '&nbsp;<a href="#" class="delete" style="display:none;" title="' . $data['email'] . '"><img src="../images/bin.png" alt="supprimer" /></a>';
+    $signatures .= '</li>';
     
   }
   
   $message = array('status' => 200, 'signatures' => $signatures);
   exit(json_encode($message));  
+  
+}
+
+function delete_cp_signature($data) {
+  
+  $d = new Data(DB);
+  
+  $result = $d->delete_cp_signature($data['email']);
+  
+  if ($result) {
+    $message = array('status' => 200, 'message' => 'Signature supprimé.');
+    exit(json_encode($message));  
+  }
+  else {
+    $message = array('status' => 500, 'message' => 'Erreur lors de la suppression de la signature.');
+    exit(json_encode($message));  
+  }
   
 }

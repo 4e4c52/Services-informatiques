@@ -2,7 +2,6 @@
 <html lang='fr'>
   <head>
     <meta charset='utf-8' />
-    <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0' />
     <link type="image/ico" href="../images/favicon.ico" rel="icon" />
     <link type="image/png" href="../images/favicon.png" rel="icon" />
     <link href="../stylesheets/app.css" id="app-stylesheet" media="screen" rel="stylesheet" type="text/css" />
@@ -22,12 +21,12 @@
         &nbsp;|&nbsp;
         <a href="http://web-brest.isen.fr/moodle/">Moodle</a>
         &nbsp;|&nbsp;
-        <a href="admin/">Admin</a>
+        <a id="iadm" style="display:none;" href="admin/">Admin</a>
         <span id='design-box'>
           Interface&nbsp;
           <select id="design" name="design">
-          <option value="default">par défault</option>
-          <option value="isen">ISEN</option></select>
+          <option value="isen">ISEN</option>
+          <option value="alternate">alternative</option></select>
         </span>
       </div>
     </div>
@@ -142,7 +141,7 @@
             Ouvrez ensuite VirtualBox et cliquez sur le bouton
             <strong>Créer.</strong>
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_create.png"><img alt="#" src="../images/tuts/virtualbox/vm_create.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_create.png"><img alt="#" src="../images/tuts/virtualbox/vm_create.png" /></a></p>
           <p>
             Cliquez ensuite sur
             <strong>suivant.</strong>
@@ -151,14 +150,14 @@
             mais qui servira également de nom pour le fichier contenant votre machine virtuelle sur votre ordinateur.
             Après avoir nommé votre machine virtuelle, vous devez sélectionner son type à l'aide des listes déroulantes.
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_info.png"><img alt="#" src="../images/tuts/virtualbox/vm_info.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_info.png"><img alt="#" src="../images/tuts/virtualbox/vm_info.png" /></a></p>
           <p>
             Cliquez sur
             <strong>suivant.</strong>
             Vous devez maintenant entrer le nombre de Megaoctets de mémoire vive que votre machine virtuelle est autorisée à exploiter.
             VirtualBox recommande 512 Mo mais 1 Go (1024 Mo) est tout de même préférable pour un confort d'utilisation optimal.
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_ram.png"><img alt="#" src="../images/tuts/virtualbox/vm_ram.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_ram.png"><img alt="#" src="../images/tuts/virtualbox/vm_ram.png" /></a></p>
           <p>
             L'étape suivante traite du disque dur virtuel utilisé par VirtualBox pour sauvegarder votre machine.
             Si vous suivez ce tutoriel, laissez coché
@@ -173,13 +172,13 @@
             <i>Utiliser un disque dur existant</i>
             et en allant le chercher dans vos dossiers.
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hd.png"><img alt="#" src="../images/tuts/virtualbox/vm_hd.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_hd.png"><img alt="#" src="../images/tuts/virtualbox/vm_hd.png" /></a></p>
           <p>
             Le fait de cliquer sur
             <strong>Suivant</strong>
             va ouvrir une nouvelle fenêtre permettant de créer le nouveau disque dur virtuel.
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hd_new.png"><img alt="#" src="../images/tuts/virtualbox/vm_hd_new.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_hd_new.png"><img alt="#" src="../images/tuts/virtualbox/vm_hd_new.png" /></a></p>
           <p>
             Cliquez sur
             <strong>Suivant</strong>
@@ -189,7 +188,7 @@
             <i>Fichier de taille variable.</i>
             Ainsi, au fur et à mesure que votre machine virtuelle prendra de la place, le fichier la contenant s'agrandira. Plutôt sympa !
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hd_container_size.png"><img alt="#" src="../images/tuts/virtualbox/vm_hd_container_size.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_hd_container_size.png"><img alt="#" src="../images/tuts/virtualbox/vm_hd_container_size.png" /></a></p>
           <p>
             La fenêtre suivante pour demande de donner un nom à votre disque dur virtuel.
             Par défaut, le nom que vous avez donné à votre machine virtuelle est utilisé mais libre à vous de le changer si bon vous semble.
@@ -198,7 +197,7 @@
             <strong>20 Go</strong>
             pour avoir une bonne marge de manoeuvre.
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hd_size.png"><img alt="#" src="../images/tuts/virtualbox/vm_hd_size.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_hd_size.png"><img alt="#" src="../images/tuts/virtualbox/vm_hd_size.png" /></a></p>
           <p>
             Cliquez maintenant sur
             <strong>Terminer</strong>
@@ -206,12 +205,12 @@
             <strong>Terminer</strong>
             pour fermer la fenêtre de création de la machine virtuelle.
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_created.png"><img alt="#" src="../images/tuts/virtualbox/vm_created.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_created.png"><img alt="#" src="../images/tuts/virtualbox/vm_created.png" /></a></p>
           <p>
             Notre machine virtuelle apparaît maintenant dans la colonne de gauche sur VirtualBox.
             Sélectionnez la pour avoir quelques informations sur elle.
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_home.png"><img alt="#" src="../images/tuts/virtualbox/vm_home.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_home.png"><img alt="#" src="../images/tuts/virtualbox/vm_home.png" /></a></p>
           <h4 id='hardware'>2.3 Paramètres Hardware</h4>
           <p>
             Telle quelle, notre machine virtuelle nous est parfaitement inutile.
@@ -224,7 +223,7 @@
             <strong>Configuration.</strong>
             La fenêtre ci-dessous va s'ouvrir.
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_home.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_home.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_hw_home.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_home.png" /></a></p>
           <p>
             Par défaut, notre machine virtuelle n'utilisera qu'un seul coeur du processeur quand bien même il en comporte plusieurs.
             Si vous souhaitez que votre machine virtuelle utilise 2 coeurs ou plus, allez dans la partie
@@ -240,7 +239,7 @@
             La machine virtuelle tentera dans un premier temps de démarrer sur une Disquette puis sur un CD/DVD et enfin sur le disque dur virtuel.
           </div>
           <br />
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_io_apic.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_io_apic.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_hw_io_apic.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_io_apic.png" /></a></p>
           <p>
             Toujours dans la partie
             <strong>Système,</strong>
@@ -248,7 +247,7 @@
             <strong>Processeur</strong>
             puis sélectionnez le nombre de coeurs que vous souhaitez utiliser.
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_processor.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_processor.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_hw_processor.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_processor.png" /></a></p>
           <p>
             Rendez vous maintenant dans la partie
             <strong>Affichage.</strong>
@@ -258,7 +257,7 @@
             <i>Activer l'acclération 3D.</i>
             L'accélération 2D n'est supportée que vous les machine virtuelles Windows.
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_display.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_display.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_hw_display.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_display.png" /></a></p>
           <p>
             Nous allons maintenant nous attaquer à l'étape essentielle du paramètrage de la machine virtuelle.
             A l'heure actuelle, la machine virtuelle n'est qu'un ordinateur sans système d'exploitation.
@@ -282,14 +281,14 @@
             Cliquez dessus et sélectionnez
             <strong>Choisissez une fichier de CD/DVD virtuel...</strong>
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_stock.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_stock.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_hw_stock.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_stock.png" /></a></p>
           <p>
             Allez chercher le fichier
             <strong>.iso</strong>
             que vous avez téléchargé tout à l'heure puis cliquez sur
             <strong>Ouvrir.</strong>
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_iso.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_iso.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_hw_iso.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_iso.png" /></a></p>
           <p>
             Cliquez sur
             <strong>OK</strong>
@@ -300,10 +299,10 @@
             <strong>Démarrer.</strong>
             Vous vous retrouverez alors avec une fenêtre d'installation de votre système d'exploitation.
           </p>
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_install.png"><img alt="#" src="../images/tuts/virtualbox/vm_install.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_install.png"><img alt="#" src="../images/tuts/virtualbox/vm_install.png" /></a></p>
           <div class='warning'>N'oubliez pas de supprimer le DVD du lecteur de la machine virtuelle après l'installation sans quoi, elle démarrera toujours sur le DVD d'installation.</div>
           <br />
-          <p class="gallery"><a rel="fancybox" href="../images/tuts/virtualbox/vm_hw_remove_dvd.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_remove_dvd.png" /></a></p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/virtualbox/vm_hw_remove_dvd.png"><img alt="#" src="../images/tuts/virtualbox/vm_hw_remove_dvd.png" /></a></p>
           <p>
             Vous avez à présent une machine virtuelle fonctionnelle.
             Libre à vous de la configurer par la suite et d'installer les

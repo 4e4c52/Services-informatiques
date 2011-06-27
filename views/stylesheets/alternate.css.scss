@@ -1,0 +1,23 @@
+@import "compass/reset/utilities";
+@import "compass/css3/border-radius";
+
+$default-border-radius: 1em;
+$headings-color: #333333;
+$grey-background: #222222;
+$red-background: #c52f24;
+$red-background-darker: #980905;
+$blue-background: #D5E9F6;
+$clear-background: #FFFFFF;
+$link-color: #FFFFFF;
+$link-color-col: #980905;
+$link-color-dark: #EE3F3F;
+$font-color-dark: #999999;
+$font-color-clear: #333333;
+
+#header {
+  background: #00b6f0;
+}
+
+#header #menu .expandable {
+  background: #0092c0;
+}

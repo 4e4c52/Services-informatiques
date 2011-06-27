@@ -2,8 +2,8 @@
 # activate :code_ray
 
 # Automatic sitemaps (gem install middleman-slickmap)
-require "middleman-slickmap"
-activate :slickmap
+# require "middleman-slickmap"
+# activate :slickmap
 
 # Automatic image dimension calculations
 # activate :automatic_image_sizes
@@ -29,9 +29,9 @@ helpers do
   end
   def gallery(image, tuts = false)
     if tuts
-      content_tag(:p, link_to(image_tag(image, :alt => "#"), "../images/" + image, :rel => :fancybox), :class => :gallery)
+      content_tag(:p, link_to(image_tag(image, :alt => "#"), "../images/" + image, :class => :fancybox), :class => :gallery)
     else
-      content_tag(:p, link_to(image_tag(image, :alt => "#"), "images/" + image, :rel => :fancybox), :class => :gallery)
+      content_tag(:p, link_to(image_tag(image, :alt => "#"), "images/" + image, :class => :fancybox), :class => :gallery)
     end
   end
 end
@@ -48,10 +48,10 @@ end
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
-  activate :minify_css
+  # activate :minify_css
   
   # Minify Javascript on build
-  activate :minify_javascript
+  # activate :minify_javascript
   
   # Enable cache buster
   activate :cache_buster
@@ -60,8 +60,8 @@ configure :build do
   activate :relative_assets
   
   # Compress PNGs after build (gem install middleman-smusher)
-  require "middleman-smusher"
-  activate :smusher
+  # require "middleman-smusher"
+  # activate :smusher
 
   # Generate ugly/obfuscated HTML from Haml
   # activate :ugly_haml

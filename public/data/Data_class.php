@@ -185,6 +185,18 @@ class Data {
     
   }
   
+  function delete_cc_signature($email) {
+    
+    $this->collection = $this->db->cc_signatures;
+    $query = array('email' => $email);
+    
+    $options = array('justOne' => true, 'fsync' => false);
+    $result = $this->collection->remove($query, $options);
+    
+    return $result;
+    
+  }
+  
   function save_cp_signature($data) {
     
     $this->collection = $this->db->cp_signatures;
@@ -198,6 +210,18 @@ class Data {
     }
     
     return false;
+    
+  }
+  
+  function delete_cp_signature($email) {
+    
+    $this->collection = $this->db->cp_signatures;
+    $query = array('email' => $email);
+    
+    $options = array('justOne' => true, 'fsync' => false);
+    $result = $this->collection->remove($query, $options);
+    
+    return $result;
     
   }
   

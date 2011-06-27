@@ -32,15 +32,15 @@
   - field_set_tag do
   
     %p
-      = label_tag "Prénom "
+      = label_tag "Prénom ", :for => :first_name
       = text_field_tag :first_name, :id => :first_name
   
     %p
-      = label_tag "Nom "
+      = label_tag "Nom ", :for => :name
       = text_field_tag :name, :id => :name
       
     %p
-      = label_tag "Adresse email ISEN "
+      = label_tag "Adresse email ISEN ", :for => :email
       = text_field_tag :email, :id => :email, :value => "@isen.fr"
     
   - field_set_tag(:class => 'buttons') do

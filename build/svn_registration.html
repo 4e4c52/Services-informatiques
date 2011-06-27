@@ -2,7 +2,6 @@
 <html lang='fr'>
   <head>
     <meta charset='utf-8' />
-    <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0' />
     <link type="image/ico" href="images/favicon.ico" rel="icon" />
     <link type="image/png" href="images/favicon.png" rel="icon" />
     <link href="stylesheets/app.css" id="app-stylesheet" media="screen" rel="stylesheet" type="text/css" />
@@ -22,12 +21,12 @@
         &nbsp;|&nbsp;
         <a href="http://web-brest.isen.fr/moodle/">Moodle</a>
         &nbsp;|&nbsp;
-        <a href="admin/">Admin</a>
+        <a id="iadm" style="display:none;" href="admin/">Admin</a>
         <span id='design-box'>
           Interface&nbsp;
           <select id="design" name="design">
-          <option value="default">par défault</option>
-          <option value="isen">ISEN</option></select>
+          <option value="isen">ISEN</option>
+          <option value="alternate">alternative</option></select>
         </span>
       </div>
     </div>
@@ -111,11 +110,11 @@
           <div id='ajax-response'></div>
           <h3 id='infos'>1 Compléter les Informations Requises</h3>
           <fieldset><p>
-            <label for="Nom du répertoire ">Nom du répertoire : </label>
+            <label for="repository">Nom du répertoire : </label>
             <input id="repository" name="repository" type="text" />
           </p>
           <p>
-            <label for="Adresse email (pour notification lors de la création) ">Adresse email (pour notification lors de la création) : </label>
+            <label for="email">Adresse email (pour notification lors de la création) : </label>
             <input id="email" name="email" type="text" />
           </p>
           </fieldset>
@@ -126,7 +125,7 @@
           <p><a id="add_rw_user" class="button" href="#">Ajouter</a></p>
           </fieldset>
           <div id='add_rw_user_box'>
-            <fieldset><label for="Login read/write ">Login read/write : </label>
+            <fieldset><label for="rw_user_login">Login read/write : </label>
             <span id='rw_user_format'></span>
             <input id="rw_user_login" name="rw_user_login" type="text" />
             <br />
@@ -142,7 +141,7 @@
           <p><a id="add_r_user" class="button" href="#">Ajouter</a></p>
           </fieldset>
           <div id='add_r_user_box'>
-            <fieldset><label for="Login read only ">Login read only : </label>
+            <fieldset><label for="r_user_login">Login read only : </label>
             <span id='r_user_format'></span>
             <input id="r_user_login" name="r_user_login" type="text" />
             <br />

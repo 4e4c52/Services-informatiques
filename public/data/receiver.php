@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'Data_class.php';
 define('DB', 'isen');
 
@@ -28,6 +29,14 @@ switch ($safe_data['action']) {
     
   case 'add_repository':
     add_repository($safe_data);
+    break;
+    
+  case 'get_session':
+    get_session();
+    break;
+    
+  case 'register':
+    register($safe_data);
     break;
     
   default:
@@ -204,5 +213,27 @@ function add_repository($data) {
     }
     
   }
+  
+}
+
+function register($data) {
+  
+  $_SESSION['login'] = $data['login'];
+  header('Location: http://web-brest.isen.fr/ServicesInfo/');
+  
+}
+
+function get_session() {
+  
+  $login = $_SESSION['login'];
+  $admins = array('leru', 'gerval', 'alb');
+  
+  if (in_array($login, $admins)) {
+    $message = array('status' => 200, 'iadm' => true, 'login' => $login);
+  }
+  else {
+    $message = array('status' => 200, 'iadm' => false, 'login' => $login);
+  }
+  exit(json_encode($message));  
   
 }

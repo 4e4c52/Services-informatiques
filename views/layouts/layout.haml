@@ -2,7 +2,6 @@
 %html{ :lang => "fr" }
   %head
     %meta{ :charset => "utf-8" }
-    %meta{ :content => "width=device-width, initial-scale=1.0, minimum-scale=1.0" }
 
     = favicon_tag "favicon.ico", :type => "image/ico"
     = favicon_tag "favicon.png", :type => "image/png"
@@ -25,10 +24,10 @@
         &nbsp;|&nbsp;
         = link_to "Moodle", "http://web-brest.isen.fr/moodle/"
         &nbsp;|&nbsp;
-        = link_to "Admin", "admin/"
+        = link_to "Admin", "admin/", :id => "iadm", :style => "display:none;"
         %span#design-box
           Interface&nbsp;
-          = select_tag(:design, :options => [['par défault', 'default'], ['ISEN', 'isen']], :id => :design)
+          = select_tag(:design, :options => [['ISEN', 'isen'], ['alternative', 'alternate']], :id => :design)
              
     #header
       .wrapper
