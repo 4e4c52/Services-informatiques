@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang='fr'>
+  <head>
+    <meta charset='utf-8' />
+    <link type="image/ico" href="../images/favicon.ico" rel="icon" />
+    <link type="image/png" href="../images/favicon.png" rel="icon" />
+    <link href="../stylesheets/app.css" id="app-stylesheet" media="screen" rel="stylesheet" type="text/css" />
+    <link href="../stylesheets/fancybox.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="../javascripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../javascripts/mobile.min.js" type="text/javascript"></script>
+    <script src="../javascripts/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="../javascripts/app.js" type="text/javascript"></script>
+    <title>Installer Ruby sur Windows > Tutoriels > Services informatiques</title>
+  </head>
+  <body class='tuts tuts_windows_ruby_install'>
+    <div id='nav'>
+      <div class='wrapper'>
+        <strong>Egalement sur <a href="http://www.isen.fr/brest.asp">isen.fr:</a></strong>
+        &nbsp;
+        <a href="https://web-brest.isen.fr/">ENT</a>
+        &nbsp;|&nbsp;
+        <a href="http://web-brest.isen.fr/moodle/">Moodle</a>
+        &nbsp;|&nbsp;
+        <a id="iadm" style="display:none;" href="admin/">Admin</a>
+        <span id='design-box'>
+          Interface&nbsp;
+          <select id="design" name="design">
+          <option value="isen">ISEN</option>
+          <option value="alternate">alternative</option></select>
+        </span>
+      </div>
+    </div>
+    <div id='header'>
+      <div class='wrapper'>
+        <h1 id='logo'><a id="logo-home" href="index.html">Services informatiques</a></h1>
+        <ul id='menu'>
+          <li>
+            <strong>
+              <a style="display:none;" id="isen-title" href="index.html">ISEN Brest</a>
+            </strong>
+          </li>
+          <li><a id="home" href="index.html">Accueil</a></li>
+          <li class='expandable'>
+            <a id="tuts-index" href="index.html">Tutoriels</a>
+            <div id='tuts' style='display:none;'>
+              <hr />
+              <dl id='left'>
+                <dt>Commencez Ici</dt>
+                <dd><a href="tuts/network.html">Accéder au Réseau</a></dd>
+                <dt>Courrier Electronique</dt>
+                <dd><a href="tuts/email.html">Accéder à la Messagerie</a></dd>
+                <dd><a href="tuts/thunderbird.html">Configuration de Thunderbird</a></dd>
+                <dd><a href="tuts/email_note.html">Note sur le Filtrage et l'Annuaire</a></dd>
+                <dt>ENT</dt>
+                <dd><a href="tuts/ent_email.html">Configuration de la Messagerie</a></dd>
+                <dd><a href="tuts/ent_calendar.html">Configuration de l'Agenda</a></dd>
+              </dl>
+              <dl id='right'>
+                <dt>Imprimantes</dt>
+                <dd><a href="tuts/printers.html">Utilisation sur le Réseau</a></dd>
+                <dt>VirtualBox</dt>
+                <dd><a href="tuts/virtualbox.html">Configuration et Utilisation</a></dd>
+                <dt>Subversion</dt>
+                <dd><a href="tuts/subversion.html">Configuration et Utilisation</a></dd>
+                <dt>VOIP</dt>
+                <dd><a href="tuts/voip.html">Note sur la VOIP</a></dd>
+                <dd>Programmation</dd>
+                <dd><a href="tuts/windows_ruby_install.html">Installer Ruby sur Windows</a></dd>
+                <dt>Développement Web</dt>
+                <dd><a href="tuts/middleman.html">Développer avec The Middleman</a></dd>
+              </dl>
+            </div>
+          </li>
+          <li><a id="offers" href="offers.html">Offres</a></li>
+          <li><a id="registration" href="registration.html">Enregistrement</a></li>
+        </ul>
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <hr class='hide' />
+    <div id='mobile-tuts' style='display:none'>
+      <div class='wrapper'></div>
+    </div>
+    <div id='feature'>
+      <div class='wrapper'>
+        <h2>Installer Ruby sur Windows</h2>
+        <p>Découvrez comment installer le langage Ruby sur Windows.</p>
+        <ul>
+          <li>Téléchargez RubyInstaller</li>
+          <li>Installez Ruby</li>
+          <li>Installez le DevKit</li>
+        </ul>
+        <div id='sub-col'>
+          <h3 class='chapter'>
+            <img alt="#" src="../images/chapters.gif" />
+            Chapitres
+          </h3>
+          <ol class='chapters'>
+            <li><a href="#download">Télécharger RubyInstaller</a></li>
+            <li><a href="#install">Installer Ruby</a></li>
+            <li><a href="#devkit">Installer le DevKit</a></li>
+            <li><a href="#test">Tester votre Installation</a></li>
+            <li><a href="#gems">Mettre Ses Gems à Jour</a></li>
+            <li><a href="#appendix">Annexes</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div id='container'>
+      <div class='wrapper'>
+        <div id='mobile-sub-col'></div>
+        <div id='main-col'>
+          <br />
+          <div class='warning'>
+            A l'heure où ce tutoriel est écrit, la version téléchargeable de Ruby est la 1.9.2 patch 180.
+            L'installation est faite sur Windows 7 x86.
+            Si vous constatez que ce tutoriel contient des erreurs avec une version plus récente de Ruby ou Windows,
+            merci de nous le signaler.
+          </div>
+          <h3 id='download'>1 Télécharger RubyInstaller</h3>
+          <p>
+            Sur Windows, l'installation de Ruby se fait grâce à un programme nommé
+            <strong>RubyInstaller</strong>
+            et écrit par la communauté Ruby.
+            Pour le télécharger, rendez vous sur le <a href="http://rubyinstaller.org/downloads/">site du projet RubyInstaller</a>.
+            Vous trouverez dans la colonne de gauche les différents liens de téléchargement.
+            <br />
+            Téléchargez
+            <strong>Ruby 1.9.2-p180</strong>
+            ou une version plus récente si il y en a une.
+            <br />
+            Téléchargez également
+            <strong>DevKit-tdm-32-4.5.1-20101214-1400-sfx.exe</strong>
+            ou une version plus récente.
+          </p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/ruby/download.png"><img alt="#" src="../images/tuts/ruby/download.png" /></a></p>
+          <h3 id='install'>2 Installer Ruby</h3>
+          <p>
+            Une fois les téléchargements terminés, nous pouvons installer Ruby.
+            <br />
+            Pour commencer, lancez le programme RubyInstaller.
+            Cliquez sur
+            <strong>Next,</strong>
+            acceptez la license et contiçnuez jusqu'à arriver sur la fenêtre suivante.
+          </p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/ruby/install.png"><img alt="#" src="../images/tuts/ruby/install.png" /></a></p>
+          <p>
+            Le programme d'installation va alors vous demander où vous souhaitez installer Ruby.
+            Je vous conseille fortement de laisser
+            <strong>C:\Ruby192.</strong>
+            Cochez maintenant les cases
+            <i>Add Ruby executables to your PATH</i>
+            et
+            <i>Associate .rb and .rbw files with this Ruby installation.</i>
+          </p>
+          <p>
+            Cliquez maintenant sur
+            <strong>Install.</strong>
+            L'installation peut être assez longue le temps que Ruby copie tous les fichiers dont il a besoin sur votre système.
+          </p>
+          <p>
+            Une fois l'installation terminée, nous allons vérifier que les executables Ruby ont bien été ajoutés à votre PATH.
+            <strong>PATH</strong>
+            est une variable utilisée par Windows pour localiser tous les programmes sur votre système.
+            En ajoutant le répertoire
+            <strong>C:\Ruby192</strong>
+            à notre PATH, on précise à Windows de rechercher des programmes dans ce répertoire.
+          </p>
+          <p>
+            Pour accéder au PATH, ouvrez le menu
+            <strong>Démarrer</strong>
+            puis faites un
+            <strong>click droit</strong>
+            sur
+            <strong>Poste de travail</strong>
+            et cliquez sur
+            <strong>Propriétés.</strong>
+          </p>
+          <p>
+            Cliquez maintenant sur
+            <strong>Configuration avancée</strong>
+            dans le menu de gauche.
+          </p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/ruby/way_to_path.png"><img alt="#" src="../images/tuts/ruby/way_to_path.png" /></a></p>
+          <p>
+            Dans la fenêtre qui s'ouvre, cliquez sur
+            <strong>Variables d'environnement...</strong>
+            Parcourez la liste
+            <i>Variables système</i>
+            jusuq'à tomber sur la ligne
+            <i>Path.</i>
+            <br />
+            Sélectionnez la et cliquez sur
+            <strong>Modifier.</strong>
+          </p>
+          <p>
+            Une fenêtre s'ouvre.
+            Vérifiez que le champ
+            <i>Valeur de la variable</i>
+            contient la ligne
+            <strong>C:\Ruby192\bin.</strong>
+          </p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/ruby/path.png"><img alt="#" src="../images/tuts/ruby/path.png" /></a></p>
+          <p>
+            Si ce n'est pas le cas, ajoutez la à la fin du champ sans oublier de la séparer de la précédente par un point-virgule.
+            Par exemple :
+          </p>
+          <div class='code_container'>
+            C:\Python27;C:\Program Files\MongoDB\bin;C:\Ruby192\bin
+          </div>
+          <p>
+            Vous pouvez maintenant fermer toutes les fenêtres en cliquant sur le bouton
+            <strong>OK.</strong>
+          </p>
+          <h3 id='devkit'>3 Installer le DevKit</h3>
+          <p>
+            Le DevKit que vous venez de télécharger est une archive contenant le compilateur MinGW et d'autres outils.
+            Ce kit sert à compiler les extensions Ruby (appellées Gems) car ces dernières sont écritent en C ou en C++.
+          </p>
+          <p>
+            Lancez le programme. Celui-ci va vous demander où extraire les fichiers.
+            Choisissez
+            <strong>C:\Ruby192\bin</strong>
+            et cliquez sur le bouton
+            <strong>Extract.</strong>
+          </p>
+          <p class="gallery"><a class="fancybox" href="../images/tuts/ruby/devkit.png"><img alt="#" src="../images/tuts/ruby/devkit.png" /></a></p>
+          <p>
+            C'est tout !
+          </p>
+          <h3 id='test'>4 Testez Votre Installation</h3>
+          <p>
+            Maintenant que l'installation de Ruby est terminée, nous allons vérifier qu'il est correctement installé.
+            Ouvrez un terminal et tapez la commande suivante :
+          </p>
+          <div class='code_container'>
+            C:\> ruby -v
+            <br />
+            ruby 1.9.2p180 (2011-02-18) [i386-mingw32]
+          </div>
+          <p>
+            Suivant la version de Ruby que vous venez d'installer et suivant votre ordinateur,
+            le résultat de la commande précédente peut différer un peu.
+            <br />
+            Tant que vous voyez une version, c'est que l'installation est validée.
+          </p>
+          <p>
+            Nous allons à présent vérifier la version de RubyGems installée avec Ruby.
+            Tapez la commande suivante :
+          </p>
+          <div class='code_container'>
+            C:\> gem -v
+            <br />
+            1.8.5
+          </div>
+          <p>
+            Comme vous venez d'installer Ruby, il est très probable que votre version de RubyGems soit inférieure à celle-ci.
+            Rassurez vous, ça ne pose aucun problème, nous allons la mettre à jour dans quelques instants.
+          </p>
+          <h3 id='gems'>5 Mettre Ses Gems à Jour</h3>
+          <p>
+            RubyGems est le gestionnaire de paquets de Ruby. Il sert à installer des extension à Ruby.
+            Les paquets sont appellés Gems.
+            Nous avons vu juste avant que le gestionnaire RubyGems était installé avec Ruby.
+            Nous allons le mettre à jour puis mettre également à jour toutes les Gems de notre système si il en a.
+          </p>
+          <p>
+            Commençons par mettre à jour RubyGems.
+            Tapez la commande suivante dans un terminal.
+          </p>
+          <div class='code_container'>
+            C:\> gem update --system
+          </div>
+          <p>
+            RubyGems va vérifier si il a besoin d'une mise à jour puis la télécharger et l'installer.
+            Ne vous inquietez pas si l'ordinateur ne semble pas réagir tout de suite.
+            L'execution des programmes Ruby sous Windows n'est pas des plus rapides.
+          </p>
+          <p>
+            Une fois que RubyGems vous rend la main, tapez la commande suivante pour mettre à jour toutes les Gems de votre système.
+          </p>
+          <div class='code_container'>
+            C:\> gem update
+          </div>
+          <h3 id='appendix'>6 Annexes</h3>
+          <p>
+            Voici une liste de commande qui peuvent vous servir.
+          </p>
+          <p>Execute un programme Ruby dans le terminal.</p>
+          <div class='code_container'>C:\> ruby mon_programme.rb</div>
+          <p>Liste les Gems installées sur votre système.</p>
+          <div class='code_container'>C:\> gem list --local</div>
+          <p>Installe la dernière version d'une Gem.</p>
+          <div class='code_container'>C:\> gem install my_gem</div>
+          <p>Installe une version spécifique d'une Gem.</p>
+          <div class='code_container'>C:\> gem install my_gem "X.Y.Z"</div>
+          <p>Installe la version Beta d'une Gem.</p>
+          <div class='code_container'>C:\> gem install my_gem --pre</div>
+          <p>Désinstalle une Gem de votre système.</p>
+          <div class='code_container'>C:\> gem uninstall my_gem</div>
+        </div>
+      </div>
+    </div>
+    <hr class='hide' />
+    <div id='footer'>
+      <div class='wrapper'>
+        <p>ISEN - Brest &copy; 2011</p>
+        <p>Réalisé par <a href="http://syrinxoon.net">Nathan Le Ray</a>, powered by <a href="http://www.mongodb.org/">MongoDB</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>

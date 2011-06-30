@@ -1,0 +1,234 @@
+- content_for :head do
+  %title Installer Ruby sur Windows > Tutoriels > Services informatiques
+  
+- content_for :feature do
+  %h2 Installer Ruby sur Windows
+  %p Découvrez comment installer le langage Ruby sur Windows.
+  %ul
+    %li Téléchargez RubyInstaller
+    %li Installez Ruby
+    %li Installez le DevKit
+  
+- content_for :subcol do
+  %h3.chapter 
+    = image_tag "chapters.gif", :alt => '#'
+    Chapitres
+  %ol.chapters
+    %li= link_to "Télécharger RubyInstaller", "#download"
+    %li= link_to "Installer Ruby", "#install"
+    %li= link_to "Installer le DevKit", "#devkit"
+    %li= link_to "Tester votre Installation", "#test"
+    %li= link_to "Mettre Ses Gems à Jour", "#gems"
+    %li= link_to "Annexes", "#appendix"
+    
+%br
+.warning 
+  A l'heure où ce tutoriel est écrit, la version téléchargeable de Ruby est la 1.9.2 patch 180.
+  L'installation est faite sur Windows 7 x86.
+  Si vous constatez que ce tutoriel contient des erreurs avec une version plus récente de Ruby ou Windows, 
+  merci de nous le signaler.
+    
+%h3#download 1 Télécharger RubyInstaller
+
+%p
+  Sur Windows, l'installation de Ruby se fait grâce à un programme nommé
+  %strong RubyInstaller
+  et écrit par la communauté Ruby.
+  Pour le télécharger, rendez vous sur le #{link_to "site du projet RubyInstaller", "http://rubyinstaller.org/downloads/"}.
+  Vous trouverez dans la colonne de gauche les différents liens de téléchargement.
+  %br
+  Téléchargez 
+  %strong Ruby 1.9.2-p180
+  ou une version plus récente si il y en a une.
+  %br
+  Téléchargez également 
+  %strong DevKit-tdm-32-4.5.1-20101214-1400-sfx.exe
+  ou une version plus récente.
+  
+= gallery("tuts/ruby/download.png", true)
+
+%h3#install 2 Installer Ruby
+
+%p
+  Une fois les téléchargements terminés, nous pouvons installer Ruby.
+  %br
+  Pour commencer, lancez le programme RubyInstaller.
+  Cliquez sur
+  %strong Next,
+  acceptez la license et contiçnuez jusqu'à arriver sur la fenêtre suivante.
+  
+= gallery("tuts/ruby/install.png", true)
+
+%p
+  Le programme d'installation va alors vous demander où vous souhaitez installer Ruby.
+  Je vous conseille fortement de laisser
+  %strong C:\Ruby192.
+  Cochez maintenant les cases
+  %i Add Ruby executables to your PATH
+  et
+  %i Associate .rb and .rbw files with this Ruby installation.
+  
+%p
+  Cliquez maintenant sur
+  %strong Install.
+  L'installation peut être assez longue le temps que Ruby copie tous les fichiers dont il a besoin sur votre système.
+  
+%p
+  Une fois l'installation terminée, nous allons vérifier que les executables Ruby ont bien été ajoutés à votre PATH.
+  %strong PATH
+  est une variable utilisée par Windows pour localiser tous les programmes sur votre système.
+  En ajoutant le répertoire
+  %strong C:\Ruby192
+  à notre PATH, on précise à Windows de rechercher des programmes dans ce répertoire.
+  
+%p
+  Pour accéder au PATH, ouvrez le menu 
+  %strong Démarrer
+  puis faites un
+  %strong click droit
+  sur
+  %strong Poste de travail
+  et cliquez sur 
+  %strong Propriétés.
+  
+%p
+  Cliquez maintenant sur 
+  %strong Configuration avancée
+  dans le menu de gauche.
+  
+= gallery("tuts/ruby/way_to_path.png", true)
+
+%p
+  Dans la fenêtre qui s'ouvre, cliquez sur
+  %strong Variables d'environnement...
+  Parcourez la liste
+  %i Variables système
+  jusuq'à tomber sur la ligne
+  %i Path.
+  %br
+  Sélectionnez la et cliquez sur 
+  %strong Modifier.
+  
+%p
+  Une fenêtre s'ouvre. 
+  Vérifiez que le champ 
+  %i Valeur de la variable
+  contient la ligne 
+  %strong C:\Ruby192\bin.
+  
+= gallery("tuts/ruby/path.png", true)
+  
+%p
+  Si ce n'est pas le cas, ajoutez la à la fin du champ sans oublier de la séparer de la précédente par un point-virgule.
+  Par exemple :
+  
+.code_container
+  C:\Python27;C:\Program Files\MongoDB\bin;C:\Ruby192\bin
+  
+%p
+  Vous pouvez maintenant fermer toutes les fenêtres en cliquant sur le bouton
+  %strong OK.
+
+%h3#devkit 3 Installer le DevKit
+
+%p
+  Le DevKit que vous venez de télécharger est une archive contenant le compilateur MinGW et d'autres outils.
+  Ce kit sert à compiler les extensions Ruby (appellées Gems) car ces dernières sont écritent en C ou en C++.
+  
+%p
+  Lancez le programme. Celui-ci va vous demander où extraire les fichiers.
+  Choisissez
+  %strong C:\Ruby192\bin
+  et cliquez sur le bouton
+  %strong Extract.
+  
+= gallery("tuts/ruby/devkit.png", true)
+
+%p
+  C'est tout !
+
+%h3#test 4 Testez Votre Installation 
+
+%p
+  Maintenant que l'installation de Ruby est terminée, nous allons vérifier qu'il est correctement installé.
+  Ouvrez un terminal et tapez la commande suivante :
+  
+.code_container
+  C:\> ruby -v
+  %br
+  ruby 1.9.2p180 (2011-02-18) [i386-mingw32]  
+  
+%p
+  Suivant la version de Ruby que vous venez d'installer et suivant votre ordinateur,
+  le résultat de la commande précédente peut différer un peu.
+  %br
+  Tant que vous voyez une version, c'est que l'installation est validée.
+  
+%p
+  Nous allons à présent vérifier la version de RubyGems installée avec Ruby.
+  Tapez la commande suivante :
+  
+.code_container
+  C:\> gem -v
+  %br
+  1.8.5
+  
+%p
+  Comme vous venez d'installer Ruby, il est très probable que votre version de RubyGems soit inférieure à celle-ci.
+  Rassurez vous, ça ne pose aucun problème, nous allons la mettre à jour dans quelques instants.
+
+%h3#gems 5 Mettre Ses Gems à Jour
+
+%p
+  RubyGems est le gestionnaire de paquets de Ruby. Il sert à installer des extension à Ruby.
+  Les paquets sont appellés Gems.
+  Nous avons vu juste avant que le gestionnaire RubyGems était installé avec Ruby.
+  Nous allons le mettre à jour puis mettre également à jour toutes les Gems de notre système si il en a.
+  
+%p
+  Commençons par mettre à jour RubyGems.
+  Tapez la commande suivante dans un terminal.
+  
+.code_container
+  C:\> gem update --system
+  
+%p
+  RubyGems va vérifier si il a besoin d'une mise à jour puis la télécharger et l'installer.
+  Ne vous inquietez pas si l'ordinateur ne semble pas réagir tout de suite.
+  L'execution des programmes Ruby sous Windows n'est pas des plus rapides.
+  
+%p
+  Une fois que RubyGems vous rend la main, tapez la commande suivante pour mettre à jour toutes les Gems de votre système.
+  
+.code_container
+  C:\> gem update
+  
+%h3#appendix 6 Annexes
+
+%p
+  Voici une liste de commande qui peuvent vous servir.
+  
+%p Execute un programme Ruby dans le terminal.
+
+.code_container C:\> ruby mon_programme.rb
+
+%p Liste les Gems installées sur votre système.
+
+.code_container C:\> gem list --local
+
+%p Installe la dernière version d'une Gem.
+
+.code_container C:\> gem install my_gem
+
+%p Installe une version spécifique d'une Gem.
+
+.code_container C:\> gem install my_gem "X.Y.Z"
+
+%p Installe la version Beta d'une Gem.
+
+.code_container C:\> gem install my_gem --pre
+
+%p Désinstalle une Gem de votre système.
+
+.code_container C:\> gem uninstall my_gem
+  
